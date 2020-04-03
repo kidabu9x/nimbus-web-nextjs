@@ -1,5 +1,9 @@
 {
-  "version": 2,
-  "name": "my-nextjs-app",
-  "builds": [{ "src": "next.config.js", "use": "@now/next" }]
+    "version": 2,
+    "name": "nextjs-mdx-blog-kit",
+    "alias": "nextjs-mdx-blog-kit.com",
+    "builds": [{
+        "src": "package.json",
+        "use": "@now/static-build"
+    }]
 }

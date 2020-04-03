@@ -1,42 +1,64 @@
 {
-  "name": "blog",
-  "description": "",
-  "version": "1.0.0",
-  "main": "index.js",
-  "devDependencies": {},
-  "dependencies": {
-    "@types/next": "^9.0.0",
-    "@types/node": "^13.9.5",
-    "@types/react": "^16.9.27",
-    "@zeit/next-typescript": "^1.1.1",
-    "next": "^9.3.2",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "typescript": "^3.8.3",
-    "babel-eslint": "^8.0.1",
-    "babel-plugin-module-resolver": "^2.7.1",
-    "babel-plugin-styled-components": "^1.2.1",
-    "express": "^4.16.2",
-    "husky": "^0.14.3",
-    "lint-staged": "^4.2.3",
-    "next-routes": "^1.1.0",
-    "standard": "^10.0.3",
-    "styled-components": "^2.2.1"
-  },
-  "scripts": {
-    "dev": "next",
-    "build": "next build",
-    "start": "next start",
-    "now-build": "next build"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/kidabu9x/nimbus-web-nextjs.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/kidabu9x/nimbus-web-nextjs/issues"
-  },
-  "homepage": "https://github.com/kidabu9x/nimbus-web-nextjs#readme"
+    "name": "next-mdx-static-blog-kit",
+    "version": "1.0.0",
+    "description": "A starter kit for creating a static website blog using Next.js and MDX",
+    "scripts": {
+        "dev": "NODE_ENV=development next",
+        "build": "NODE_ENV=production next build",
+        "build-dev": "NODE_ENV=development next build",
+        "start": "NODE_ENV=production next start",
+        "clean": "rm -rf .next ; npm ci ; NODE_ENV=development npm run dev",
+        "now-build": "next build && next export -o dist",
+        "test": "jest"
+    },
+    "keywords": [
+        "next.js",
+        "react.js",
+        "blog",
+        "mdx"
+    ],
+    "author": "Loren Stewart",
+    "license": "ISC",
+    "bin": {
+        "blog": "cli.js"
+    },
+    "browserslist": [
+        "last 2 version"
+    ],
+    "dependencies": {
+        "@babel/runtime-corejs2": "^7.9.2",
+        "@material-ui/core": "^4.9.8",
+        "@material-ui/icons": "^4.9.1",
+        "@mdx-js/loader": "^1.5.2",
+        "@zeit/next-mdx": "^1.2.0",
+        "@zeit/next-typescript": "^1.1.1",
+        "babel-plugin-preval": "^4.0.0",
+        "babel-plugin-relay": "^9.0.0",
+        "babel-plugin-styled-components": "^1.10.7",
+        "chalk": "^3.0.0",
+        "js-yaml": "^3.13.1",
+        "js-yaml-loader": "^1.2.2",
+        "next": "^9.1.6",
+        "next-fonts": "^0.19.0",
+        "next-seo": "^3.2.0",
+        "react": "^16.12.0",
+        "react-anchor-link-smooth-scroll": "^1.0.12",
+        "react-dom": "^16.12.0",
+        "react-icons": "^3.8.0",
+        "react-syntax-highlighter": "^9.0.1",
+        "remark-emoji": "^2.0.2",
+        "remark-images": "^1.0.0",
+        "scrollprogress": "^3.0.2",
+        "yargs": "^15.0.2"
+    },
+    "devDependencies": {
+        "imagemin-gifsicle": "^6.0.1",
+        "imagemin-mozjpeg": "^8.0.0",
+        "imagemin-optipng": "^7.1.0",
+        "imagemin-svgo": "^7.0.0",
+        "jest": "^24.9.0",
+        "next-optimized-images": "^2.5.4",
+        "svg-sprite-loader": "^4.1.6",
+        "webp-loader": "^0.6.0"
+    }
 }
