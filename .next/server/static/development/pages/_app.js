@@ -391,7 +391,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 const styles = theme => ({
   grow: {
-    padding: '8px 20px 0px 20px'
+    padding: "8px 20px 0px 20px"
   },
   menuButton: {
     marginRight: theme.spacing(2)
@@ -578,7 +578,7 @@ class Navigation extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
     }, "\u0110\u0103ng nh\u1EADp"))), __jsx(_material_ui_core__WEBPACK_IMPORTED_MODULE_6__["Tabs"], {
       value: value,
       onChange: this.handleChange,
-      indicatorColor: "none",
+      indicatorColor: "primary",
       textColor: "primary",
       __self: this,
       __source: {

@@ -48,7 +48,7 @@ module.exports=function(e,n){return n=n||{},new Promise(function(t,r){var s=new 
 
 
 exports.__esModule = true;
-exports["default"] = initializeBuildWatcher;
+exports.default = initializeBuildWatcher;
 
 var _eventsource = __webpack_require__(/*! ./error-overlay/eventsource */ "./node_modules/next/dist/client/dev/error-overlay/eventsource.js");
 
@@ -1807,7 +1807,7 @@ var _regeneratorRuntime = __webpack_require__(/*! @babel/runtime/regenerator */ 
 var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ "./node_modules/next/node_modules/@babel/runtime/helpers/interopRequireDefault.js");
 
 exports.__esModule = true;
-exports["default"] = void 0;
+exports.default = void 0;
 
 var _router = _interopRequireDefault(__webpack_require__(/*! next/router */ "./node_modules/next/dist/client/router.js"));
 
@@ -1821,14 +1821,14 @@ var _default = function _default(_ref) {
         case 0:
           assetPrefix = _ref.assetPrefix;
 
-          _router["default"].ready(function () {
-            _router["default"].events.on('routeChangeComplete', _onDemandEntriesUtils.setupPing.bind(void 0, assetPrefix, function () {
-              return _router["default"].pathname;
+          _router.default.ready(function () {
+            _router.default.events.on('routeChangeComplete', _onDemandEntriesUtils.setupPing.bind(void 0, assetPrefix, function () {
+              return _router.default.pathname;
             }));
           });
 
           (0, _onDemandEntriesUtils.setupPing)(assetPrefix, function () {
-            return _router["default"].pathname;
+            return _router.default.pathname;
           }, _onDemandEntriesUtils.currentPage); // prevent HMR connection from being closed when running tests
 
           if (!undefined) {
@@ -1837,7 +1837,7 @@ var _default = function _default(_ref) {
 
               if (state === 'visible') {
                 (0, _onDemandEntriesUtils.setupPing)(assetPrefix, function () {
-                  return _router["default"].pathname;
+                  return _router.default.pathname;
                 }, true);
               } else {
                 (0, _onDemandEntriesUtils.closePing)();
@@ -1856,7 +1856,7 @@ var _default = function _default(_ref) {
   }, null, null, null, Promise);
 };
 
-exports["default"] = _default;
+exports.default = _default;
 
 /***/ }),
 
@@ -1943,7 +1943,7 @@ function setupPing(assetPrefix, pathnameFn, retry) {
 var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ "./node_modules/next/node_modules/@babel/runtime/helpers/interopRequireDefault.js");
 
 exports.__esModule = true;
-exports["default"] = initializeBuildWatcher;
+exports.default = initializeBuildWatcher;
 
 var _router = _interopRequireDefault(__webpack_require__(/*! ../router */ "./node_modules/next/dist/client/router.js"));
 
@@ -2035,7 +2035,7 @@ function initializeBuildWatcher() {
     return toggleExpand(false);
   });
 
-  _router["default"].events.on('routeChangeComplete', function () {
+  _router.default.events.on('routeChangeComplete', function () {
     isVisible = window.next.isPrerendered;
     updateContainer();
   });
@@ -2073,7 +2073,7 @@ var _slicedToArray = __webpack_require__(/*! @babel/runtime/helpers/slicedToArra
 var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ "./node_modules/next/node_modules/@babel/runtime/helpers/interopRequireDefault.js");
 
 exports.__esModule = true;
-exports["default"] = void 0;
+exports.default = void 0;
 
 var _hotDevClient = _interopRequireDefault(__webpack_require__(/*! ./error-overlay/hot-dev-client */ "./node_modules/next/dist/client/dev/error-overlay/hot-dev-client.js"));
 
@@ -2082,7 +2082,7 @@ var _default = function _default(_ref) {
   var options = {
     path: assetPrefix + "/_next/webpack-hmr"
   };
-  var devClient = (0, _hotDevClient["default"])(options);
+  var devClient = (0, _hotDevClient.default)(options);
   devClient.subscribeToHmrEvent(function (obj) {
     if (obj.action === 'reloadPage') {
       return window.location.reload();
@@ -2115,7 +2115,7 @@ var _default = function _default(_ref) {
   return devClient;
 };
 
-exports["default"] = _default;
+exports.default = _default;
 
 /***/ }),
 
@@ -2130,7 +2130,7 @@ exports["default"] = _default;
 
 
 exports.__esModule = true;
-exports["default"] = initHeadManager;
+exports.default = initHeadManager;
 var DOMAttributeNames = {
   acceptCharset: 'accept-charset',
   className: 'class',
@@ -2910,30 +2910,30 @@ __webpack_require__.e(/*! import() */ 0).then(__webpack_require__.t.bind(null, /
 ; // Support EventSource on Internet Explorer 11
 
 if (!window.EventSource) {
-  window.EventSource = _eventSourcePolyfill["default"];
+  window.EventSource = _eventSourcePolyfill.default;
 }
 
 var _window = window,
     assetPrefix = _window.__NEXT_DATA__.assetPrefix;
 var prefix = assetPrefix || '';
-var webpackHMR = (0, _webpackHotMiddlewareClient["default"])({
+var webpackHMR = (0, _webpackHotMiddlewareClient.default)({
   assetPrefix: prefix
 });
 window.next = next;
-(0, next["default"])({
+(0, next.default)({
   webpackHMR: webpackHMR
 }).then(function (_ref) {
   var emitter = _ref.emitter,
       renderCtx = _ref.renderCtx,
       render = _ref.render;
-  (0, _onDemandEntriesClient["default"])({
+  (0, _onDemandEntriesClient.default)({
     assetPrefix: prefix
   });
-  if (true) (0, _devBuildWatcher["default"])();
+  if (true) (0, _devBuildWatcher.default)();
 
   if ( true && // disable by default in electron
   !(typeof process !== 'undefined' && 'electron' in process.versions)) {
-    (0, _prerenderIndicator["default"])();
+    (0, _prerenderIndicator.default)();
   } // delay rendering until after styles have been applied in development
 
 
@@ -2968,7 +2968,7 @@ window.next = next;
       lastScroll = null;
     }
   });
-})["catch"](function (err) {
+}).catch(function (err) {
   console.error('Error was not caught', err);
 });
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../process/browser.js */ "./node_modules/process/browser.js")))
@@ -2992,7 +2992,7 @@ var _createClass = __webpack_require__(/*! @babel/runtime/helpers/createClass */
 var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ "./node_modules/next/node_modules/@babel/runtime/helpers/interopRequireDefault.js");
 
 exports.__esModule = true;
-exports["default"] = void 0;
+exports.default = void 0;
 
 var _url = __webpack_require__(/*! url */ "./node_modules/native-url/dist/index.js");
 
@@ -3049,7 +3049,7 @@ var PageLoader = /*#__PURE__*/function () {
     this.buildId = buildId;
     this.assetPrefix = assetPrefix;
     this.pageCache = {};
-    this.pageRegisterEvents = (0, _mitt["default"])();
+    this.pageRegisterEvents = (0, _mitt.default)();
     this.loadingRoutes = {};
 
     if (false) {}
@@ -3259,7 +3259,7 @@ var PageLoader = /*#__PURE__*/function () {
         try {
           var mod = regFn();
           var pageData = {
-            page: mod["default"] || mod,
+            page: mod.default || mod,
             mod: mod
           };
           _this6.pageCache[route] = pageData;
@@ -3339,7 +3339,7 @@ var PageLoader = /*#__PURE__*/function () {
   return PageLoader;
 }();
 
-exports["default"] = PageLoader;
+exports.default = PageLoader;
 
 /***/ }),
 
@@ -3463,7 +3463,7 @@ function observePaint(onPerfEntry) {
 
 var _construct = __webpack_require__(/*! @babel/runtime/helpers/construct */ "./node_modules/next/node_modules/@babel/runtime/helpers/construct.js");
 
-function _createForOfIteratorHelper(o) { if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (o = _unsupportedIterableToArray(o))) { var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var it, normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
+function _createForOfIteratorHelper(o) { if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (o = _unsupportedIterableToArray(o))) { var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var it, normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it.return != null) it.return(); } finally { if (didErr) throw err; } } }; }
 
 function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(n); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
 
@@ -3476,20 +3476,20 @@ var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/inte
 exports.__esModule = true;
 exports.useRouter = useRouter;
 exports.makePublicRouterInstance = makePublicRouterInstance;
-exports.createRouter = exports.withRouter = exports["default"] = void 0;
+exports.createRouter = exports.withRouter = exports.default = void 0;
 
 var _react = _interopRequireDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 
 var _router2 = _interopRequireWildcard(__webpack_require__(/*! ../next-server/lib/router/router */ "./node_modules/next/dist/next-server/lib/router/router.js"));
 
-exports.Router = _router2["default"];
+exports.Router = _router2.default;
 exports.NextRouter = _router2.NextRouter;
 
 var _routerContext = __webpack_require__(/*! ../next-server/lib/router-context */ "./node_modules/next/dist/next-server/lib/router-context.js");
 
 var _withRouter = _interopRequireDefault(__webpack_require__(/*! ./with-router */ "./node_modules/next/dist/client/with-router.js"));
 
-exports.withRouter = _withRouter["default"];
+exports.withRouter = _withRouter.default;
 /* global window */
 
 var singletonRouter = {
@@ -3511,7 +3511,7 @@ var coreMethodFields = ['push', 'replace', 'reload', 'back', 'prefetch', 'before
 
 Object.defineProperty(singletonRouter, 'events', {
   get: function get() {
-    return _router2["default"].events;
+    return _router2.default.events;
   }
 });
 urlPropertyFields.forEach(function (field) {
@@ -3537,7 +3537,7 @@ coreMethodFields.forEach(function (field) {
 });
 routerEvents.forEach(function (event) {
   singletonRouter.ready(function () {
-    _router2["default"].events.on(event, function () {
+    _router2.default.events.on(event, function () {
       var eventField = "on" + event.charAt(0).toUpperCase() + event.substring(1);
       var _singletonRouter = singletonRouter;
 
@@ -3567,10 +3567,10 @@ function getRouter() {
 
 var _default = singletonRouter; // Reexport the withRoute HOC
 
-exports["default"] = _default;
+exports.default = _default;
 
 function useRouter() {
-  return _react["default"].useContext(_routerContext.RouterContext);
+  return _react.default.useContext(_routerContext.RouterContext);
 } // INTERNAL APIS
 // -------------
 // (do not use following exports inside the app)
@@ -3584,7 +3584,7 @@ var createRouter = function createRouter() {
     args[_key] = arguments[_key];
   }
 
-  singletonRouter.router = _construct(_router2["default"], args);
+  singletonRouter.router = _construct(_router2.default, args);
   singletonRouter.readyCallbacks.forEach(function (cb) {
     return cb();
   });
@@ -3621,7 +3621,7 @@ function makePublicRouterInstance(router) {
     _iterator.f();
   }
 
-  instance.events = _router2["default"].events;
+  instance.events = _router2.default.events;
   coreMethodFields.forEach(function (field) {
     instance[field] = function () {
       return _router[field].apply(_router, arguments);
@@ -3645,7 +3645,7 @@ function makePublicRouterInstance(router) {
 var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ "./node_modules/next/node_modules/@babel/runtime/helpers/interopRequireDefault.js");
 
 exports.__esModule = true;
-exports["default"] = withRouter;
+exports.default = withRouter;
 
 var _react = _interopRequireDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 
@@ -3653,7 +3653,7 @@ var _router = __webpack_require__(/*! ./router */ "./node_modules/next/dist/clie
 
 function withRouter(ComposedComponent) {
   function WithRouterWrapper(props) {
-    return _react["default"].createElement(ComposedComponent, Object.assign({
+    return _react.default.createElement(ComposedComponent, Object.assign({
       router: (0, _router.useRouter)()
     }, props));
   }
@@ -3829,7 +3829,7 @@ function mitt() {
   };
 }
 
-exports["default"] = mitt;
+exports.default = mitt;
 
 /***/ }),
 
@@ -3953,7 +3953,7 @@ function fetchNextData(pathname, query, isServerRender, cb) {
 
   return getResponse().then(function (data) {
     return cb ? cb(data) : data;
-  })["catch"](function (err) {
+  }).catch(function (err) {
     // We should only trigger a server-side transition if this was caused
     // on a client-side transition. Otherwise, we'd get into an infinite
     // loop.
@@ -4101,7 +4101,7 @@ var Router = /*#__PURE__*/function () {
   _createClass(Router, [{
     key: "update",
     value: function update(route, mod) {
-      var Component = mod["default"] || mod;
+      var Component = mod.default || mod;
       var data = this.components[route];
 
       if (!data) {
@@ -4377,7 +4377,7 @@ var Router = /*#__PURE__*/function () {
                 resolve(routeInfo);
               });
             });
-          })["catch"](function (err) {
+          }).catch(function (err) {
             return handleError(err, true);
           }));
         });
@@ -4421,7 +4421,7 @@ var Router = /*#__PURE__*/function () {
           _this3.components[route] = routeInfo;
           return routeInfo;
         });
-      })["catch"](handleError);
+      }).catch(handleError);
     }
   }, {
     key: "set",
@@ -4657,8 +4657,8 @@ var Router = /*#__PURE__*/function () {
   return Router;
 }();
 
-exports["default"] = Router;
-Router.events = mitt_1["default"]();
+exports.default = Router;
+Router.events = mitt_1.default();
 
 /***/ }),
 
@@ -4784,7 +4784,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 var runtimeConfig;
 
-exports["default"] = function () {
+exports.default = function () {
   return runtimeConfig;
 };
 

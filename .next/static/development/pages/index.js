@@ -4270,7 +4270,7 @@ var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/inte
 var _interopRequireWildcard = __webpack_require__(/*! @babel/runtime/helpers/interopRequireWildcard */ "./node_modules/next/node_modules/@babel/runtime/helpers/interopRequireWildcard.js");
 
 exports.__esModule = true;
-exports["default"] = void 0;
+exports.default = void 0;
 
 var _react = _interopRequireWildcard(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 
@@ -4333,7 +4333,7 @@ function getObserver() {
 
       if (entry.isIntersecting || entry.intersectionRatio > 0) {
         observer.unobserve(entry.target);
-        listeners["delete"](entry.target);
+        listeners.delete(entry.target);
         cb();
       }
     });
@@ -4358,7 +4358,7 @@ var listenToIntersections = function listenToIntersections(el, cb) {
       console.error(err);
     }
 
-    listeners["delete"](el);
+    listeners.delete(el);
   };
 };
 
@@ -4415,7 +4415,7 @@ var Link = /*#__PURE__*/function (_react$Component) {
       } // replace state instead of push if prop is present
 
 
-      _router["default"][_this.props.replace ? 'replace' : 'push'](href, as, {
+      _router.default[_this.props.replace ? 'replace' : 'push'](href, as, {
         shallow: _this.props.shallow
       }).then(function (success) {
         if (!success) return;
@@ -4482,11 +4482,11 @@ var Link = /*#__PURE__*/function (_react$Component) {
       // loading with priority which can reject but we don't
       // want to force navigation since this is only a prefetch
 
-      _router["default"].prefetch(paths[
+      _router.default.prefetch(paths[
       /* href */
       0], paths[
       /* asPath */
-      1], options)["catch"](function (err) {
+      1], options).catch(function (err) {
         if (true) {
           // rethrow to show invalid URL errors
           throw err;
@@ -4509,7 +4509,7 @@ var Link = /*#__PURE__*/function (_react$Component) {
 
 
       if (typeof children === 'string') {
-        children = _react["default"].createElement("a", null, children);
+        children = _react.default.createElement("a", null, children);
       } // This will return the first child, if multiple are provided it will throw an error
 
 
@@ -4554,7 +4554,7 @@ var Link = /*#__PURE__*/function (_react$Component) {
 
       if (false) { var rewriteUrlForNextExport; }
 
-      return _react["default"].cloneElement(child, props);
+      return _react.default.cloneElement(child, props);
     }
   }]);
 
@@ -4590,7 +4590,7 @@ if (true) {
 }
 
 var _default = Link;
-exports["default"] = _default;
+exports.default = _default;
 
 /***/ }),
 
@@ -4606,7 +4606,7 @@ exports["default"] = _default;
 
 var _construct = __webpack_require__(/*! @babel/runtime/helpers/construct */ "./node_modules/next/node_modules/@babel/runtime/helpers/construct.js");
 
-function _createForOfIteratorHelper(o) { if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (o = _unsupportedIterableToArray(o))) { var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var it, normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
+function _createForOfIteratorHelper(o) { if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (o = _unsupportedIterableToArray(o))) { var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var it, normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it.return != null) it.return(); } finally { if (didErr) throw err; } } }; }
 
 function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(n); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
 
@@ -4619,20 +4619,20 @@ var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/inte
 exports.__esModule = true;
 exports.useRouter = useRouter;
 exports.makePublicRouterInstance = makePublicRouterInstance;
-exports.createRouter = exports.withRouter = exports["default"] = void 0;
+exports.createRouter = exports.withRouter = exports.default = void 0;
 
 var _react = _interopRequireDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 
 var _router2 = _interopRequireWildcard(__webpack_require__(/*! ../next-server/lib/router/router */ "./node_modules/next/dist/next-server/lib/router/router.js"));
 
-exports.Router = _router2["default"];
+exports.Router = _router2.default;
 exports.NextRouter = _router2.NextRouter;
 
 var _routerContext = __webpack_require__(/*! ../next-server/lib/router-context */ "./node_modules/next/dist/next-server/lib/router-context.js");
 
 var _withRouter = _interopRequireDefault(__webpack_require__(/*! ./with-router */ "./node_modules/next/dist/client/with-router.js"));
 
-exports.withRouter = _withRouter["default"];
+exports.withRouter = _withRouter.default;
 /* global window */
 
 var singletonRouter = {
@@ -4654,7 +4654,7 @@ var coreMethodFields = ['push', 'replace', 'reload', 'back', 'prefetch', 'before
 
 Object.defineProperty(singletonRouter, 'events', {
   get: function get() {
-    return _router2["default"].events;
+    return _router2.default.events;
   }
 });
 urlPropertyFields.forEach(function (field) {
@@ -4680,7 +4680,7 @@ coreMethodFields.forEach(function (field) {
 });
 routerEvents.forEach(function (event) {
   singletonRouter.ready(function () {
-    _router2["default"].events.on(event, function () {
+    _router2.default.events.on(event, function () {
       var eventField = "on" + event.charAt(0).toUpperCase() + event.substring(1);
       var _singletonRouter = singletonRouter;
 
@@ -4710,10 +4710,10 @@ function getRouter() {
 
 var _default = singletonRouter; // Reexport the withRoute HOC
 
-exports["default"] = _default;
+exports.default = _default;
 
 function useRouter() {
-  return _react["default"].useContext(_routerContext.RouterContext);
+  return _react.default.useContext(_routerContext.RouterContext);
 } // INTERNAL APIS
 // -------------
 // (do not use following exports inside the app)
@@ -4727,7 +4727,7 @@ var createRouter = function createRouter() {
     args[_key] = arguments[_key];
   }
 
-  singletonRouter.router = _construct(_router2["default"], args);
+  singletonRouter.router = _construct(_router2.default, args);
   singletonRouter.readyCallbacks.forEach(function (cb) {
     return cb();
   });
@@ -4764,7 +4764,7 @@ function makePublicRouterInstance(router) {
     _iterator.f();
   }
 
-  instance.events = _router2["default"].events;
+  instance.events = _router2.default.events;
   coreMethodFields.forEach(function (field) {
     instance[field] = function () {
       return _router[field].apply(_router, arguments);
@@ -4788,7 +4788,7 @@ function makePublicRouterInstance(router) {
 var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ "./node_modules/next/node_modules/@babel/runtime/helpers/interopRequireDefault.js");
 
 exports.__esModule = true;
-exports["default"] = withRouter;
+exports.default = withRouter;
 
 var _react = _interopRequireDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 
@@ -4796,7 +4796,7 @@ var _router = __webpack_require__(/*! ./router */ "./node_modules/next/dist/clie
 
 function withRouter(ComposedComponent) {
   function WithRouterWrapper(props) {
-    return _react["default"].createElement(ComposedComponent, Object.assign({
+    return _react.default.createElement(ComposedComponent, Object.assign({
       router: (0, _router.useRouter)()
     }, props));
   }
@@ -4885,7 +4885,7 @@ exports.isInAmpMode = isInAmpMode;
 
 function useAmp() {
   // Don't assign the context value to a variable to save bytes
-  return isInAmpMode(react_1["default"].useContext(amp_context_1.AmpStateContext));
+  return isInAmpMode(react_1.default.useContext(amp_context_1.AmpStateContext));
 }
 
 exports.useAmp = useAmp;
@@ -4954,12 +4954,12 @@ var amp_1 = __webpack_require__(/*! ./amp */ "./node_modules/next/dist/next-serv
 
 function defaultHead() {
   var inAmpMode = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
-  var head = [react_1["default"].createElement("meta", {
+  var head = [react_1.default.createElement("meta", {
     charSet: "utf-8"
   })];
 
   if (!inAmpMode) {
-    head.push(react_1["default"].createElement("meta", {
+    head.push(react_1.default.createElement("meta", {
       name: "viewport",
       content: "width=device-width"
     }));
@@ -4977,8 +4977,8 @@ function onlyReactElement(list, child) {
   } // Adds support for React.Fragment
 
 
-  if (child.type === react_1["default"].Fragment) {
-    return list.concat(react_1["default"].Children.toArray(child.props.children).reduce(function (fragmentList, fragmentChild) {
+  if (child.type === react_1.default.Fragment) {
+    return list.concat(react_1.default.Children.toArray(child.props.children).reduce(function (fragmentList, fragmentChild) {
       if (typeof fragmentChild === 'string' || typeof fragmentChild === 'number') {
         return fragmentList;
       }
@@ -5065,17 +5065,17 @@ function unique() {
 
 function reduceComponents(headElements, props) {
   return headElements.reduce(function (list, headElement) {
-    var headElementChildren = react_1["default"].Children.toArray(headElement.props.children);
+    var headElementChildren = react_1.default.Children.toArray(headElement.props.children);
     return list.concat(headElementChildren);
   }, []).reduce(onlyReactElement, []).reverse().concat(defaultHead(props.inAmpMode)).filter(unique()).reverse().map(function (c, i) {
     var key = c.key || i;
-    return react_1["default"].cloneElement(c, {
+    return react_1.default.cloneElement(c, {
       key: key
     });
   });
 }
 
-var Effect = side_effect_1["default"]();
+var Effect = side_effect_1.default();
 /**
  * This component injects elements to `<head>` of your page.
  * To avoid duplicated `tags` in `<head>` you can use the `key` property, which will make sure every tag is only rendered once.
@@ -5083,9 +5083,9 @@ var Effect = side_effect_1["default"]();
 
 function Head(_ref) {
   var children = _ref.children;
-  return react_1["default"].createElement(amp_context_1.AmpStateContext.Consumer, null, function (ampState) {
-    return react_1["default"].createElement(head_manager_context_1.HeadManagerContext.Consumer, null, function (updateHead) {
-      return react_1["default"].createElement(Effect, {
+  return react_1.default.createElement(amp_context_1.AmpStateContext.Consumer, null, function (ampState) {
+    return react_1.default.createElement(head_manager_context_1.HeadManagerContext.Consumer, null, function (updateHead) {
+      return react_1.default.createElement(Effect, {
         reduceComponentsToState: reduceComponents,
         handleStateChange: updateHead,
         inAmpMode: amp_1.isInAmpMode(ampState)
@@ -5095,7 +5095,7 @@ function Head(_ref) {
 }
 
 Head.rewind = Effect.rewind;
-exports["default"] = Head;
+exports.default = Head;
 
 /***/ }),
 
@@ -5151,7 +5151,7 @@ function mitt() {
   };
 }
 
-exports["default"] = mitt;
+exports.default = mitt;
 
 /***/ }),
 
@@ -5275,7 +5275,7 @@ function fetchNextData(pathname, query, isServerRender, cb) {
 
   return getResponse().then(function (data) {
     return cb ? cb(data) : data;
-  })["catch"](function (err) {
+  }).catch(function (err) {
     // We should only trigger a server-side transition if this was caused
     // on a client-side transition. Otherwise, we'd get into an infinite
     // loop.
@@ -5423,7 +5423,7 @@ var Router = /*#__PURE__*/function () {
   _createClass(Router, [{
     key: "update",
     value: function update(route, mod) {
-      var Component = mod["default"] || mod;
+      var Component = mod.default || mod;
       var data = this.components[route];
 
       if (!data) {
@@ -5699,7 +5699,7 @@ var Router = /*#__PURE__*/function () {
                 resolve(routeInfo);
               });
             });
-          })["catch"](function (err) {
+          }).catch(function (err) {
             return handleError(err, true);
           }));
         });
@@ -5743,7 +5743,7 @@ var Router = /*#__PURE__*/function () {
           _this3.components[route] = routeInfo;
           return routeInfo;
         });
-      })["catch"](handleError);
+      }).catch(handleError);
     }
   }, {
     key: "set",
@@ -5979,8 +5979,8 @@ var Router = /*#__PURE__*/function () {
   return Router;
 }();
 
-exports["default"] = Router;
-Router.events = mitt_1["default"]();
+exports.default = Router;
+Router.events = mitt_1.default();
 
 /***/ }),
 
@@ -6127,7 +6127,7 @@ var react_1 = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 
 var isServer = false;
 
-exports["default"] = function () {
+exports.default = function () {
   var mountedInstances = new Set();
   var state;
 
@@ -6184,7 +6184,7 @@ exports["default"] = function () {
     }, {
       key: "componentWillUnmount",
       value: function componentWillUnmount() {
-        mountedInstances["delete"](this);
+        mountedInstances.delete(this);
         emitChange(this);
       }
     }, {
@@ -10511,7 +10511,7 @@ function createSEOConfig(data) {
 
 /***/ }),
 
-/***/ 2:
+/***/ 1:
 /*!*******************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2F&absolutePagePath=%2FUsers%2Fphamtien%2FWork%2FNimbus%2Fblog%2Fpages%2Findex.mdx ***!
   \*******************************************************************************************************************************/
@@ -10534,5 +10534,5 @@ module.exports = dll_c2e10d183b950a67d9e7;
 
 /***/ })
 
-},[[2,"static/runtime/webpack.js"]]]);
+},[[1,"static/runtime/webpack.js"]]]);
 //# sourceMappingURL=index.js.map

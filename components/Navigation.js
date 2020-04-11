@@ -7,36 +7,36 @@ import AppBar from "@material-ui/core/AppBar";
 import { Tabs, Tab, Toolbar, InputBase, Button } from "@material-ui/core";
 import SearchIcon from "@material-ui/icons/Search";
 
-const styles = theme => ({
+const styles = (theme) => ({
   grow: {
-    padding: '8px 20px 0px 20px'
+    padding: "8px 20px 0px 20px",
   },
   menuButton: {
-    marginRight: theme.spacing(2)
+    marginRight: theme.spacing(2),
   },
   toolbar: {
-    borderBottom: "1px solid black"
+    borderBottom: "1px solid black",
   },
   title: {
     display: "none",
     [theme.breakpoints.up("sm")]: {
-      display: "block"
-    }
+      display: "block",
+    },
   },
   search: {
     position: "relative",
     borderRadius: theme.shape.borderRadius,
     backgroundColor: fade(theme.palette.common.white, 0.15),
     "&:hover": {
-      backgroundColor: fade(theme.palette.common.white, 0.25)
+      backgroundColor: fade(theme.palette.common.white, 0.25),
     },
     marginRight: theme.spacing(2),
     marginLeft: 0,
     width: "100%",
     [theme.breakpoints.up("sm")]: {
       marginLeft: theme.spacing(3),
-      width: "auto"
-    }
+      width: "auto",
+    },
   },
   searchIcon: {
     padding: theme.spacing(0, 2),
@@ -45,10 +45,10 @@ const styles = theme => ({
     pointerEvents: "none",
     display: "flex",
     alignItems: "center",
-    justifyContent: "center"
+    justifyContent: "center",
   },
   inputRoot: {
-    color: "inherit"
+    color: "inherit",
   },
   inputInput: {
     padding: theme.spacing(1, 1, 1, 0),
@@ -57,37 +57,37 @@ const styles = theme => ({
     transition: theme.transitions.create("width"),
     width: "100%",
     [theme.breakpoints.up("md")]: {
-      width: "20ch"
-    }
+      width: "20ch",
+    },
   },
   sectionDesktop: {
     display: "none",
     [theme.breakpoints.up("md")]: {
-      display: "flex"
-    }
+      display: "flex",
+    },
   },
   sectionMobile: {
     display: "flex",
     [theme.breakpoints.up("md")]: {
-      display: "none"
-    }
-  }
+      display: "none",
+    },
+  },
 });
 
 class Navigation extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: "/"
+      value: "/",
     };
   }
 
   handleChange = (event, newValue) => {
     this.setState({
-      value: newValue
+      value: newValue,
     });
     Router.push({
-      pathname: newValue
+      pathname: newValue,
     });
   };
 
@@ -107,7 +107,7 @@ class Navigation extends Component {
               placeholder="Search…"
               classes={{
                 root: classes.inputRoot,
-                input: classes.inputInput
+                input: classes.inputInput,
               }}
               inputProps={{ "aria-label": "search" }}
             />
@@ -127,10 +127,10 @@ class Navigation extends Component {
         <Tabs
           value={value}
           onChange={this.handleChange}
-          indicatorColor="none"
+          indicatorColor="primary"
           textColor="primary"
         >
-          {config.navigation.map(navData => (
+          {config.navigation.map((navData) => (
             <Tab label={navData.text} value={navData.link} key={navData.key} />
           ))}
         </Tabs>
@@ -142,5 +142,5 @@ class Navigation extends Component {
 export default withRouter(withStyles(styles)(Navigation));
 
 Navigation.propTypes = {
-  classes: PropTypes.object.isRequired
+  classes: PropTypes.object.isRequired,
 };
