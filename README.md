@@ -1,286 +1,250 @@
-[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 
-# Next.js MDX Blog Kit
+This is my minimal yet functional React starter kit and demo app as of
+August 2018.
 
-This kit is designed to give you a fully functional, easy to use (if you are a developer) blog with perfect Lighthouse scores.
+If you feel tired of Javascript fatigue, and want to get started quick and
+easy, take a peek of this.  Developing a modern SPA React app does not get
+much simpler than this.
 
-![Lighthouse audit with 100% scores.](./static/images/lighthouse.png "Lighthouse Scores")
 
-The idea is to provide a complete blogging system that requires only two things from the developer:
+LIVE DEMO [nextjs.tomicloud.com](https://nextjs.tomicloud.com)
+-------------------------------------------------
 
-1. **write** some posts; share you knowledge!
-2. **style** the blog to make it your own
+![Screenshot](docs/screenshot.png)
 
-And, of course, this repo could merely be a starting point for your hacking. Hack away and have fun.
+The demo app is a static site, a basic single-page-app that has a few
+addressable pages that are lazy loaded on-demand. It demonstrates basic CRUD
+operations: 1) list movies, 2) view movie details, 3) create/edit and 4)
+delete a movie.
 
-To clone this repo: `git clone --depth=1 https://github.com/lorenseanstewart/nextjs-mdx-blog-kit <YOUR_PROJECT_NAME>`
+The demo uses browser localStorage for the data storage, which means it runs
+without a backend.  The sources do contain a module that does real AJAX calls
+to a REST backend - you just need to enable the module and write a server,
+and you are in good track to have a real web app. I have developed
+[RESTPie3 Python REST API server](https://github.com/tomimick/restpie3) which
+implements this simple movie API as an example.
 
-#### Feature list:
 
--   Static website deployment
--   Write your posts in markdown, and use React components in your markdown thanks to [MDX](https://github.com/mdx-js/mdx). Or use plain React, if you prefer.
--   A CLI for creating new pages or posts. It processes all the necessary meta data for creating the blog list and adding SEO data to all pages.
--   Perfect Lighthouse scores.
--   Excellent SEO
--   Service Worker that caches all pages and posts for offline reading
--   Tag search
--   A [reading progress indicator](https://github.com/jeremenichelli/scrollProgress) on posts (optional/configurable)
--   [Code syntax highlighting](https://github.com/conorhastings/react-syntax-highlighter)
--   [Smooth scroll links](https://github.com/mauricevancooten/react-anchor-link-smooth-scroll)
--   [Optimized images](https://github.com/cyrilwanner/next-optimized-images)
--   Tests are set up using [Jest](https://github.com/facebook/jest)
--   Easy deploys with Zeit's [Now](https://zeit.co/now)
+Building blocks
+---------------
 
-## CLI
+The demo app consists of a simple but powerful tech stack that provides the
+essential functionality for creating modern web apps. It stands on the
+shoulders of a few great libraries:
 
-This blog processes pages based on the meta data found in the page and post component files. To make sure you include all necessary meta data, and that page/post components conform to the requirements of the BlogEngine and its utility functions, **it is important to use the CLI to scaffold all new pages and posts**.
+* [React](https://reactjs.org/) is the foundation Javascript library that the
+  world raves about
+* [Nextjs](https://nextjs.org/) is a lightweight Javascript framework for
+  building React apps quickly
+* [MobX](https://mobx.js.org/) is a quick and easy state management library
+* [SASS](https://sass-lang.com/) is the good old CSS extension language that
+  still does the job fine
+* [Axios](https://github.com/axios/axios) is a popular AJAX library based on
+  Promises
 
-There are two ways to use the CLI:
-
-1. Install the CLI so you can use the `blog` keyword.
-    - This allows you to use commands like `blog -t post -m`
-2. Use the file as a script.
-    - This allows you to use commands like `./cli.js -t post -m`
-
-#### 1. Install: CLI with keyword
-
-At the root of the project, in your terminal run the command `npm link` or `sudo npm link`. This will allow you to use the `blog` keyword when using the CLI.
-
-If you have trouble installing the CLI, skip the installation and use the file as a script (see #2 below).
-
-#### 2. No Install: CLI file as script
-
-At the root of the project, in your terminal run the command `chmod +x ./cli.js` or `sudo chmod +x ./cli.js`. This allows you to use the CLI like a script: `./cli.js <your-flags-and-options-here>`.
-
-#### CLI Flags
-
-To list the flags and their descriptions, run one of the following commands in the root of the project:
-
-1. `blog help`
-2. `./cli.js help`
-
-Either of those commands will display:
+Source tree
+-----------
 
 ```
-Flags:
-      -t  ["template"  | String  | either "page" or "post"]
-      -m  ["mdx file"  |   n/a   | if present file will be .mdx, else .js]
-      -f  ["file name" | String  | e.g. "how-to-build-a-nextjs-app"]
+├── /components/                # React components used by pages
+│   └── /MyHeader.js            # Site header component, just as an example
+├── /pages/                     # pages
+│   ├── /_app.jsx               # top level layout of the app, loaded once
+│   ├── /about.jsx              # about page
+│   ├── /index.jsx              # home page, lists movies
+│   ├── /moviedetails.jsx       # details page, views a movie
+│   └── /movieedit.jsx          # edit page, edits a movie
+├── /static/                    # static assets, accessed/exported as is
+│   ├── /favicon.ico            # favicon
+│   └── /exampledata/
+│       └── /movies.json        # sample list of 4 movies - loaded initially
+├── /styles/                    # global SASS files
+│   └── /layout.sass            # main layout
+├── config.js                   # app config, select ajax or localstorage
+├── next.config.js              # nextjs configuration, almost empty
+├── package-lock.json           # npm something
+├── package.json                # list of npm packages required
+├── README.md                   # this doc
+├── serverapi_ajax.js           # API, talks AJAX to a real backend
+├── serverapi_localstorage.js   # API, talks to localStorage
+└── store.js                    # data store, managed by MobX
 ```
 
-#### Creating pages and posts
+Local development
+-----------------
 
-The basic difference between a page and a post is that a **page** lives inside the `pages/` directory, whereas a **post** lives in the `pages/blog/` directory. Only **post** files are included in the blog post list at `/blog`. Use the `-t` flag to indicate whether you want to create a new page or a new post.
+Here's how to run the starter in your local machine:
 
-```
-blog -t page -f newPage // this creates a page named "newPage.js"
-blog -t post            // this creates a JavaScript post with a randomized file name
-```
-
-As you can see above, the `-f` flag allows you to **name your new file**. Your page/post component name will also be the url to that page/post, so name your components strategically. For example, a page named `my-page.js` will have the url `www.mybaseurl.com/my-page`. A post named `my-post.mdx` will have the url `www.mybaseurl.com/blog/my-post`.
-
-If you omit the `-f` flag, the CLI will generate a file name for you but you should rename it immediately.
-
-You also have the option of using a **MDX** file or a **JavaScript** file for your new page/post.
-
-```
-blog -t page -m // this creates a MDX file with a randomized name
-blog -t page -f contact   // this creates a JavaScript file named contact.js
+```shell
+$ git clone https://github.com/tomimick/tm-nextjs-starter
+$ cd tm-nextjs-starter
+$ npm install
+$ npm run dev
 ```
 
-#### Meta Data
+Then point your browser to http://localhost:3000.
 
-Each page/post needs to export (not default export) a `meta` object. The **required fields** for content are:
+When any of the dependant files is modified, the changes are hot loaded and
+become visible instantly. Enjoy the dev!
 
-```
-title: "Title of Page/Post goes here",
-tags: ["tag-1", "tag-2"],
-layout: "page",
-publishDate: "2011-01-01",
-modifiedDate: false,
-seoDescription: "In this post I <keyword> with <keyword>. And blah blah."
-```
 
--   **title**: The title displayed on the page. It is also used for SEO.
--   **tags**: This array enables the tag search page. The tags are also used in the SEO header property: `<meta name="keywords" content={stringOfAllPostTags} />`.
--   **layout**: This is used in the `utils/render-app-layout.js` function. There are currently four layouts (and a default layout): `"blog-post-list"`, `"post"`, `"page"` and `"search"`.
--   **publishDate**: This is displyed on blog posts. It is also used for SEO. Must be in "YYYY-MM-DD" format.
--   **modifiedDate**: Used for SEO. Include this if the post has been modified. If it has not been modified, leave it out or give it the value `false`.
--   **seoDescription**: Used for SEO.
+Next.js
+-------
 
-Blog posts have optional meta properties. These **optional fields** are:
+[Nextjs](https://nextjs.org/) is a great framework that brings the right
+amount of order to the chaotic realm of Javascript development. It makes the
+start of React development easy by taking care of the configurations and
+tooling, letting you focus on the core app right from the start. It provides a
+well engineered minimal core functionality that is practically needed by all
+web apps.
 
--   **exclude**: Set this property to `true` if you do not want it to appear on the blog post list on the `/blog` page.
--   **hideProgressBar**: Set this property to `true` if you do not want the reading progress bar for a particular blog post.
+Next.js benefits in a nutshell:
 
-If you do not include the optional properties for a blog post, they are assumed to be false.
+* Minimum configuration - no need to tinker with webpack or babel configs,
+  unless you want
+* Enforces structure to the source files - filesystem is the api
+* Hot reloading of pages to speedup the dev work
+* Built-in SPA routing logic
+* Automatic code splitting of pages (provided by Webpack)
+* Deployment options: export a static server-less site or run Node.js in the
+  backend
 
-## BlogMeta Component
+Nextjs is mature enough, was released around 2 years ago, and has a healthy
+plugin ecosystem. Webpack is used for the ground work.
 
-This component should be added to each blog post after the `meta` export. Make sure there is an empty line between the `meta` export and `<BlogMeta />`, otherwise the MDX parser will throw an error. To illustrate:
+It is perfectly possible and likely that Nextjs gets replaced or merged with
+something even better in the future, but it does encapsulate a few best
+practices now that makes it worth trying out.
 
-```
-import BlogMeta from "../../components/BlogMeta";
-export const meta = {
-    title: "Third Post With Image",
-    tags: ["mdx", "javascript"],
-    layout: "post",
-    publishDate: "2017-12-10",
-    hideProgressBar: true,
-    seoDescription: "This post demonstrates a photo embed and Twitter card."
-};
 
-<BlogMeta data={props} />
-```
+MobX state management
+---------------------
 
-_All this is added for you when you use the CLI, but it's good to know these requirements exist in case you create posts without the CLI._
+[Redux](https://redux.js.org/) is usually the first-stop as a state management
+solution for React apps. It was one the early libraries available, is talked
+about in so many blogs and has thus gained almost a standard status.
 
-## Styles
+I've had mixed feelings about Redux from the first encounter. I always like to
+think and do research on my own and after reading many React+Redux code bases,
+evaluating other options, I think that Redux with its functional and pure
+paradigm feels a bit abstract and over-engineered to me.  (Plus Redux is
+also used in places where it simply is not needed. Too easy to go over-board.)
 
-This project uses [styled-jsx](https://github.com/zeit/styled-jsx). The docs are found [here](https://github.com/zeit/styled-jsx#getting-started).
+In my opinion, MobX offers a simpler and more practical solution to state
+management than Redux. It is easier to pick up and understand. It requires
+less boilerplate code. You have your state that you declare observable, then
+simply mutate your state and all observers are automatically updated. MobX
+works and stays out of the way.
 
-## Config
+Engineers do argue whether Redux is better for a bigger app or for a "real"
+app, but it's a never-ending battle. My strategy usually is to keep my code
+lean and mean, not even trying to grow a "big" app in the first place...
 
-This blog kit uses `/config/config.yml` for global configuration data.
 
-```
-config:
-    author: Your Name here
-    siteName: Your Site Name here
-    siteDescription: The personal blog of Your Name
-    defaultPageTitle: Add a default page title here
-    blogTitle: Blog
-    baseUrl: base url of your site here (e.g. www.mysite.com)
+CSS
+---
 
-    # For Twitter cards, this logo must be a hosted url, not a relative path.
-    # Must be square. Minimum size is 144x144; maximum size 4096x4096.
-    websiteLogo: "https://cdn.auth0.com/blog/logos/nextjs-logo.png"
+Nextjs provides support for both site global and page local CSS style sheets.
 
-    # if your string begins with a special character, you usually have to put it in quotes
-    twitterHandle: "@your twitter handle"
-    twitterCardType: summary
+* A single global CSS file is processed and built from source SASS files, and
+  then linked to the app in the HTML with a regular link-tag, and loaded once
+  at the start of the app. Proven, solid and with best performance - you do
+  not need to put all CSS in JS!
+* Page local styles are loaded on-demand along with the page, and written in
+  the page component inside ```style jsx``` -tags (see
+  [about.jsx](pages/about.jsx) for example).
 
-    # This is list is used to create the links in the navigation panel
-    navigation:
-        - { text: Home, link: / }
-        - { text: Blog, link: /blog }
-        - { text: About, link: /about }
+In this demo I also experiment with [CSS grid](https://learncssgrid.com/)
+functionality which is a recent web layout standard. CSS grid is a powerful
+layout tool that finally provides a robust way to define a two-dimensional
+grid. It will change the way we build layouts. If you have not yet learned or
+read about the CSS grid, 2018 is a good time to do it. The browser support is
+already very good. It will become mainstream soon.
 
-    css:
-        primaryColor: "#C70039"
-        accentColor: "#FF5733"
-        lightGray: "#eeeeee"
-        backgroundColor: "#ffffff"
-        black: "#333"
-```
 
-All the properties here are required, add more properties as you need them.
+Generating a static site
+------------------------
 
-## Google Analytics
+The ability to generate a static site with Nextjs is an important tool which
+makes it possible to run apps without a backend server. You can export the
+site to [GitHub pages](https://pages.github.com/),
+[Netlify](http://netlify.com) or Amazon S3. (But check a few gotchas with
+site+link prefixes with Github pages.)
 
-In `_document.js` there is a pair of commented out script tags. You can put a Google Analytics script there.
+Another win of static generation is to be able to hook up the app with any
+REST backend no matter what is the language of the backend. Clean separation of
+frontend and backend also provides modularization at tech level and possibly
+at team level.
 
-## Adding Links to Navigation
+One note about SEO: to export static versions of the pages with dynamic data,
+you would need to script all of the pages in the next.config.js configuration,
+[see this example](https://github.com/zeit/next.js/tree/canary/examples/with-static-export).
 
-The navigation panel slides out from the right side of the website. To add a link to this list, add to the `config.navigation` list in `/config/config.yml` as shown above.
+To generate a static site, simply run
 
-## Code Syntax Highlighting
-
-The syntax highlighting component is found at `/code-snippets/CodeBlocks.js`. The component is currently set up for JavaScript syntax highlighting.
-
-In `/code-snippets/post-one/`, you will find two instances of the CodeBlock component: `EscapedBackticksCode` and `DemoCode`. First, use a template string to wrap your code snippet. Second, use that string in the CodeBlock component.
-
-The `EscapedBackticksCode` component illustrates how to include back ticks within your code snippet. (Back ticks are the <code>`</code> character used in JavaScript template strings.)
-
-In a page or post component, you can import your code snippet component and use it in a React file or an MDX file.
-
-For more information, refer to the `react-syntax-highlighter` [docs](https://github.com/conorhastings/react-syntax-highlighter).
-
-## Smooth Scroll
-
-Smooth scrolling is achieved through the use of two components: `<SmoothLink />` and `<LinkAnchor />`. The links that you click in order to scroll somewhere are the `<SmoothLink />`s. The destination of the scroll in the `<LinkAnchor />`.
-
-The `<SmoothLink />` takes two props:
-
--   **target**: This is the id you want to scroll to.
--   **linkText**: This is the text displayed by the link.
-
-`<LinkAnchor />` can be any html element that is the destination of a scroll. `<LinkAnchor />` takes three props:
-
--   **element**: This is the type of html element the anchor needs to be. In the component file there is a list of valid html tags. To make additional tags valid, add them to the list.
--   **id**: The anchor html tag needs an id that connects the `<SmoothLink />` to the `<AnchorLink />`.
--   **text**: This is the text the html tag will display.
-
-If everything is working correctly, when you click a `<SmoothLink />` it will scroll the user down to its dedicated `<AnchorLink />`. For reference, check out an example: `pages/blog/demo-reading-progress-bar.mdx`.
-
-For more information, refer to the `react-anchor-link-smooth-scroll` [docs](https://github.com/mauricevancooten/react-anchor-link-smooth-scroll).
-
-## Images in MDX
-
-To use an image in an MDX file, import the image like this:
-
-```
-import imageUrl from "../../public/static/images/mountains.jpg";
+```shell
+$ npm run export
 ```
 
-Then use the image like this:
+And the static files will be generated in the ```out```-folder.
 
+To test the static site locally via a local www-server, I quickly run a
+python script: (python3 -m http.server)
+
+```shell
+$ npm run pyserve
 ```
-<img src={imageUrl} className="img-centered" alt="Image alt" />
+
+And then test the site at http://localhost:8000.
+
+### Size of Javascript
+
+The size of the home page is decent, **about 94KB minified and gzipped**.
+
+The browser loads the home page with a total of 6 requests, and each new page
+that is loaded on-demand makes a single js request *once* (remember with React
+its all about Javascript, not HTML).
+
+```shell
+Page Size Inspector Report
+URL: https://nextjs.tomicloud.com/
+
+REQUEST                                       REQ     BYTES
+
+TOTAL___________________________________________6____94,159
+
+Document________________________________________1_______916
+-nextjs.tomicloud.com/                                  916
+
+Script__________________________________________4____92,836
+-nextjs.tomicloud.com/_next.../index.js               1,053
+-nextjs.tomicloud.com/_next/.../_app.js               2,506
+-nextjs.tomicloud.com/_nex.../_error.js               2,490
+-nextjs.tomicloud.com/.../main-6a4a..js              86,787
+
+Stylesheet______________________________________1_______407
+-nextjs.tomicloud.com/_nex.../style.css                 407
 ```
 
-## Blog Engine
+(Report by my Chrome extension [Page Size Inspector](https://chrome.google.com/webstore/detail/oepnndnpjiahgkljgbohnnccmokgcoln).)
 
-The blog engine extracts the meta objects from each page file, constructs several new properties, and creates an array of all page data. This array is used to construct and sort the post list on the `/blog` page as well as the tag search page at `/search/?q=tagName`.
 
-For individual pages, this data is used to determine the layout for each page. The data also contains SEO information that is injected into the markup of each post.
+Need help?
+----------
 
-The blog engine uses `utils/page-list.js` to get data from files in the `/pages` folder, and `utils/post-list.js` to extract data from the `/pages/blog` folder. These files use the [Babel Preval plugin](https://github.com/kentcdodds/babel-plugin-preval) to get the filenames from the `/pages` (and `/pages/blog`) directory. This list of filenames is used to import meta data from component files.
+Go ahead and take this React starter and perhaps my [RESTPie3 Python REST API
+server](https://github.com/tomimick/restpie3) too and build your great
+service.
 
-Checkout the comments in `utils/page-list.js`, `utils/post-list.js`, and `utils/blog-engine.js` to get a better idea how the BlogEngine works.
+You can also [contact me](mailto:tomi.mickelsson@gmail.com) to ask if I am
+available for freelancing work.
 
-## Icon Pack
+Vue version
+-----------
 
-This blog kit uses SVG icons from `react-icons`. Information about usage can be found in the project docs [here](https://github.com/react-icons/react-icons).
+If you prefer Vue over React, I have also coded this same starter with [Vue Nuxtjs](https://github.com/tomimick/tm-nuxtjs-starter).
 
-## Branded Icons (favicon, etc.)
+License
+-------
+MIT License
 
-In `static/icons` you will see many png files with name like `icon_144`. The `144` in the name means it is a 144px x 144px square (all of the images are square). Keep the file names, but replace all these icons in all the noted sizes with your own brand images/icons.
-
-These icons are displayed if a user desides to save your blog to their homescreen on mobile devices and some desktops.
-
-## Custom Fonts
-
-To load custom fonts, follow these two steps:
-
--   Add the font files to `/static/fonts`
--   Add font face CSS rules to `/styles/index.js`
-
-Keep in mind custom fonts affect your site's performance, so use be careful with your CSS `font-display` property. This project uses `font-display: auto;` to help make font loading more performant.
-
-If you do not want to use custom fonts, delete the files from `/static/fonts`, and remove both (1) the `@font-face` rules and (2) the `font-family: "Abril Fatface"` reference from `/styles/index.js`.
-
-## Precaching Files for Offline Use
-
-See the comments in `my-worker.js`.
-
-All pages cache for desktop, so offline the entire blog should be available.
-
-For mobile users, only pages that have been visited are cached.
-
-**Disclaimer**: the notes above about what caches vs. what does not are gleaned from some informal investigating on my part. I'm sure there are a variety of limitations based on browser and device.
-
-## Deploying with Now
-
-First sign up for a Now account [here](https://zeit.co/now), and install the Now CLI. Installing the Now desktop app will also install the Now CLI.
-
-Once you have an account and the CLI installed, open your terminal at the root of your project and issue the command `now`.
-
-For more information see the Now [docs](https://zeit.co/docs/v2/deployments/official-builders/static-build-now-static-build/).
-
-## Warnings and Gotchas:
-
--   Custom routes for static sites do seem possible at the moment. As the Now v2 ecosystem develops, this will probably become manageable.
--   Do not put regular React components in the `pages` directory, as they are expected to be full web pages. Next.js creates a route for each of these pages/components. Put your non-page components in the `components` directory.
--   Blog posts must have an empty line between the meta export and the <BlogMeta /> component. The MDX parser errors if there is not a space there.
--   If you add a new page/post and it does not appear as a page or post, run `npm run clean` or delete `.next/` and run `npm run dev`.
