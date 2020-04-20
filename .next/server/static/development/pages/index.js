@@ -214,7 +214,7 @@ var About = /*#__PURE__*/function (_React$Component) {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 26,
+          lineNumber: 25,
           columnNumber: 9
         }
       }, _store__WEBPACK_IMPORTED_MODULE_3__["default"].movielist.map(function (movie) {
@@ -223,7 +223,7 @@ var About = /*#__PURE__*/function (_React$Component) {
           __self: _this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 28,
+            lineNumber: 27,
             columnNumber: 13
           }
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_2___default.a, {
@@ -231,14 +231,14 @@ var About = /*#__PURE__*/function (_React$Component) {
           __self: _this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 29,
+            lineNumber: 28,
             columnNumber: 15
           }
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
           __self: _this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 30,
+            lineNumber: 29,
             columnNumber: 17
           }
         }, movie.title)), "by ", movie.director || "Unknown");
@@ -247,7 +247,7 @@ var About = /*#__PURE__*/function (_React$Component) {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 37,
+          lineNumber: 36,
           columnNumber: 9
         }
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
@@ -255,7 +255,7 @@ var About = /*#__PURE__*/function (_React$Component) {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 38,
+          lineNumber: 37,
           columnNumber: 11
         }
       }, "Add a new movie")));

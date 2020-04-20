@@ -7,7 +7,7 @@ import React from "react";
 import Head from "next/head";
 import Link from "next/link";
 
-import MyHeader from "../components/Header/MyHeader";
+import HeaderComponent from "../components/Header/HeaderComponent";
 
 // required here for hot reload
 import css from "../styles/layout.sass";
@@ -43,14 +43,12 @@ export default class MyApp extends App {
           />
         </Head>
 
-        <div className="outer">
-          <MyHeader />
+        <div>
+          <HeaderComponent />
 
           <article>
             <Component {...pageProps} />
           </article>
-
-          <aside className="sidebar-right">Sidebar</aside>
 
           <footer>
             {" "}

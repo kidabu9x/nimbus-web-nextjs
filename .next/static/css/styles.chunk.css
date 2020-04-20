@@ -2,7 +2,7 @@
    Write per-page CSS in .jsx files. */
 body {
   margin: 0 auto;
-  max-width: 80%;
+  max-width: 100%;
   background: #f5f5f5;
   font-family: verdana, courier;
   background: #2980B9;

@@ -22,7 +22,6 @@ class About extends React.Component {
     return (
       <React.Fragment>
         <h2>List of movies</h2>
-
         <ol>
           {store.movielist.map((movie) => (
             <li key={movie.id}>
