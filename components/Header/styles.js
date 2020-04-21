@@ -5,14 +5,17 @@ export default css`
     width: 100%;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin-bottom: 5px;
+    -moz-box-shadow: 0px 1px 1px 1px #ccc;
+    -webkit-box-shadow: 0px 1px 1px 1px #ccc;
+    box-shadow: 0px 1px 1px 1px #ccc;
   }
   .container-search {
-    width: 86%;
+    width: 90%;
     margin: auto;
   }
   .header-logo {
-    margin-top: 14px;
+    padding-top: 14px;
     display: flex;
   }
   .logo {
@@ -30,7 +33,7 @@ export default css`
     margin-bottom: 10px;
   }
   .nav-menu {
-    width: 86%;
-    padding-left: 7%;
+    width: 90%;
+    padding-left: 5%;
   }
 `;

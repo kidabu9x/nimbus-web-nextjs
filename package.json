@@ -1,29 +1,31 @@
 {
+  "name": "blog-starter",
+  "version": "1.0.0",
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "start": "next start",
-    "export": "NODE_ENV=production next build && next export -o out",
-    "pyserve": "cd out; python3 -m http.server"
+    "start": "next start"
   },
   "dependencies": {
-    "@material-ui/core": "latest",
-    "@material-ui/icons": "latest",
-    "axios": "^0.18.0",
+    "axios": "^0.19.2",
     "babel-plugin-preval": "^5.0.0",
-    "mobx": "^5.0.3",
-    "mobx-react": "^5.2.3",
-    "next": "^7.0.0",
-    "nextjs": "0.0.3",
-    "react": "^16.5.2",
-    "react-dom": "^16.5.2",
+    "classnames": "2.2.6",
+    "date-fns": "2.10.0",
+    "gray-matter": "4.0.2",
+    "isomorphic-unfetch": "3.0.0",
+    "next": "latest",
+    "react": "^16.13.0",
+    "react-dom": "^16.13.0",
+    "remark": "11.0.2",
+    "remark-html": "10.0.0",
     "semantic-ui-css": "^2.4.1",
     "semantic-ui-react": "^0.88.2",
     "styled-jsx": "^3.2.5"
   },
   "devDependencies": {
-    "@zeit/next-sass": "^1.0.1",
-    "node-sass": "^4.9.3",
-    "webpack": "^4.19.1"
+    "@fullhuman/postcss-purgecss": "^2.1.0",
+    "dotenv": "8.2.0",
+    "postcss-preset-env": "^6.7.0",
+    "tailwindcss": "^1.2.0"
   }
 }
