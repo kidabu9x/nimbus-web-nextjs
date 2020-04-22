@@ -7,9 +7,16 @@ export default css`
   .header-highlight {
     border-bottom: 1px solid #ddd;
     margin-bottom: 10px;
-    padding-bottom: 5px;
     display: flex;
     justify-content: space-between;
+  }
+  .show-more {
+    line-height: 10px;
+  }
+  .category-title {
+    font-weight: bold;
+    font-size: 1.3em;
+    margin-bottom: 5px;
   }
   .image img {
     height: 200px;

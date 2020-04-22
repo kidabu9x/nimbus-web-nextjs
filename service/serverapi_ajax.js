@@ -32,6 +32,11 @@ class ServerAPI {
     let url = `${PUBLIC_URL}/features`;
     return this.client.get(url);
   }
+
+  getSlug(slug) {
+    let url = `${PUBLIC_URL}/${slug}`;
+    return this.client.get(url);
+  }
 }
 
 // export singleton API

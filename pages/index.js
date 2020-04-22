@@ -8,11 +8,8 @@ import api from "../service/serverapi_ajax";
 import { useRouter } from "next/router";
 import Home from "../components/home/HomeComponent";
 
-export default function Index({ categories, features }) {
+const Index = ({ categories, features }) => {
   const router = useRouter();
-  console.log("====================================");
-  console.log(features);
-  console.log("====================================");
   return (
     <Layout>
       <Head>
@@ -24,7 +21,7 @@ export default function Index({ categories, features }) {
           href="//cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css"
         />
         <link
-          href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,400;1,500;1,700&display=swap"
           rel="stylesheet"
         />
       </Head>
@@ -34,7 +31,7 @@ export default function Index({ categories, features }) {
       </Container>
     </Layout>
   );
-}
+};
 
 export async function getStaticProps() {
   const resCategories = await api.getCategories();
@@ -46,3 +43,5 @@ export async function getStaticProps() {
     props: { categories, features },
   };
 }
+
+export default Index;

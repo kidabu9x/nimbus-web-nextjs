@@ -7,7 +7,7 @@ export default function Category({ categoryFeature }) {
   return (
     <div className="container">
       <div className="header-highlight">
-        <p>{categoryFeature.category.title}</p>
+        <p className="category-title">{categoryFeature.category.title}</p>
         <Link href={categoryFeature.category.slug}>
           <a>Xem thêm ></a>
         </Link>
