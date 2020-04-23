@@ -9,6 +9,7 @@ import { SLUG_TYPE } from "../utils/constants";
 import { ListBlogComponent } from "../components/list-blog/ListBlogsComponent";
 import { HighlightComponent } from "../components/highlight/HighlightComponent";
 import { BlogComponent } from "../components/blog/BlogComponent";
+import Footer from "../components/footer/FooterComponent";
 
 const Slug = ({ categories, highlights, type, dataPage }) => {
   const router = useRouter();
@@ -41,6 +42,7 @@ const Slug = ({ categories, highlights, type, dataPage }) => {
           </div>
           <HighlightComponent data={highlights} />
         </div>
+        <Footer />
       </Container>
     </Layout>
   );

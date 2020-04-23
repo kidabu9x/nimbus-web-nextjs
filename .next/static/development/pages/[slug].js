@@ -176,7 +176,6 @@ function ContainerComponent(_ref) {
   var children = _ref.children;
   return __jsx(_material_ui_core__WEBPACK_IMPORTED_MODULE_1__["Container"], {
     maxWidth: "xl",
-    className: "container",
     style: {
       paddingLeft: 0,
       paddingRight: 0
@@ -189,6 +188,88 @@ function ContainerComponent(_ref) {
     }
   }, children);
 }
+
+/***/ }),
+
+/***/ "./components/footer/FooterComponent.js":
+/*!**********************************************!*\
+  !*** ./components/footer/FooterComponent.js ***!
+  \**********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var styled_jsx_style__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! styled-jsx/style */ "./node_modules/styled-jsx/style.js");
+/* harmony import */ var styled_jsx_style__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(styled_jsx_style__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _styles__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./styles */ "./components/footer/styles.js");
+var _this = undefined,
+    _jsxFileName = "/Users/phamtien/Work/Nimbus/blog/components/footer/FooterComponent.js";
+
+
+var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
+
+
+
+var Footer = function Footer() {
+  return __jsx("footer", {
+    className: "jsx-".concat(_styles__WEBPACK_IMPORTED_MODULE_2__["default"].__hash) + " " + "ui inverted vertical footer segment form-page",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 6,
+      columnNumber: 5
+    }
+  }, __jsx("p", {
+    className: "jsx-".concat(_styles__WEBPACK_IMPORTED_MODULE_2__["default"].__hash),
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 7,
+      columnNumber: 7
+    }
+  }, "Posted by: Hege Refsnes"), __jsx("p", {
+    className: "jsx-".concat(_styles__WEBPACK_IMPORTED_MODULE_2__["default"].__hash),
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 8,
+      columnNumber: 7
+    }
+  }, "Contact information:", " ", __jsx("a", {
+    href: "mailto:someone@example.com",
+    className: "jsx-".concat(_styles__WEBPACK_IMPORTED_MODULE_2__["default"].__hash),
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 10,
+      columnNumber: 9
+    }
+  }, "someone@example.com"), "."), __jsx(styled_jsx_style__WEBPACK_IMPORTED_MODULE_0___default.a, {
+    id: _styles__WEBPACK_IMPORTED_MODULE_2__["default"].__hash,
+    __self: _this
+  }, _styles__WEBPACK_IMPORTED_MODULE_2__["default"]));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Footer);
+
+/***/ }),
+
+/***/ "./components/footer/styles.js":
+/*!*************************************!*\
+  !*** ./components/footer/styles.js ***!
+  \*************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+var _defaultExport = new String(".container.jsx-123586657{width:100%;margin-bottom:20px;}.input-field.jsx-123586657{width:85%;margin-bottom:30px;}.list-field.jsx-123586657{margin-right:10%;}@media (min-height:320px){.ui.footer.form-page.jsx-123586657{position:absolute;bottom:0;width:100%;}}\n/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9waGFtdGllbi9Xb3JrL05pbWJ1cy9ibG9nL2NvbXBvbmVudHMvZm9vdGVyL3N0eWxlcy5qcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFFa0IsQUFHZ0IsQUFJRCxBQUlPLEFBS0csVUFSRCxDQUpBLE1BUXJCLENBS2EsU0FDRSxFQVRmLENBSkEsUUFjRSIsImZpbGUiOiIvVXNlcnMvcGhhbXRpZW4vV29yay9OaW1idXMvYmxvZy9jb21wb25lbnRzL2Zvb3Rlci9zdHlsZXMuanMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgY3NzIGZyb20gXCJzdHlsZWQtanN4L2Nzc1wiO1xuXG5leHBvcnQgZGVmYXVsdCBjc3NgXG4gIC5jb250YWluZXIge1xuICAgIHdpZHRoOiAxMDAlO1xuICAgIG1hcmdpbi1ib3R0b206IDIwcHg7XG4gIH1cbiAgLmlucHV0LWZpZWxkIHtcbiAgICB3aWR0aDogODUlO1xuICAgIG1hcmdpbi1ib3R0b206IDMwcHg7XG4gIH1cbiAgLmxpc3QtZmllbGQge1xuICAgIG1hcmdpbi1yaWdodDogMTAlO1xuICB9XG4gIEBtZWRpYSAobWluLWhlaWdodDogMzIwcHgpIHtcbiAgICAudWkuZm9vdGVyLmZvcm0tcGFnZSB7XG4gICAgICAvKiBJbmNyZWFzZWQgc3BlY2lmaWNpdHkgZm9yIFNPIHNuaXBwZXQgcHJpb3JpdHkgKi9cbiAgICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgICAgIGJvdHRvbTogMDtcbiAgICAgIHdpZHRoOiAxMDAlO1xuICAgIH1cbiAgfVxuYDtcbiJdfQ== */\n/*@ sourceURL=/Users/phamtien/Work/Nimbus/blog/components/footer/styles.js */");
+
+_defaultExport.__hash = "123586657";
+/* harmony default export */ __webpack_exports__["default"] = (_defaultExport);
 
 /***/ }),
 
@@ -57052,11 +57133,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_list_blog_ListBlogsComponent__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../components/list-blog/ListBlogsComponent */ "./components/list-blog/ListBlogsComponent.js");
 /* harmony import */ var _components_highlight_HighlightComponent__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../components/highlight/HighlightComponent */ "./components/highlight/HighlightComponent.js");
 /* harmony import */ var _components_blog_BlogComponent__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../components/blog/BlogComponent */ "./components/blog/BlogComponent.js");
+/* harmony import */ var _components_footer_FooterComponent__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../components/footer/FooterComponent */ "./components/footer/FooterComponent.js");
 var _this = undefined,
     _jsxFileName = "/Users/phamtien/Work/Nimbus/blog/pages/[slug].js";
 
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
 
 
 
@@ -57077,21 +57160,21 @@ var Slug = function Slug(_ref) {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 16,
+      lineNumber: 17,
       columnNumber: 5
     }
   }, __jsx(next_head__WEBPACK_IMPORTED_MODULE_4___default.a, {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 17,
+      lineNumber: 18,
       columnNumber: 7
     }
   }, __jsx("title", {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 18,
+      lineNumber: 19,
       columnNumber: 9
     }
   }, "Nimbus Service"), __jsx("meta", {
@@ -57100,7 +57183,7 @@ var Slug = function Slug(_ref) {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 19,
+      lineNumber: 20,
       columnNumber: 9
     }
   }), __jsx("link", {
@@ -57109,7 +57192,7 @@ var Slug = function Slug(_ref) {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 20,
+      lineNumber: 21,
       columnNumber: 9
     }
   }), __jsx("link", {
@@ -57118,7 +57201,7 @@ var Slug = function Slug(_ref) {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 21,
+      lineNumber: 22,
       columnNumber: 9
     }
   }), __jsx("link", {
@@ -57127,14 +57210,14 @@ var Slug = function Slug(_ref) {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 25,
+      lineNumber: 26,
       columnNumber: 9
     }
   })), __jsx(_components_container__WEBPACK_IMPORTED_MODULE_1__["default"], {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 30,
+      lineNumber: 31,
       columnNumber: 7
     }
   }, __jsx(_components_header_HeaderComponent__WEBPACK_IMPORTED_MODULE_3__["default"], {
@@ -57142,7 +57225,7 @@ var Slug = function Slug(_ref) {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 31,
+      lineNumber: 32,
       columnNumber: 9
     }
   }), __jsx("div", {
@@ -57150,7 +57233,7 @@ var Slug = function Slug(_ref) {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 32,
+      lineNumber: 33,
       columnNumber: 9
     }
   }, __jsx("div", {
@@ -57161,7 +57244,7 @@ var Slug = function Slug(_ref) {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 33,
+      lineNumber: 34,
       columnNumber: 11
     }
   }, type === _utils_constants__WEBPACK_IMPORTED_MODULE_6__["SLUG_TYPE"].CATEGORY && __jsx(_components_list_blog_ListBlogsComponent__WEBPACK_IMPORTED_MODULE_7__["ListBlogComponent"], {
@@ -57169,7 +57252,7 @@ var Slug = function Slug(_ref) {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 38,
+      lineNumber: 39,
       columnNumber: 15
     }
   }), type === _utils_constants__WEBPACK_IMPORTED_MODULE_6__["SLUG_TYPE"].BLOG && __jsx(_components_blog_BlogComponent__WEBPACK_IMPORTED_MODULE_9__["BlogComponent"], {
@@ -57177,7 +57260,7 @@ var Slug = function Slug(_ref) {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 40,
+      lineNumber: 41,
       columnNumber: 41
     }
   })), __jsx(_components_highlight_HighlightComponent__WEBPACK_IMPORTED_MODULE_8__["HighlightComponent"], {
@@ -57185,10 +57268,17 @@ var Slug = function Slug(_ref) {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 42,
+      lineNumber: 43,
       columnNumber: 11
     }
-  }))));
+  })), __jsx(_components_footer_FooterComponent__WEBPACK_IMPORTED_MODULE_10__["default"], {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 45,
+      columnNumber: 9
+    }
+  })));
 };
 
 var __N_SSP = true;

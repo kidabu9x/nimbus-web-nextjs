@@ -4,10 +4,14 @@ export default css`
   .card-left {
     width: 100%;
   }
+  .image {
+    background-size: cover;
+  }
   .image img {
+    display: block;
     max-height: 200px;
     width: 100%;
-    background-size: cover;
+    object-fit: cover;
   }
   .img-author {
     border-radius: 30px;

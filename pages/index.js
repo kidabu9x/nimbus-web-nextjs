@@ -5,6 +5,7 @@ import Header from "../components/header/HeaderComponent";
 import api from "../service/serverapi_ajax";
 import { useRouter } from "next/router";
 import Home from "../components/home/HomeComponent";
+import Footer from "../components/footer/FooterComponent";
 
 const Index = ({ categories, features }) => {
   const router = useRouter();
@@ -26,6 +27,7 @@ const Index = ({ categories, features }) => {
       <Container>
         <Header categories={categories} />
         <Home features={features} />
+        <Footer />
       </Container>
     </Layout>
   );

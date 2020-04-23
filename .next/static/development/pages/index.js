@@ -210,7 +210,6 @@ function ContainerComponent(_ref) {
   var children = _ref.children;
   return __jsx(_material_ui_core__WEBPACK_IMPORTED_MODULE_1__["Container"], {
     maxWidth: "xl",
-    className: "container",
     style: {
       paddingLeft: 0,
       paddingRight: 0
@@ -223,6 +222,88 @@ function ContainerComponent(_ref) {
     }
   }, children);
 }
+
+/***/ }),
+
+/***/ "./components/footer/FooterComponent.js":
+/*!**********************************************!*\
+  !*** ./components/footer/FooterComponent.js ***!
+  \**********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var styled_jsx_style__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! styled-jsx/style */ "./node_modules/styled-jsx/style.js");
+/* harmony import */ var styled_jsx_style__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(styled_jsx_style__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _styles__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./styles */ "./components/footer/styles.js");
+var _this = undefined,
+    _jsxFileName = "/Users/phamtien/Work/Nimbus/blog/components/footer/FooterComponent.js";
+
+
+var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
+
+
+
+var Footer = function Footer() {
+  return __jsx("footer", {
+    className: "jsx-".concat(_styles__WEBPACK_IMPORTED_MODULE_2__["default"].__hash) + " " + "ui inverted vertical footer segment form-page",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 6,
+      columnNumber: 5
+    }
+  }, __jsx("p", {
+    className: "jsx-".concat(_styles__WEBPACK_IMPORTED_MODULE_2__["default"].__hash),
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 7,
+      columnNumber: 7
+    }
+  }, "Posted by: Hege Refsnes"), __jsx("p", {
+    className: "jsx-".concat(_styles__WEBPACK_IMPORTED_MODULE_2__["default"].__hash),
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 8,
+      columnNumber: 7
+    }
+  }, "Contact information:", " ", __jsx("a", {
+    href: "mailto:someone@example.com",
+    className: "jsx-".concat(_styles__WEBPACK_IMPORTED_MODULE_2__["default"].__hash),
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 10,
+      columnNumber: 9
+    }
+  }, "someone@example.com"), "."), __jsx(styled_jsx_style__WEBPACK_IMPORTED_MODULE_0___default.a, {
+    id: _styles__WEBPACK_IMPORTED_MODULE_2__["default"].__hash,
+    __self: _this
+  }, _styles__WEBPACK_IMPORTED_MODULE_2__["default"]));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Footer);
+
+/***/ }),
+
+/***/ "./components/footer/styles.js":
+/*!*************************************!*\
+  !*** ./components/footer/styles.js ***!
+  \*************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+var _defaultExport = new String(".container.jsx-123586657{width:100%;margin-bottom:20px;}.input-field.jsx-123586657{width:85%;margin-bottom:30px;}.list-field.jsx-123586657{margin-right:10%;}@media (min-height:320px){.ui.footer.form-page.jsx-123586657{position:absolute;bottom:0;width:100%;}}\n/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9waGFtdGllbi9Xb3JrL05pbWJ1cy9ibG9nL2NvbXBvbmVudHMvZm9vdGVyL3N0eWxlcy5qcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFFa0IsQUFHZ0IsQUFJRCxBQUlPLEFBS0csVUFSRCxDQUpBLE1BUXJCLENBS2EsU0FDRSxFQVRmLENBSkEsUUFjRSIsImZpbGUiOiIvVXNlcnMvcGhhbXRpZW4vV29yay9OaW1idXMvYmxvZy9jb21wb25lbnRzL2Zvb3Rlci9zdHlsZXMuanMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgY3NzIGZyb20gXCJzdHlsZWQtanN4L2Nzc1wiO1xuXG5leHBvcnQgZGVmYXVsdCBjc3NgXG4gIC5jb250YWluZXIge1xuICAgIHdpZHRoOiAxMDAlO1xuICAgIG1hcmdpbi1ib3R0b206IDIwcHg7XG4gIH1cbiAgLmlucHV0LWZpZWxkIHtcbiAgICB3aWR0aDogODUlO1xuICAgIG1hcmdpbi1ib3R0b206IDMwcHg7XG4gIH1cbiAgLmxpc3QtZmllbGQge1xuICAgIG1hcmdpbi1yaWdodDogMTAlO1xuICB9XG4gIEBtZWRpYSAobWluLWhlaWdodDogMzIwcHgpIHtcbiAgICAudWkuZm9vdGVyLmZvcm0tcGFnZSB7XG4gICAgICAvKiBJbmNyZWFzZWQgc3BlY2lmaWNpdHkgZm9yIFNPIHNuaXBwZXQgcHJpb3JpdHkgKi9cbiAgICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgICAgIGJvdHRvbTogMDtcbiAgICAgIHdpZHRoOiAxMDAlO1xuICAgIH1cbiAgfVxuYDtcbiJdfQ== */\n/*@ sourceURL=/Users/phamtien/Work/Nimbus/blog/components/footer/styles.js */");
+
+_defaultExport.__hash = "123586657";
+/* harmony default export */ __webpack_exports__["default"] = (_defaultExport);
 
 /***/ }),
 
@@ -410,10 +491,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _styles__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./styles */ "./components/home/CardLeft/styles.js");
 /* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! next/link */ "./node_modules/next/link.js");
 /* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/index.js");
 var _jsxFileName = "/Users/phamtien/Work/Nimbus/blog/components/home/CardLeft/CardLeft.js";
 
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
+
 
 
 function CardLeft(_ref) {
@@ -423,7 +506,7 @@ function CardLeft(_ref) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 8,
+      lineNumber: 9,
       columnNumber: 9
     }
   }, __jsx("div", {
@@ -431,7 +514,7 @@ function CardLeft(_ref) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 9,
+      lineNumber: 10,
       columnNumber: 11
     }
   }, __jsx("div", {
@@ -439,7 +522,7 @@ function CardLeft(_ref) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 10,
+      lineNumber: 11,
       columnNumber: 13
     }
   }, __jsx("img", {
@@ -448,7 +531,7 @@ function CardLeft(_ref) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 11,
+      lineNumber: 12,
       columnNumber: 15
     }
   })), __jsx("div", {
@@ -456,7 +539,7 @@ function CardLeft(_ref) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 19,
+      lineNumber: 20,
       columnNumber: 13
     }
   }, __jsx("div", {
@@ -464,7 +547,7 @@ function CardLeft(_ref) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 20,
+      lineNumber: 21,
       columnNumber: 15
     }
   }, blog.title), __jsx("div", {
@@ -472,7 +555,7 @@ function CardLeft(_ref) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 21,
+      lineNumber: 22,
       columnNumber: 15
     }
   }, blog.description, "..")), __jsx("div", {
@@ -480,7 +563,7 @@ function CardLeft(_ref) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 23,
+      lineNumber: 24,
       columnNumber: 13
     }
   }, __jsx("a", {
@@ -488,7 +571,7 @@ function CardLeft(_ref) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 24,
+      lineNumber: 25,
       columnNumber: 15
     }
   }, __jsx("img", {
@@ -497,7 +580,7 @@ function CardLeft(_ref) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 25,
+      lineNumber: 26,
       columnNumber: 17
     }
   }), "".concat(blog.authors[0].first_name, " ").concat(blog.authors[0].last_name))), __jsx(styled_jsx_style__WEBPACK_IMPORTED_MODULE_0___default.a, {
@@ -517,9 +600,9 @@ function CardLeft(_ref) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-var _defaultExport = new String(".card-left.jsx-2946084548{width:100%;}.image.jsx-2946084548 img.jsx-2946084548{max-height:200px;width:100%;background-size:cover;}.img-author.jsx-2946084548{border-radius:30px;max-width:40px;height:auto;margin-right:20px;}\n/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9waGFtdGllbi9Xb3JrL05pbWJ1cy9ibG9nL2NvbXBvbmVudHMvaG9tZS9DYXJkTGVmdC9zdHlsZXMuanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBRWtCLEFBR2dCLEFBR00sQUFLRSxXQVByQixNQUdhLEVBS0ksU0FKTyxNQUtWLFlBQ00sSUFMcEIsY0FNQSIsImZpbGUiOiIvVXNlcnMvcGhhbXRpZW4vV29yay9OaW1idXMvYmxvZy9jb21wb25lbnRzL2hvbWUvQ2FyZExlZnQvc3R5bGVzLmpzIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IGNzcyBmcm9tIFwic3R5bGVkLWpzeC9jc3NcIjtcblxuZXhwb3J0IGRlZmF1bHQgY3NzYFxuICAuY2FyZC1sZWZ0IHtcbiAgICB3aWR0aDogMTAwJTtcbiAgfVxuICAuaW1hZ2UgaW1nIHtcbiAgICBtYXgtaGVpZ2h0OiAyMDBweDtcbiAgICB3aWR0aDogMTAwJTtcbiAgICBiYWNrZ3JvdW5kLXNpemU6IGNvdmVyO1xuICB9XG4gIC5pbWctYXV0aG9yIHtcbiAgICBib3JkZXItcmFkaXVzOiAzMHB4O1xuICAgIG1heC13aWR0aDogNDBweDtcbiAgICBoZWlnaHQ6IGF1dG87XG4gICAgbWFyZ2luLXJpZ2h0OiAyMHB4O1xuICB9XG5gO1xuIl19 */\n/*@ sourceURL=/Users/phamtien/Work/Nimbus/blog/components/home/CardLeft/styles.js */");
+var _defaultExport = new String(".card-left.jsx-2408882087{width:100%;}.image.jsx-2408882087{background-size:cover;}.image.jsx-2408882087 img.jsx-2408882087{display:block;max-height:200px;width:100%;object-fit:cover;}.img-author.jsx-2408882087{border-radius:30px;max-width:40px;height:auto;margin-right:20px;}\n/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9waGFtdGllbi9Xb3JrL05pbWJ1cy9ibG9nL2NvbXBvbmVudHMvaG9tZS9DYXJkTGVmdC9zdHlsZXMuanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBRWtCLEFBR2dCLEFBR1csQUFHUixBQU1LLFdBWHJCLEdBTW1CLEtBTUYsR0FUakIsU0FJYSxHQU1DLFFBTEssSUFNQyxhQUxwQixLQU1BIiwiZmlsZSI6Ii9Vc2Vycy9waGFtdGllbi9Xb3JrL05pbWJ1cy9ibG9nL2NvbXBvbmVudHMvaG9tZS9DYXJkTGVmdC9zdHlsZXMuanMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgY3NzIGZyb20gXCJzdHlsZWQtanN4L2Nzc1wiO1xuXG5leHBvcnQgZGVmYXVsdCBjc3NgXG4gIC5jYXJkLWxlZnQge1xuICAgIHdpZHRoOiAxMDAlO1xuICB9XG4gIC5pbWFnZSB7XG4gICAgYmFja2dyb3VuZC1zaXplOiBjb3ZlcjtcbiAgfVxuICAuaW1hZ2UgaW1nIHtcbiAgICBkaXNwbGF5OiBibG9jaztcbiAgICBtYXgtaGVpZ2h0OiAyMDBweDtcbiAgICB3aWR0aDogMTAwJTtcbiAgICBvYmplY3QtZml0OiBjb3ZlcjtcbiAgfVxuICAuaW1nLWF1dGhvciB7XG4gICAgYm9yZGVyLXJhZGl1czogMzBweDtcbiAgICBtYXgtd2lkdGg6IDQwcHg7XG4gICAgaGVpZ2h0OiBhdXRvO1xuICAgIG1hcmdpbi1yaWdodDogMjBweDtcbiAgfVxuYDtcbiJdfQ== */\n/*@ sourceURL=/Users/phamtien/Work/Nimbus/blog/components/home/CardLeft/styles.js */");
 
-_defaultExport.__hash = "2946084548";
+_defaultExport.__hash = "2408882087";
 /* harmony default export */ __webpack_exports__["default"] = (_defaultExport);
 
 /***/ }),
@@ -640,9 +723,9 @@ function CardRight(_ref) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-var _defaultExport = new String(".card-right.jsx-1053485831{width:100%;}.image.jsx-1053485831 img.jsx-1053485831{max-height:100px;width:100%;background-size:cover;}.img-author.jsx-1053485831{border-radius:30px;max-width:40px;height:auto;margin-right:20px;}\n/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9waGFtdGllbi9Xb3JrL05pbWJ1cy9ibG9nL2NvbXBvbmVudHMvaG9tZS9DYXJkUmlnaHQvc3R5bGVzLmpzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUVrQixBQUdnQixBQUdNLEFBS0UsV0FQckIsTUFHYSxFQUtJLFNBSk8sTUFLVixZQUNNLElBTHBCLGNBTUEiLCJmaWxlIjoiL1VzZXJzL3BoYW10aWVuL1dvcmsvTmltYnVzL2Jsb2cvY29tcG9uZW50cy9ob21lL0NhcmRSaWdodC9zdHlsZXMuanMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgY3NzIGZyb20gXCJzdHlsZWQtanN4L2Nzc1wiO1xuXG5leHBvcnQgZGVmYXVsdCBjc3NgXG4gIC5jYXJkLXJpZ2h0IHtcbiAgICB3aWR0aDogMTAwJTtcbiAgfVxuICAuaW1hZ2UgaW1nIHtcbiAgICBtYXgtaGVpZ2h0OiAxMDBweDtcbiAgICB3aWR0aDogMTAwJTtcbiAgICBiYWNrZ3JvdW5kLXNpemU6IGNvdmVyO1xuICB9XG4gIC5pbWctYXV0aG9yIHtcbiAgICBib3JkZXItcmFkaXVzOiAzMHB4O1xuICAgIG1heC13aWR0aDogNDBweDtcbiAgICBoZWlnaHQ6IGF1dG87XG4gICAgbWFyZ2luLXJpZ2h0OiAyMHB4O1xuICB9XG5gO1xuIl19 */\n/*@ sourceURL=/Users/phamtien/Work/Nimbus/blog/components/home/CardRight/styles.js */");
+var _defaultExport = new String(".card-right.jsx-494441215{width:100%;}.image.jsx-494441215 img.jsx-494441215{display:block;max-height:100px;width:100%;object-fit:cover;}.img-author.jsx-494441215{border-radius:30px;max-width:40px;height:auto;margin-right:20px;}\n/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9waGFtdGllbi9Xb3JrL05pbWJ1cy9ibG9nL2NvbXBvbmVudHMvaG9tZS9DYXJkUmlnaHQvc3R5bGVzLmpzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUVrQixBQUdnQixBQUdHLEFBTUssV0FSckIsR0FHbUIsS0FNRixZQUxKLEdBTUMsUUFMSyxJQU1DLGFBTHBCLEtBTUEiLCJmaWxlIjoiL1VzZXJzL3BoYW10aWVuL1dvcmsvTmltYnVzL2Jsb2cvY29tcG9uZW50cy9ob21lL0NhcmRSaWdodC9zdHlsZXMuanMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgY3NzIGZyb20gXCJzdHlsZWQtanN4L2Nzc1wiO1xuXG5leHBvcnQgZGVmYXVsdCBjc3NgXG4gIC5jYXJkLXJpZ2h0IHtcbiAgICB3aWR0aDogMTAwJTtcbiAgfVxuICAuaW1hZ2UgaW1nIHtcbiAgICBkaXNwbGF5OiBibG9jaztcbiAgICBtYXgtaGVpZ2h0OiAxMDBweDtcbiAgICB3aWR0aDogMTAwJTtcbiAgICBvYmplY3QtZml0OiBjb3ZlcjtcbiAgfVxuICAuaW1nLWF1dGhvciB7XG4gICAgYm9yZGVyLXJhZGl1czogMzBweDtcbiAgICBtYXgtd2lkdGg6IDQwcHg7XG4gICAgaGVpZ2h0OiBhdXRvO1xuICAgIG1hcmdpbi1yaWdodDogMjBweDtcbiAgfVxuYDtcbiJdfQ== */\n/*@ sourceURL=/Users/phamtien/Work/Nimbus/blog/components/home/CardRight/styles.js */");
 
-_defaultExport.__hash = "1053485831";
+_defaultExport.__hash = "494441215";
 /* harmony default export */ __webpack_exports__["default"] = (_defaultExport);
 
 /***/ }),
@@ -57080,11 +57163,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! next/router */ "./node_modules/next/dist/client/router.js");
 /* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_5__);
 /* harmony import */ var _components_home_HomeComponent__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../components/home/HomeComponent */ "./components/home/HomeComponent.js");
+/* harmony import */ var _components_footer_FooterComponent__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../components/footer/FooterComponent */ "./components/footer/FooterComponent.js");
 var _this = undefined,
     _jsxFileName = "/Users/phamtien/Work/Nimbus/blog/pages/index.js";
 
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
 
 
 
@@ -57100,21 +57185,21 @@ var Index = function Index(_ref) {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 12,
+      lineNumber: 13,
       columnNumber: 5
     }
   }, __jsx(next_head__WEBPACK_IMPORTED_MODULE_3___default.a, {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 13,
+      lineNumber: 14,
       columnNumber: 7
     }
   }, __jsx("title", {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 14,
+      lineNumber: 15,
       columnNumber: 9
     }
   }, "Nimbus Service"), __jsx("meta", {
@@ -57123,7 +57208,7 @@ var Index = function Index(_ref) {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 15,
+      lineNumber: 16,
       columnNumber: 9
     }
   }), __jsx("link", {
@@ -57132,7 +57217,7 @@ var Index = function Index(_ref) {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 16,
+      lineNumber: 17,
       columnNumber: 9
     }
   }), __jsx("link", {
@@ -57141,7 +57226,7 @@ var Index = function Index(_ref) {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 17,
+      lineNumber: 18,
       columnNumber: 9
     }
   }), __jsx("link", {
@@ -57150,14 +57235,14 @@ var Index = function Index(_ref) {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 21,
+      lineNumber: 22,
       columnNumber: 9
     }
   })), __jsx(_components_container__WEBPACK_IMPORTED_MODULE_1__["default"], {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 26,
+      lineNumber: 27,
       columnNumber: 7
     }
   }, __jsx(_components_header_HeaderComponent__WEBPACK_IMPORTED_MODULE_4__["default"], {
@@ -57165,7 +57250,7 @@ var Index = function Index(_ref) {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 27,
+      lineNumber: 28,
       columnNumber: 9
     }
   }), __jsx(_components_home_HomeComponent__WEBPACK_IMPORTED_MODULE_6__["default"], {
@@ -57173,7 +57258,14 @@ var Index = function Index(_ref) {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 28,
+      lineNumber: 29,
+      columnNumber: 9
+    }
+  }), __jsx(_components_footer_FooterComponent__WEBPACK_IMPORTED_MODULE_7__["default"], {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 30,
       columnNumber: 9
     }
   })));

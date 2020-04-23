@@ -1,5 +1,6 @@
 import styles from "./styles";
 import Link from "next/link";
+import { CardMedia } from "@material-ui/core";
 
 export default function CardLeft({ blog }) {
   return (
