@@ -20,6 +20,7 @@ export default css`
   }
   .logo {
     height: 37px;
+    width: auto;
   }
   .header-search {
     height: 30px;
@@ -35,5 +36,7 @@ export default css`
   .nav-menu {
     width: 90%;
     padding-left: 5%;
+    -webkit-flex-direction: row;
+    -webkit-flex-wrap: wrap;
   }
 `;

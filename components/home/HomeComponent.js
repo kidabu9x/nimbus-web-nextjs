@@ -2,6 +2,14 @@ import styles from "./styles";
 import CardLeft from "./CardLeft/CardLeft";
 import CardRight from "./CardRight/CardRight";
 import Category from "../category/CategoryComponent";
+import { Container, makeStyles } from "@material-ui/core";
+
+const useStyles = makeStyles({
+  container: {
+    paddingLeft: "5%",
+    paddingRight: "5%",
+  },
+});
 
 export default function Home({ children, features }) {
   const highlights = features.highlights;

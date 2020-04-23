@@ -3,9 +3,6 @@ import styles from "./styles";
 import { ListBlogItemComponent } from "./item/Item";
 
 export const ListBlogComponent = ({ data }) => {
-  console.log("====================================");
-  console.log(data);
-  console.log("====================================");
   return (
     <div className="container">
       <h1 className="header-title">{data.category.title}:</h1>
