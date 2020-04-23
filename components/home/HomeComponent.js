@@ -11,7 +11,7 @@ export default function Home({ children, features }) {
       {highlights && (
         <div className="container-highlight">
           <div className="header-highlight">
-            <p>Nổi bật</p>
+            <p className="category-title">Nổi bật</p>
           </div>
           <div className="ui two column grid">
             <div className="stretched row">

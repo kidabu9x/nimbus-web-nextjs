@@ -5,7 +5,7 @@ export default css`
     width: 100%;
     align-items: center;
     justify-content: center;
-    margin-bottom: 5px;
+    margin-bottom: 30px;
     -moz-box-shadow: 0px 1px 1px 1px #ccc;
     -webkit-box-shadow: 0px 1px 1px 1px #ccc;
     box-shadow: 0px 1px 1px 1px #ccc;

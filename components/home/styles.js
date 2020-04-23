@@ -16,6 +16,11 @@ export default css`
     margin-bottom: 10px;
     padding-bottom: 5px;
   }
+  .category-title {
+    font-weight: bold;
+    font-size: 1.3em;
+    margin-bottom: 5px;
+  }
   .image img {
     height: 200px;
     width: 100%;

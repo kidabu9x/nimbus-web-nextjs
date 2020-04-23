@@ -5,8 +5,12 @@ import api from "../service/serverapi_ajax";
 import Header from "../components/header/HeaderComponent";
 import Head from "next/head";
 import { useRouter } from "next/router";
+import { SLUG_TYPE } from "../utils/constants";
+import { ListBlogComponent } from "../components/list-blog/ListBlogsComponent";
+import { HighlightComponent } from "../components/highlight/HighlightComponent";
+import { BlogComponent } from "../components/blog/BlogComponent";
 
-export default function Blog({ categories }) {
+const Slug = ({ categories, highlights, type, dataPage }) => {
   const router = useRouter();
   return (
     <Layout>
@@ -19,39 +23,52 @@ export default function Blog({ categories }) {
           href="//cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css"
         />
         <link
-          href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,400;1,500;1,700&display=swap"
           rel="stylesheet"
         />
       </Head>
       <Container>
         <Header categories={categories} />
-        <h1>Router {router.asPath}</h1>
+        <div className="ui grid">
+          <div
+            className="left floated eleven wide column"
+            style={{ padding: 0 }}
+          >
+            {type === SLUG_TYPE.CATEGORY && (
+              <ListBlogComponent data={dataPage} />
+            )}
+            {type === SLUG_TYPE.BLOG && <BlogComponent data={dataPage.blog} />}
+          </div>
+          <HighlightComponent data={highlights} />
+        </div>
       </Container>
     </Layout>
   );
-}
+};
 
-export async function getStaticProps() {
+export async function getServerSideProps({ params }) {
   const resCategories = await api.getCategories();
   const categories = resCategories.data.data;
+  const resSlug = await api.getSlug(params.slug);
+  const slug = resSlug.data.data;
+  const highlights = slug.highlights;
+  const type = slug.type;
+  let dataPage = null;
+  if (type === SLUG_TYPE.CATEGORY) {
+    dataPage = {
+      category: slug.category,
+      blogs: slug.blogs,
+    };
+  }
+  if (type === SLUG_TYPE.BLOG) {
+    dataPage = {
+      blog: slug.blog,
+    };
+  }
 
   return {
-    props: { categories },
+    props: { categories, highlights, type, dataPage },
   };
 }
 
-export async function getStaticPaths() {
-  const resCategories = await api.getCategories();
-  const categories = resCategories.data.data;
-
-  return {
-    paths: categories.map((category) => {
-      return {
-        params: {
-          slug: category.slug,
-        },
-      };
-    }),
-    fallback: false,
-  };
-}
+export default Slug;
