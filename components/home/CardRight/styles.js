@@ -5,9 +5,10 @@ export default css`
     width: 100%;
   }
   .image img {
+    display: block;
     max-height: 100px;
     width: 100%;
-    background-size: cover;
+    object-fit: cover;
   }
   .img-author {
     border-radius: 30px;

@@ -2,12 +2,15 @@ import styles from "./styles";
 import CardLeft from "../home/CardLeft/CardLeft";
 import CardRight from "../home/CardRight/CardRight";
 import Link from "next/link";
+import { Typography } from "@material-ui/core";
 
 export default function Category({ categoryFeature }) {
   return (
     <div className="container">
       <div className="header-highlight">
-        <p className="category-title">{categoryFeature.category.title}</p>
+        <Typography variant="h5" gutterBottom>
+          {categoryFeature.category.title}
+        </Typography>
         <Link href={categoryFeature.category.slug}>
           <a>Xem thêm ></a>
         </Link>

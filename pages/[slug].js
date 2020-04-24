@@ -9,6 +9,7 @@ import { SLUG_TYPE } from "../utils/constants";
 import { ListBlogComponent } from "../components/list-blog/ListBlogsComponent";
 import { HighlightComponent } from "../components/highlight/HighlightComponent";
 import { BlogComponent } from "../components/blog/BlogComponent";
+import Footer from "../components/footer/FooterComponent";
 
 const Slug = ({ categories, highlights, type, dataPage }) => {
   const router = useRouter();
@@ -38,19 +39,29 @@ const Slug = ({ categories, highlights, type, dataPage }) => {
               <ListBlogComponent data={dataPage} />
             )}
             {type === SLUG_TYPE.BLOG && <BlogComponent data={dataPage.blog} />}
+            {type === SLUG_TYPE.SEARCH && (
+              <ListBlogComponent data={dataPage} isSearch />
+            )}
           </div>
           <HighlightComponent data={highlights} />
         </div>
+        <Footer />
       </Container>
     </Layout>
   );
 };
 
-export async function getServerSideProps({ params }) {
+export async function getServerSideProps({ params, query }) {
   const resCategories = await api.getCategories();
   const categories = resCategories.data.data;
-  const resSlug = await api.getSlug(params.slug);
-  const slug = resSlug.data.data;
+  let slug = null;
+  if (params.slug === "search") {
+    const resSearch = await api.searchByQuery(query.query);
+    slug = resSearch.data.data;
+  } else {
+    const resSlug = await api.getSlug(params.slug);
+    slug = resSlug.data.data;
+  }
   const highlights = slug.highlights;
   const type = slug.type;
   let dataPage = null;
@@ -63,6 +74,12 @@ export async function getServerSideProps({ params }) {
   if (type === SLUG_TYPE.BLOG) {
     dataPage = {
       blog: slug.blog,
+    };
+  }
+  if (type === SLUG_TYPE.SEARCH) {
+    dataPage = {
+      blogs: slug.blogs,
+      searchQuery: query.query,
     };
   }
 

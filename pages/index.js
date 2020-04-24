@@ -1,12 +1,11 @@
 import Container from "../components/container";
-import MoreStories from "../components/more-stories";
-import HeroPost from "../components/hero-post";
 import Layout from "../components/layout";
 import Head from "next/head";
 import Header from "../components/header/HeaderComponent";
 import api from "../service/serverapi_ajax";
 import { useRouter } from "next/router";
 import Home from "../components/home/HomeComponent";
+import Footer from "../components/footer/FooterComponent";
 
 const Index = ({ categories, features }) => {
   const router = useRouter();
@@ -24,10 +23,17 @@ const Index = ({ categories, features }) => {
           href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,400;1,500;1,700&display=swap"
           rel="stylesheet"
         />
+        <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/fontawesome.min.css"
+          integrity="sha256-CuUPKpitgFmSNQuPDL5cEfPOOJT/+bwUlhfumDJ9CI4="
+          crossorigin="anonymous"
+        />
       </Head>
       <Container>
         <Header categories={categories} />
         <Home features={features} />
+        <Footer />
       </Container>
     </Layout>
   );
