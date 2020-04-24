@@ -19,10 +19,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _home_CardRight_CardRight__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../home/CardRight/CardRight */ "./components/home/CardRight/CardRight.js");
 /* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! next/link */ "./node_modules/next/link.js");
 /* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/index.js");
 var _jsxFileName = "/Users/phamtien/Work/Nimbus/blog/components/category/CategoryComponent.js";
 
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
+
 
 
 
@@ -34,7 +36,7 @@ function Category(_ref) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 8,
+      lineNumber: 9,
       columnNumber: 5
     }
   }, __jsx("div", {
@@ -42,15 +44,16 @@ function Category(_ref) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 9,
+      lineNumber: 10,
       columnNumber: 7
     }
-  }, __jsx("p", {
-    className: "jsx-".concat(_styles__WEBPACK_IMPORTED_MODULE_2__["default"].__hash) + " " + "category-title",
+  }, __jsx(_material_ui_core__WEBPACK_IMPORTED_MODULE_6__["Typography"], {
+    variant: "h5",
+    gutterBottom: true,
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 10,
+      lineNumber: 11,
       columnNumber: 9
     }
   }, categoryFeature.category.title), __jsx(next_link__WEBPACK_IMPORTED_MODULE_5___default.a, {
@@ -58,7 +61,7 @@ function Category(_ref) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 11,
+      lineNumber: 14,
       columnNumber: 9
     }
   }, __jsx("a", {
@@ -66,7 +69,7 @@ function Category(_ref) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 12,
+      lineNumber: 15,
       columnNumber: 11
     }
   }, "Xem th\xEAm >"))), __jsx("div", {
@@ -74,7 +77,7 @@ function Category(_ref) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 15,
+      lineNumber: 18,
       columnNumber: 7
     }
   }, __jsx("div", {
@@ -82,7 +85,7 @@ function Category(_ref) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 16,
+      lineNumber: 19,
       columnNumber: 9
     }
   }, __jsx("div", {
@@ -90,7 +93,7 @@ function Category(_ref) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 17,
+      lineNumber: 20,
       columnNumber: 11
     }
   }, __jsx(_home_CardLeft_CardLeft__WEBPACK_IMPORTED_MODULE_3__["default"], {
@@ -98,7 +101,7 @@ function Category(_ref) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 18,
+      lineNumber: 21,
       columnNumber: 13
     }
   })), __jsx("div", {
@@ -106,7 +109,7 @@ function Category(_ref) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 20,
+      lineNumber: 23,
       columnNumber: 11
     }
   }, __jsx("div", {
@@ -114,7 +117,7 @@ function Category(_ref) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 21,
+      lineNumber: 24,
       columnNumber: 13
     }
   }, __jsx("div", {
@@ -122,7 +125,7 @@ function Category(_ref) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 22,
+      lineNumber: 25,
       columnNumber: 15
     }
   }, __jsx(_home_CardRight_CardRight__WEBPACK_IMPORTED_MODULE_4__["default"], {
@@ -130,7 +133,7 @@ function Category(_ref) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 23,
+      lineNumber: 26,
       columnNumber: 17
     }
   }), __jsx(_home_CardRight_CardRight__WEBPACK_IMPORTED_MODULE_4__["default"], {
@@ -138,7 +141,7 @@ function Category(_ref) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 24,
+      lineNumber: 27,
       columnNumber: 17
     }
   })), __jsx("div", {
@@ -146,7 +149,7 @@ function Category(_ref) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 26,
+      lineNumber: 29,
       columnNumber: 15
     }
   }, __jsx(_home_CardRight_CardRight__WEBPACK_IMPORTED_MODULE_4__["default"], {
@@ -154,7 +157,7 @@ function Category(_ref) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 27,
+      lineNumber: 30,
       columnNumber: 17
     }
   }), __jsx(_home_CardRight_CardRight__WEBPACK_IMPORTED_MODULE_4__["default"], {
@@ -162,7 +165,7 @@ function Category(_ref) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 28,
+      lineNumber: 31,
       columnNumber: 17
     }
   })))))), __jsx(styled_jsx_style__WEBPACK_IMPORTED_MODULE_0___default.a, {
@@ -239,11 +242,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _styles__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./styles */ "./components/footer/styles.js");
+/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/index.js");
 var _this = undefined,
     _jsxFileName = "/Users/phamtien/Work/Nimbus/blog/components/footer/FooterComponent.js";
 
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
+
 
 
 
@@ -253,35 +258,131 @@ var Footer = function Footer() {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 6,
+      lineNumber: 7,
       columnNumber: 5
     }
-  }, __jsx("p", {
-    className: "jsx-".concat(_styles__WEBPACK_IMPORTED_MODULE_2__["default"].__hash),
-    __self: _this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 7,
-      columnNumber: 7
-    }
-  }, "Posted by: Hege Refsnes"), __jsx("p", {
-    className: "jsx-".concat(_styles__WEBPACK_IMPORTED_MODULE_2__["default"].__hash),
+  }, __jsx("div", {
+    className: "jsx-".concat(_styles__WEBPACK_IMPORTED_MODULE_2__["default"].__hash) + " " + "information-field",
     __self: _this,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 8,
       columnNumber: 7
     }
-  }, "Contact information:", " ", __jsx("a", {
-    href: "mailto:someone@example.com",
+  }, __jsx("div", {
     className: "jsx-".concat(_styles__WEBPACK_IMPORTED_MODULE_2__["default"].__hash),
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 10,
+      lineNumber: 9,
       columnNumber: 9
     }
-  }, "someone@example.com"), "."), __jsx(styled_jsx_style__WEBPACK_IMPORTED_MODULE_0___default.a, {
+  }, __jsx("img", {
+    alt: "logo",
+    src: "/static/assets/images/logo_footer.png",
+    className: "jsx-".concat(_styles__WEBPACK_IMPORTED_MODULE_2__["default"].__hash) + " " + "logo",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 10,
+      columnNumber: 11
+    }
+  }), __jsx("p", {
+    className: "jsx-".concat(_styles__WEBPACK_IMPORTED_MODULE_2__["default"].__hash) + " " + "information-txt",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 15,
+      columnNumber: 11
+    }
+  }, "C\xD4NG TY TNHH NIMBUS"), __jsx("p", {
+    className: "jsx-".concat(_styles__WEBPACK_IMPORTED_MODULE_2__["default"].__hash) + " " + "information-txt",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 16,
+      columnNumber: 11
+    }
+  }, "\u0110\u1ECBa ch\u1EC9: S\u1ED1 5 ng\xF5 128 Ph\u1ED1 V\u1ECDng, H\xE0 N\u1ED9i"), __jsx("p", {
+    className: "jsx-".concat(_styles__WEBPACK_IMPORTED_MODULE_2__["default"].__hash) + " " + "information-txt",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 19,
+      columnNumber: 11
+    }
+  }, "Gi\u1EA5y ph\xE9p \u0110KKD s\u1ED1 0107927478 do S\u1EDF K\u1EBF ho\u1EA1ch v\xE0 \u0110\u1EA7u t\u01B0 H\xE0 N\u1ED9i c\u1EA5p"), __jsx("p", {
+    className: "jsx-".concat(_styles__WEBPACK_IMPORTED_MODULE_2__["default"].__hash) + " " + "information-txt",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 22,
+      columnNumber: 11
+    }
+  }, "T\xEAn mi\u1EC1n: https://nimbus.com.vn"), __jsx("br", {
+    className: "jsx-".concat(_styles__WEBPACK_IMPORTED_MODULE_2__["default"].__hash),
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 23,
+      columnNumber: 11
+    }
+  }), __jsx("p", {
+    className: "jsx-".concat(_styles__WEBPACK_IMPORTED_MODULE_2__["default"].__hash) + " " + "information-txt",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 24,
+      columnNumber: 11
+    }
+  }, "Hotline: 0969 849 603")), __jsx("div", {
+    className: "jsx-".concat(_styles__WEBPACK_IMPORTED_MODULE_2__["default"].__hash),
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 26,
+      columnNumber: 9
+    }
+  }, __jsx("div", {
+    "class": "fb-page",
+    "data-href": "https://www.facebook.com/nimbustrainingcenter/",
+    "data-width": "340",
+    "data-hide-cover": "false",
+    "data-show-facepile": "true",
+    className: "jsx-".concat(_styles__WEBPACK_IMPORTED_MODULE_2__["default"].__hash),
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 27,
+      columnNumber: 11
+    }
+  }, __jsx("iframe", {
+    src: "https://www.facebook.com/nimbustrainingcenter/",
+    className: "jsx-".concat(_styles__WEBPACK_IMPORTED_MODULE_2__["default"].__hash),
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 34,
+      columnNumber: 13
+    }
+  })))), __jsx("div", {
+    className: "jsx-".concat(_styles__WEBPACK_IMPORTED_MODULE_2__["default"].__hash) + " " + "copyright",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 38,
+      columnNumber: 7
+    }
+  }, __jsx(_material_ui_core__WEBPACK_IMPORTED_MODULE_3__["Typography"], {
+    variant: "body1",
+    gutterBottom: true,
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 39,
+      columnNumber: 9
+    }
+  }, "Copyright @ 2020 - B\u1EA3n quy\u1EC1n c\u1EE7a C\xF4ng ty TNHH Gi\xE1o d\u1EE5c v\xE0 \u0110\xE0o t\u1EA1o Nimbus")), __jsx(styled_jsx_style__WEBPACK_IMPORTED_MODULE_0___default.a, {
     id: _styles__WEBPACK_IMPORTED_MODULE_2__["default"].__hash,
     __self: _this
   }, _styles__WEBPACK_IMPORTED_MODULE_2__["default"]));
@@ -300,9 +401,9 @@ var Footer = function Footer() {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-var _defaultExport = new String(".container.jsx-123586657{width:100%;margin-bottom:20px;}.input-field.jsx-123586657{width:85%;margin-bottom:30px;}.list-field.jsx-123586657{margin-right:10%;}@media (min-height:320px){.ui.footer.form-page.jsx-123586657{position:absolute;bottom:0;width:100%;}}\n/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9waGFtdGllbi9Xb3JrL05pbWJ1cy9ibG9nL2NvbXBvbmVudHMvZm9vdGVyL3N0eWxlcy5qcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFFa0IsQUFHZ0IsQUFJRCxBQUlPLEFBS0csVUFSRCxDQUpBLE1BUXJCLENBS2EsU0FDRSxFQVRmLENBSkEsUUFjRSIsImZpbGUiOiIvVXNlcnMvcGhhbXRpZW4vV29yay9OaW1idXMvYmxvZy9jb21wb25lbnRzL2Zvb3Rlci9zdHlsZXMuanMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgY3NzIGZyb20gXCJzdHlsZWQtanN4L2Nzc1wiO1xuXG5leHBvcnQgZGVmYXVsdCBjc3NgXG4gIC5jb250YWluZXIge1xuICAgIHdpZHRoOiAxMDAlO1xuICAgIG1hcmdpbi1ib3R0b206IDIwcHg7XG4gIH1cbiAgLmlucHV0LWZpZWxkIHtcbiAgICB3aWR0aDogODUlO1xuICAgIG1hcmdpbi1ib3R0b206IDMwcHg7XG4gIH1cbiAgLmxpc3QtZmllbGQge1xuICAgIG1hcmdpbi1yaWdodDogMTAlO1xuICB9XG4gIEBtZWRpYSAobWluLWhlaWdodDogMzIwcHgpIHtcbiAgICAudWkuZm9vdGVyLmZvcm0tcGFnZSB7XG4gICAgICAvKiBJbmNyZWFzZWQgc3BlY2lmaWNpdHkgZm9yIFNPIHNuaXBwZXQgcHJpb3JpdHkgKi9cbiAgICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgICAgIGJvdHRvbTogMDtcbiAgICAgIHdpZHRoOiAxMDAlO1xuICAgIH1cbiAgfVxuYDtcbiJdfQ== */\n/*@ sourceURL=/Users/phamtien/Work/Nimbus/blog/components/footer/styles.js */");
+var _defaultExport = new String(".container.jsx-1189403653{width:100%;margin-bottom:20px;}.input-field.jsx-1189403653{width:85%;margin-bottom:30px;}.list-field.jsx-1189403653{margin-right:10%;}.copyright.jsx-1189403653{text-align:center;background-color:#333333;margin:0;padding:0;}.information-field.jsx-1189403653{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;width:60%;margin:auto;-webkit-box-pack:justify;-webkit-justify-content:space-between;-ms-flex-pack:justify;justify-content:space-between;background-color:#3c3d41;margin-bottom:20px;}.information-txt.jsx-1189403653{width:60%;}.logo.jsx-1189403653{height:30px;}@media (min-height:320px){.ui.footer.form-page.jsx-1189403653{bottom:0;width:100%;background-color:#3c3d41;padding-bottom:0px;}}\n/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9waGFtdGllbi9Xb3JrL05pbWJ1cy9ibG9nL2NvbXBvbmVudHMvZm9vdGVyL3N0eWxlcy5qcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFFa0IsQUFHZ0IsQUFJRCxBQUlPLEFBR0MsQUFNTCxBQVFILEFBR0UsQUFLRCxTQUNFLENBN0JNLEFBcUJyQixDQXpCcUIsQ0E0QnJCLEtBcEJBLENBRzJCLEVBdUJFLFNBN0I3QixDQUpBLGFBV1csRUF1QlksT0F0QlgsVUFDWixFQXNCRSxVQW5CVSxVQUNFLFlBQ2tCLG1IQUNMLHlCQUNOLG1CQUNyQiIsImZpbGUiOiIvVXNlcnMvcGhhbXRpZW4vV29yay9OaW1idXMvYmxvZy9jb21wb25lbnRzL2Zvb3Rlci9zdHlsZXMuanMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgY3NzIGZyb20gXCJzdHlsZWQtanN4L2Nzc1wiO1xuXG5leHBvcnQgZGVmYXVsdCBjc3NgXG4gIC5jb250YWluZXIge1xuICAgIHdpZHRoOiAxMDAlO1xuICAgIG1hcmdpbi1ib3R0b206IDIwcHg7XG4gIH1cbiAgLmlucHV0LWZpZWxkIHtcbiAgICB3aWR0aDogODUlO1xuICAgIG1hcmdpbi1ib3R0b206IDMwcHg7XG4gIH1cbiAgLmxpc3QtZmllbGQge1xuICAgIG1hcmdpbi1yaWdodDogMTAlO1xuICB9XG4gIC5jb3B5cmlnaHQge1xuICAgIHRleHQtYWxpZ246IGNlbnRlcjtcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjMzMzMzMzO1xuICAgIG1hcmdpbjogMDtcbiAgICBwYWRkaW5nOiAwO1xuICB9XG4gIC5pbmZvcm1hdGlvbi1maWVsZCB7XG4gICAgZGlzcGxheTogZmxleDtcbiAgICB3aWR0aDogNjAlO1xuICAgIG1hcmdpbjogYXV0bztcbiAgICBqdXN0aWZ5LWNvbnRlbnQ6IHNwYWNlLWJldHdlZW47XG4gICAgYmFja2dyb3VuZC1jb2xvcjogIzNjM2Q0MTtcbiAgICBtYXJnaW4tYm90dG9tOiAyMHB4O1xuICB9XG4gIC5pbmZvcm1hdGlvbi10eHQge1xuICAgIHdpZHRoOiA2MCU7XG4gIH1cbiAgLmxvZ28ge1xuICAgIGhlaWdodDogMzBweDtcbiAgfVxuICBAbWVkaWEgKG1pbi1oZWlnaHQ6IDMyMHB4KSB7XG4gICAgLnVpLmZvb3Rlci5mb3JtLXBhZ2Uge1xuICAgICAgLyogSW5jcmVhc2VkIHNwZWNpZmljaXR5IGZvciBTTyBzbmlwcGV0IHByaW9yaXR5ICovXG4gICAgICBib3R0b206IDA7XG4gICAgICB3aWR0aDogMTAwJTtcbiAgICAgIGJhY2tncm91bmQtY29sb3I6ICMzYzNkNDE7XG4gICAgICBwYWRkaW5nLWJvdHRvbTogMHB4O1xuICAgIH1cbiAgfVxuYDtcbiJdfQ== */\n/*@ sourceURL=/Users/phamtien/Work/Nimbus/blog/components/footer/styles.js */");
 
-_defaultExport.__hash = "123586657";
+_defaultExport.__hash = "1189403653";
 /* harmony default export */ __webpack_exports__["default"] = (_defaultExport);
 
 /***/ }),
@@ -795,8 +896,9 @@ function Home(_ref) {
       lineNumber: 21,
       columnNumber: 11
     }
-  }, __jsx("p", {
-    className: "jsx-".concat(_styles__WEBPACK_IMPORTED_MODULE_2__["default"].__hash) + " " + "category-title",
+  }, __jsx(_material_ui_core__WEBPACK_IMPORTED_MODULE_6__["Typography"], {
+    variant: "h5",
+    gutterBottom: true,
     __self: this,
     __source: {
       fileName: _jsxFileName,
@@ -808,7 +910,7 @@ function Home(_ref) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 24,
+      lineNumber: 26,
       columnNumber: 11
     }
   }, __jsx("div", {
@@ -816,7 +918,7 @@ function Home(_ref) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 25,
+      lineNumber: 27,
       columnNumber: 13
     }
   }, __jsx("div", {
@@ -824,7 +926,7 @@ function Home(_ref) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 26,
+      lineNumber: 28,
       columnNumber: 15
     }
   }, __jsx(_CardLeft_CardLeft__WEBPACK_IMPORTED_MODULE_3__["default"], {
@@ -832,7 +934,7 @@ function Home(_ref) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 27,
+      lineNumber: 29,
       columnNumber: 17
     }
   })), __jsx("div", {
@@ -840,7 +942,7 @@ function Home(_ref) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 29,
+      lineNumber: 31,
       columnNumber: 15
     }
   }, __jsx("div", {
@@ -848,7 +950,7 @@ function Home(_ref) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 30,
+      lineNumber: 32,
       columnNumber: 17
     }
   }, __jsx("div", {
@@ -856,7 +958,7 @@ function Home(_ref) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 31,
+      lineNumber: 33,
       columnNumber: 19
     }
   }, __jsx(_CardRight_CardRight__WEBPACK_IMPORTED_MODULE_4__["default"], {
@@ -864,7 +966,7 @@ function Home(_ref) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 32,
+      lineNumber: 34,
       columnNumber: 21
     }
   }), __jsx(_CardRight_CardRight__WEBPACK_IMPORTED_MODULE_4__["default"], {
@@ -872,7 +974,7 @@ function Home(_ref) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 33,
+      lineNumber: 35,
       columnNumber: 21
     }
   })), __jsx("div", {
@@ -880,7 +982,7 @@ function Home(_ref) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 35,
+      lineNumber: 37,
       columnNumber: 19
     }
   }, __jsx(_CardRight_CardRight__WEBPACK_IMPORTED_MODULE_4__["default"], {
@@ -888,7 +990,7 @@ function Home(_ref) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 36,
+      lineNumber: 38,
       columnNumber: 21
     }
   }), __jsx(_CardRight_CardRight__WEBPACK_IMPORTED_MODULE_4__["default"], {
@@ -896,7 +998,7 @@ function Home(_ref) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 37,
+      lineNumber: 39,
       columnNumber: 21
     }
   }))))))), categoryFeatures.map(function (categoryFeature, index) {
@@ -906,7 +1008,7 @@ function Home(_ref) {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 46,
+        lineNumber: 48,
         columnNumber: 9
       }
     });
@@ -57276,7 +57378,7 @@ var __N_SSG = true;
 
 /***/ }),
 
-/***/ 2:
+/***/ 1:
 /*!******************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2F&absolutePagePath=%2FUsers%2Fphamtien%2FWork%2FNimbus%2Fblog%2Fpages%2Findex.js ***!
   \******************************************************************************************************************************/
@@ -57299,5 +57401,5 @@ module.exports = dll_c2e10d183b950a67d9e7;
 
 /***/ })
 
-},[[2,"static/runtime/webpack.js"]]]);
+},[[1,"static/runtime/webpack.js"]]]);
 //# sourceMappingURL=index.js.map

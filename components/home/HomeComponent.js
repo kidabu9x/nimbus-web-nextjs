@@ -2,7 +2,7 @@ import styles from "./styles";
 import CardLeft from "./CardLeft/CardLeft";
 import CardRight from "./CardRight/CardRight";
 import Category from "../category/CategoryComponent";
-import { Container, makeStyles } from "@material-ui/core";
+import { Container, makeStyles, Typography } from "@material-ui/core";
 
 const useStyles = makeStyles({
   container: {
@@ -19,7 +19,9 @@ export default function Home({ children, features }) {
       {highlights && (
         <div className="container-highlight">
           <div className="header-highlight">
-            <p className="category-title">Nổi bật</p>
+            <Typography variant="h5" gutterBottom>
+              Nổi bật
+            </Typography>
           </div>
           <div className="ui two column grid">
             <div className="stretched row">
