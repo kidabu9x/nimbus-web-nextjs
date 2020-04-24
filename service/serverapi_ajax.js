@@ -37,6 +37,15 @@ class ServerAPI {
     let url = `${PUBLIC_URL}/${slug}`;
     return this.client.get(url);
   }
+
+  searchByQuery(query) {
+    let url = `${PUBLIC_URL}/search`;
+    return this.client.get(url, {
+      params: {
+        query,
+      },
+    });
+  }
 }
 
 // export singleton API

@@ -20,12 +20,16 @@ export default css`
   }
   .logo {
     height: 37px;
+    margin-bottom: 10px;
     width: auto;
   }
   .header-search {
-    height: 30px;
     border-color: #fff;
     margin-left: 40px;
+    min-width: 40%;
+  }
+  .icon-search {
+    margin-bottom: 10px;
   }
   .btn-write {
     border-radius: 20px;

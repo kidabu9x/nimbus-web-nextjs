@@ -24,13 +24,29 @@ export default css`
     margin: auto;
     justify-content: space-between;
     background-color: #3c3d41;
-    margin-bottom: 20px;
+    margin-bottom: 50px;
+    -webkit-flex-direction: row;
+    -webkit-flex-wrap: wrap;
   }
   .information-txt {
     width: 60%;
   }
   .logo {
     height: 30px;
+  }
+  .footer-right {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  .contact-logos {
+    display: flex;
+    justify-content: center;
+  }
+  .logo-contact {
+    font-size: 30px;
+    padding: 5px;
+    margin-bottom: 8px;
   }
   @media (min-height: 320px) {
     .ui.footer.form-page {

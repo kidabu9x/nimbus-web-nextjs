@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 4);
+/******/ 	return __webpack_require__(__webpack_require__.s = 5);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -395,12 +395,30 @@ const Footer = () => {
       lineNumber: 22,
       columnNumber: 11
     }
-  }, "T\xEAn mi\u1EC1n: https://nimbus.com.vn"), __jsx("br", {
+  }, "T\xEAn mi\u1EC1n:", " ", __jsx("span", {
     className: `jsx-${_styles__WEBPACK_IMPORTED_MODULE_2__["default"].__hash}`,
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 23,
+      lineNumber: 24,
+      columnNumber: 13
+    }
+  }, __jsx("a", {
+    href: "https://nimbus.com.vn",
+    target: "_blank",
+    className: `jsx-${_styles__WEBPACK_IMPORTED_MODULE_2__["default"].__hash}`,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 25,
+      columnNumber: 15
+    }
+  }, "https://nimbus.com.vn"))), __jsx("br", {
+    className: `jsx-${_styles__WEBPACK_IMPORTED_MODULE_2__["default"].__hash}`,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 30,
       columnNumber: 11
     }
   }), __jsx("p", {
@@ -408,45 +426,121 @@ const Footer = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 24,
+      lineNumber: 31,
       columnNumber: 11
     }
   }, "Hotline: 0969 849 603")), __jsx("div", {
-    className: `jsx-${_styles__WEBPACK_IMPORTED_MODULE_2__["default"].__hash}`,
+    className: `jsx-${_styles__WEBPACK_IMPORTED_MODULE_2__["default"].__hash}` + " " + "footer-right",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 26,
+      lineNumber: 33,
       columnNumber: 9
     }
-  }, __jsx("div", {
-    class: "fb-page",
-    "data-href": "https://www.facebook.com/nimbustrainingcenter/",
-    "data-width": "340",
-    "data-hide-cover": "false",
-    "data-show-facepile": "true",
-    className: `jsx-${_styles__WEBPACK_IMPORTED_MODULE_2__["default"].__hash}`,
-    __self: undefined,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 27,
-      columnNumber: 11
-    }
   }, __jsx("iframe", {
-    src: "https://www.facebook.com/nimbustrainingcenter/",
+    src: "https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fnimbustrainingcenter%2F&tabs=timeline&width=300&height=70&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=709969695863741",
+    width: "300",
+    height: "140",
+    scrolling: "no",
+    frameBorder: "0",
+    allowtransparency: "true",
+    allow: "encrypted-media",
     className: `jsx-${_styles__WEBPACK_IMPORTED_MODULE_2__["default"].__hash}`,
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 34,
+      columnNumber: 11
+    }
+  }), __jsx("div", {
+    className: `jsx-${_styles__WEBPACK_IMPORTED_MODULE_2__["default"].__hash}` + " " + "contact-logos",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 43,
+      columnNumber: 11
+    }
+  }, __jsx("a", {
+    href: "tel:+84969849603",
+    style: {
+      color: "white"
+    },
+    className: `jsx-${_styles__WEBPACK_IMPORTED_MODULE_2__["default"].__hash}`,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 44,
       columnNumber: 13
     }
-  })))), __jsx("div", {
+  }, __jsx("i", {
+    "aria-hidden": "true",
+    className: `jsx-${_styles__WEBPACK_IMPORTED_MODULE_2__["default"].__hash}` + " " + "phone square icon logo-contact",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 45,
+      columnNumber: 15
+    }
+  })), __jsx("a", {
+    href: "https://www.facebook.com/nimbustrainingcenter/",
+    target: "_blank",
+    style: {
+      color: "white"
+    },
+    className: `jsx-${_styles__WEBPACK_IMPORTED_MODULE_2__["default"].__hash}`,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 50,
+      columnNumber: 13
+    }
+  }, __jsx("i", {
+    "aria-hidden": "true",
+    className: `jsx-${_styles__WEBPACK_IMPORTED_MODULE_2__["default"].__hash}` + " " + "facebook icon logo-contact",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 55,
+      columnNumber: 15
+    }
+  })), __jsx("a", {
+    href: "mailto:tuyensinh.nimbuscenter@gmail.com",
+    style: {
+      color: "white"
+    },
+    className: `jsx-${_styles__WEBPACK_IMPORTED_MODULE_2__["default"].__hash}`,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 57,
+      columnNumber: 13
+    }
+  }, __jsx("i", {
+    "aria-hidden": "true",
+    className: `jsx-${_styles__WEBPACK_IMPORTED_MODULE_2__["default"].__hash}` + " " + "envelope icon logo-contact",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 61,
+      columnNumber: 15
+    }
+  }))), __jsx("button", {
+    style: {
+      backgroundColor: "#207347"
+    },
+    className: `jsx-${_styles__WEBPACK_IMPORTED_MODULE_2__["default"].__hash}` + " " + "ui green button",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 64,
+      columnNumber: 11
+    }
+  }, "Li\xEAn h\u1EC7"))), __jsx("div", {
     className: `jsx-${_styles__WEBPACK_IMPORTED_MODULE_2__["default"].__hash}` + " " + "copyright",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 38,
+      lineNumber: 72,
       columnNumber: 7
     }
   }, __jsx(_material_ui_core__WEBPACK_IMPORTED_MODULE_3__["Typography"], {
@@ -455,7 +549,7 @@ const Footer = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 39,
+      lineNumber: 73,
       columnNumber: 9
     }
   }, "Copyright @ 2020 - B\u1EA3n quy\u1EC1n c\u1EE7a C\xF4ng ty TNHH Gi\xE1o d\u1EE5c v\xE0 \u0110\xE0o t\u1EA1o Nimbus")), __jsx(styled_jsx_style__WEBPACK_IMPORTED_MODULE_0___default.a, {
@@ -477,9 +571,9 @@ const Footer = () => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-const _defaultExport = new String(".container.jsx-1189403653{width:100%;margin-bottom:20px;}.input-field.jsx-1189403653{width:85%;margin-bottom:30px;}.list-field.jsx-1189403653{margin-right:10%;}.copyright.jsx-1189403653{text-align:center;background-color:#333333;margin:0;padding:0;}.information-field.jsx-1189403653{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;width:60%;margin:auto;-webkit-box-pack:justify;-webkit-justify-content:space-between;-ms-flex-pack:justify;justify-content:space-between;background-color:#3c3d41;margin-bottom:20px;}.information-txt.jsx-1189403653{width:60%;}.logo.jsx-1189403653{height:30px;}@media (min-height:320px){.ui.footer.form-page.jsx-1189403653{bottom:0;width:100%;background-color:#3c3d41;padding-bottom:0px;}}\n/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9waGFtdGllbi9Xb3JrL05pbWJ1cy9ibG9nL2NvbXBvbmVudHMvZm9vdGVyL3N0eWxlcy5qcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFFa0IsQUFHZ0IsQUFJRCxBQUlPLEFBR0MsQUFNTCxBQVFILEFBR0UsQUFLRCxTQUNFLENBN0JNLEFBcUJyQixDQXpCcUIsQ0E0QnJCLEtBcEJBLENBRzJCLEVBdUJFLFNBN0I3QixDQUpBLGFBV1csRUF1QlksT0F0QlgsVUFDWixFQXNCRSxVQW5CVSxVQUNFLFlBQ2tCLG1IQUNMLHlCQUNOLG1CQUNyQiIsImZpbGUiOiIvVXNlcnMvcGhhbXRpZW4vV29yay9OaW1idXMvYmxvZy9jb21wb25lbnRzL2Zvb3Rlci9zdHlsZXMuanMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgY3NzIGZyb20gXCJzdHlsZWQtanN4L2Nzc1wiO1xuXG5leHBvcnQgZGVmYXVsdCBjc3NgXG4gIC5jb250YWluZXIge1xuICAgIHdpZHRoOiAxMDAlO1xuICAgIG1hcmdpbi1ib3R0b206IDIwcHg7XG4gIH1cbiAgLmlucHV0LWZpZWxkIHtcbiAgICB3aWR0aDogODUlO1xuICAgIG1hcmdpbi1ib3R0b206IDMwcHg7XG4gIH1cbiAgLmxpc3QtZmllbGQge1xuICAgIG1hcmdpbi1yaWdodDogMTAlO1xuICB9XG4gIC5jb3B5cmlnaHQge1xuICAgIHRleHQtYWxpZ246IGNlbnRlcjtcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjMzMzMzMzO1xuICAgIG1hcmdpbjogMDtcbiAgICBwYWRkaW5nOiAwO1xuICB9XG4gIC5pbmZvcm1hdGlvbi1maWVsZCB7XG4gICAgZGlzcGxheTogZmxleDtcbiAgICB3aWR0aDogNjAlO1xuICAgIG1hcmdpbjogYXV0bztcbiAgICBqdXN0aWZ5LWNvbnRlbnQ6IHNwYWNlLWJldHdlZW47XG4gICAgYmFja2dyb3VuZC1jb2xvcjogIzNjM2Q0MTtcbiAgICBtYXJnaW4tYm90dG9tOiAyMHB4O1xuICB9XG4gIC5pbmZvcm1hdGlvbi10eHQge1xuICAgIHdpZHRoOiA2MCU7XG4gIH1cbiAgLmxvZ28ge1xuICAgIGhlaWdodDogMzBweDtcbiAgfVxuICBAbWVkaWEgKG1pbi1oZWlnaHQ6IDMyMHB4KSB7XG4gICAgLnVpLmZvb3Rlci5mb3JtLXBhZ2Uge1xuICAgICAgLyogSW5jcmVhc2VkIHNwZWNpZmljaXR5IGZvciBTTyBzbmlwcGV0IHByaW9yaXR5ICovXG4gICAgICBib3R0b206IDA7XG4gICAgICB3aWR0aDogMTAwJTtcbiAgICAgIGJhY2tncm91bmQtY29sb3I6ICMzYzNkNDE7XG4gICAgICBwYWRkaW5nLWJvdHRvbTogMHB4O1xuICAgIH1cbiAgfVxuYDtcbiJdfQ== */\n/*@ sourceURL=/Users/phamtien/Work/Nimbus/blog/components/footer/styles.js */");
+const _defaultExport = new String(".container.jsx-862388985{width:100%;margin-bottom:20px;}.input-field.jsx-862388985{width:85%;margin-bottom:30px;}.list-field.jsx-862388985{margin-right:10%;}.copyright.jsx-862388985{text-align:center;background-color:#333333;margin:0;padding:0;}.information-field.jsx-862388985{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;width:60%;margin:auto;-webkit-box-pack:justify;-webkit-justify-content:space-between;-ms-flex-pack:justify;justify-content:space-between;background-color:#3c3d41;margin-bottom:50px;-webkit-flex-direction:row;-webkit-flex-wrap:wrap;}.information-txt.jsx-862388985{width:60%;}.logo.jsx-862388985{height:30px;}.footer-right.jsx-862388985{-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;text-align:center;}.contact-logos.jsx-862388985{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;}.logo-contact.jsx-862388985{font-size:30px;padding:5px;margin-bottom:8px;}@media (min-height:320px){.ui.footer.form-page.jsx-862388985{bottom:0;width:100%;background-color:#3c3d41;padding-bottom:0px;}}\n/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9waGFtdGllbi9Xb3JrL05pbWJ1cy9ibG9nL2NvbXBvbmVudHMvZm9vdGVyL3N0eWxlcy5qcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFFa0IsQUFHZ0IsQUFJRCxBQUlPLEFBR0MsQUFNTCxBQVVILEFBR0UsQUFHTyxBQUtOLEFBSUUsQUFPSixTQUNFLENBN0NNLEFBdUJyQixDQTNCcUIsQ0E4QnJCLEdBWWMsRUFsQ2QsQ0FHMkIsRUF1Q0UsT0FQVCxFQXRDcEIsQ0FKQSxhQVdXLEVBZ0NYLEFBT3VCLE9BdENYLFVBQ1osRUFzQ0UsVUFuQ1UsQUFxQmEsVUFwQlgsU0FlVyxHQWRPLDZFQW9CaEMsbUJBTG9CLGtCQUNwQixDQWYyQix5QkFDTixtQkFDUSwyQkFDSix1QkFDekIiLCJmaWxlIjoiL1VzZXJzL3BoYW10aWVuL1dvcmsvTmltYnVzL2Jsb2cvY29tcG9uZW50cy9mb290ZXIvc3R5bGVzLmpzIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IGNzcyBmcm9tIFwic3R5bGVkLWpzeC9jc3NcIjtcblxuZXhwb3J0IGRlZmF1bHQgY3NzYFxuICAuY29udGFpbmVyIHtcbiAgICB3aWR0aDogMTAwJTtcbiAgICBtYXJnaW4tYm90dG9tOiAyMHB4O1xuICB9XG4gIC5pbnB1dC1maWVsZCB7XG4gICAgd2lkdGg6IDg1JTtcbiAgICBtYXJnaW4tYm90dG9tOiAzMHB4O1xuICB9XG4gIC5saXN0LWZpZWxkIHtcbiAgICBtYXJnaW4tcmlnaHQ6IDEwJTtcbiAgfVxuICAuY29weXJpZ2h0IHtcbiAgICB0ZXh0LWFsaWduOiBjZW50ZXI7XG4gICAgYmFja2dyb3VuZC1jb2xvcjogIzMzMzMzMztcbiAgICBtYXJnaW46IDA7XG4gICAgcGFkZGluZzogMDtcbiAgfVxuICAuaW5mb3JtYXRpb24tZmllbGQge1xuICAgIGRpc3BsYXk6IGZsZXg7XG4gICAgd2lkdGg6IDYwJTtcbiAgICBtYXJnaW46IGF1dG87XG4gICAganVzdGlmeS1jb250ZW50OiBzcGFjZS1iZXR3ZWVuO1xuICAgIGJhY2tncm91bmQtY29sb3I6ICMzYzNkNDE7XG4gICAgbWFyZ2luLWJvdHRvbTogNTBweDtcbiAgICAtd2Via2l0LWZsZXgtZGlyZWN0aW9uOiByb3c7XG4gICAgLXdlYmtpdC1mbGV4LXdyYXA6IHdyYXA7XG4gIH1cbiAgLmluZm9ybWF0aW9uLXR4dCB7XG4gICAgd2lkdGg6IDYwJTtcbiAgfVxuICAubG9nbyB7XG4gICAgaGVpZ2h0OiAzMHB4O1xuICB9XG4gIC5mb290ZXItcmlnaHQge1xuICAgIGFsaWduLWl0ZW1zOiBjZW50ZXI7XG4gICAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XG4gICAgdGV4dC1hbGlnbjogY2VudGVyO1xuICB9XG4gIC5jb250YWN0LWxvZ29zIHtcbiAgICBkaXNwbGF5OiBmbGV4O1xuICAgIGp1c3RpZnktY29udGVudDogY2VudGVyO1xuICB9XG4gIC5sb2dvLWNvbnRhY3Qge1xuICAgIGZvbnQtc2l6ZTogMzBweDtcbiAgICBwYWRkaW5nOiA1cHg7XG4gICAgbWFyZ2luLWJvdHRvbTogOHB4O1xuICB9XG4gIEBtZWRpYSAobWluLWhlaWdodDogMzIwcHgpIHtcbiAgICAudWkuZm9vdGVyLmZvcm0tcGFnZSB7XG4gICAgICAvKiBJbmNyZWFzZWQgc3BlY2lmaWNpdHkgZm9yIFNPIHNuaXBwZXQgcHJpb3JpdHkgKi9cbiAgICAgIGJvdHRvbTogMDtcbiAgICAgIHdpZHRoOiAxMDAlO1xuICAgICAgYmFja2dyb3VuZC1jb2xvcjogIzNjM2Q0MTtcbiAgICAgIHBhZGRpbmctYm90dG9tOiAwcHg7XG4gICAgfVxuICB9XG5gO1xuIl19 */\n/*@ sourceURL=/Users/phamtien/Work/Nimbus/blog/components/footer/styles.js */");
 
-_defaultExport.__hash = "1189403653";
+_defaultExport.__hash = "862388985";
 /* harmony default export */ __webpack_exports__["default"] = (_defaultExport);
 
 /***/ }),
@@ -514,12 +608,34 @@ function Header({
   categories
 }) {
   const router = Object(next_router__WEBPACK_IMPORTED_MODULE_4__["useRouter"])();
+  const {
+    0: txtSearch,
+    1: setTxtSearch
+  } = Object(react__WEBPACK_IMPORTED_MODULE_2__["useState"])("");
+
+  const onSearch = () => {
+    if (txtSearch !== "") {
+      console.log(txtSearch);
+      router.push(`/search?query=${txtSearch}`);
+    }
+  };
+
+  const onChangeTxtSearch = evt => {
+    setTxtSearch(evt.target.value);
+  };
+
+  const onKeyDownSearch = evt => {
+    if (evt.key === "Enter") {
+      onSearch();
+    }
+  };
+
   return __jsx("div", {
     className: `jsx-${_styles__WEBPACK_IMPORTED_MODULE_3__["default"].__hash}` + " " + "container",
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 9,
+      lineNumber: 28,
       columnNumber: 5
     }
   }, __jsx("h3", {
@@ -527,7 +643,7 @@ function Header({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 10,
+      lineNumber: 29,
       columnNumber: 7
     }
   }, __jsx("div", {
@@ -535,15 +651,16 @@ function Header({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 11,
+      lineNumber: 30,
       columnNumber: 9
     }
   }, __jsx("a", {
+    href: "/",
     className: `jsx-${_styles__WEBPACK_IMPORTED_MODULE_3__["default"].__hash}`,
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 12,
+      lineNumber: 31,
       columnNumber: 11
     }
   }, __jsx("img", {
@@ -553,34 +670,37 @@ function Header({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 13,
+      lineNumber: 32,
       columnNumber: 13
     }
   })), __jsx("div", {
-    className: `jsx-${_styles__WEBPACK_IMPORTED_MODULE_3__["default"].__hash}` + " " + "ui small left icon transparent input header-search",
+    className: `jsx-${_styles__WEBPACK_IMPORTED_MODULE_3__["default"].__hash}` + " " + "ui icon input transparent header-search",
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 19,
+      lineNumber: 38,
       columnNumber: 11
     }
   }, __jsx("input", {
     type: "text",
     placeholder: "Search...",
+    onChange: onChangeTxtSearch,
+    onKeyDown: onKeyDownSearch,
     className: `jsx-${_styles__WEBPACK_IMPORTED_MODULE_3__["default"].__hash}`,
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 20,
+      lineNumber: 39,
       columnNumber: 13
     }
   }), __jsx("i", {
     "aria-hidden": "true",
-    className: `jsx-${_styles__WEBPACK_IMPORTED_MODULE_3__["default"].__hash}` + " " + "search icon",
+    onClick: onSearch,
+    className: `jsx-${_styles__WEBPACK_IMPORTED_MODULE_3__["default"].__hash}` + " " + "search circular link icon icon-search",
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 21,
+      lineNumber: 45,
       columnNumber: 13
     }
   })))), __jsx("div", {
@@ -588,7 +708,7 @@ function Header({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 25,
+      lineNumber: 53,
       columnNumber: 7
     }
   }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
@@ -596,7 +716,7 @@ function Header({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 26,
+      lineNumber: 54,
       columnNumber: 9
     }
   }, __jsx("a", {
@@ -604,7 +724,7 @@ function Header({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 27,
+      lineNumber: 55,
       columnNumber: 11
     }
   }, "Trang ch\u1EE7")), categories && categories.map(category => __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
@@ -613,7 +733,7 @@ function Header({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 37,
+      lineNumber: 65,
       columnNumber: 13
     }
   }, __jsx("a", {
@@ -621,7 +741,7 @@ function Header({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 38,
+      lineNumber: 66,
       columnNumber: 15
     }
   }, category.title)))), __jsx(styled_jsx_style__WEBPACK_IMPORTED_MODULE_0___default.a, {
@@ -641,9 +761,9 @@ function Header({
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-const _defaultExport = new String(".container.jsx-1555577757{width:100%;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;margin-bottom:30px;-moz-box-shadow:0px 1px 1px 1px #ccc;-webkit-box-shadow:0px 1px 1px 1px #ccc;box-shadow:0px 1px 1px 1px #ccc;}.container-search.jsx-1555577757{width:90%;margin:auto;}.header-logo.jsx-1555577757{padding-top:14px;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;}.logo.jsx-1555577757{height:37px;width:auto;}.header-search.jsx-1555577757{height:30px;border-color:#fff;margin-left:40px;}.btn-write.jsx-1555577757{border-radius:20px;margin-left:20px;margin-top:10px;margin-bottom:10px;}.nav-menu.jsx-1555577757{width:90%;padding-left:5%;-webkit-flex-direction:row;-webkit-flex-wrap:wrap;}\n/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9waGFtdGllbi9Xb3JrL05pbWJ1cy9ibG9nL2NvbXBvbmVudHMvaGVhZGVyL3N0eWxlcy5qcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFFa0IsQUFHZ0IsQUFTRCxBQUlPLEFBSUwsQUFJQSxBQUtPLEFBTVQsVUF0QkUsQUF1QkksQ0FoQ0csQ0FpQlIsQUFJTyxLQVJMLEVBYUksR0FoQm5CLENBUUEsR0FlNkIsSUFYVixNQUtELFdBSmxCLEtBS3FCLENBTUksa0JBTHpCLEtBTUEsZUFyQkEsYUFieUIsbUdBQ0osbUJBQ2tCLHFDQUNHLHdDQUNSLGdDQUNsQyIsImZpbGUiOiIvVXNlcnMvcGhhbXRpZW4vV29yay9OaW1idXMvYmxvZy9jb21wb25lbnRzL2hlYWRlci9zdHlsZXMuanMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgY3NzIGZyb20gXCJzdHlsZWQtanN4L2Nzc1wiO1xuXG5leHBvcnQgZGVmYXVsdCBjc3NgXG4gIC5jb250YWluZXIge1xuICAgIHdpZHRoOiAxMDAlO1xuICAgIGFsaWduLWl0ZW1zOiBjZW50ZXI7XG4gICAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XG4gICAgbWFyZ2luLWJvdHRvbTogMzBweDtcbiAgICAtbW96LWJveC1zaGFkb3c6IDBweCAxcHggMXB4IDFweCAjY2NjO1xuICAgIC13ZWJraXQtYm94LXNoYWRvdzogMHB4IDFweCAxcHggMXB4ICNjY2M7XG4gICAgYm94LXNoYWRvdzogMHB4IDFweCAxcHggMXB4ICNjY2M7XG4gIH1cbiAgLmNvbnRhaW5lci1zZWFyY2gge1xuICAgIHdpZHRoOiA5MCU7XG4gICAgbWFyZ2luOiBhdXRvO1xuICB9XG4gIC5oZWFkZXItbG9nbyB7XG4gICAgcGFkZGluZy10b3A6IDE0cHg7XG4gICAgZGlzcGxheTogZmxleDtcbiAgfVxuICAubG9nbyB7XG4gICAgaGVpZ2h0OiAzN3B4O1xuICAgIHdpZHRoOiBhdXRvO1xuICB9XG4gIC5oZWFkZXItc2VhcmNoIHtcbiAgICBoZWlnaHQ6IDMwcHg7XG4gICAgYm9yZGVyLWNvbG9yOiAjZmZmO1xuICAgIG1hcmdpbi1sZWZ0OiA0MHB4O1xuICB9XG4gIC5idG4td3JpdGUge1xuICAgIGJvcmRlci1yYWRpdXM6IDIwcHg7XG4gICAgbWFyZ2luLWxlZnQ6IDIwcHg7XG4gICAgbWFyZ2luLXRvcDogMTBweDtcbiAgICBtYXJnaW4tYm90dG9tOiAxMHB4O1xuICB9XG4gIC5uYXYtbWVudSB7XG4gICAgd2lkdGg6IDkwJTtcbiAgICBwYWRkaW5nLWxlZnQ6IDUlO1xuICAgIC13ZWJraXQtZmxleC1kaXJlY3Rpb246IHJvdztcbiAgICAtd2Via2l0LWZsZXgtd3JhcDogd3JhcDtcbiAgfVxuYDtcbiJdfQ== */\n/*@ sourceURL=/Users/phamtien/Work/Nimbus/blog/components/header/styles.js */");
+const _defaultExport = new String(".container.jsx-681074853{width:100%;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;margin-bottom:30px;-moz-box-shadow:0px 1px 1px 1px #ccc;-webkit-box-shadow:0px 1px 1px 1px #ccc;box-shadow:0px 1px 1px 1px #ccc;}.container-search.jsx-681074853{width:90%;margin:auto;}.header-logo.jsx-681074853{padding-top:14px;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;}.logo.jsx-681074853{height:37px;margin-bottom:10px;width:auto;}.header-search.jsx-681074853{border-color:#fff;margin-left:40px;min-width:40%;}.icon-search.jsx-681074853{margin-bottom:10px;}.btn-write.jsx-681074853{border-radius:20px;margin-left:20px;margin-top:10px;margin-bottom:10px;}.nav-menu.jsx-681074853{width:90%;padding-left:5%;-webkit-flex-direction:row;-webkit-flex-wrap:wrap;}\n/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9waGFtdGllbi9Xb3JrL05pbWJ1cy9ibG9nL2NvbXBvbmVudHMvaGVhZGVyL3N0eWxlcy5qcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFFa0IsQUFHZ0IsQUFTRCxBQUlPLEFBSUwsQUFLTSxBQUtDLEFBR0EsQUFNVCxVQTFCRSxBQTJCSSxDQXBDRyxDQWlCQSxLQUpOLENBU0ksQ0FLbkIsQUFHbUIsR0FwQm5CLElBMkI2QixLQW5CaEIsSUFLRyxDQVFFLE1BWmxCLE9BS0EsR0FRcUIsQ0FNSSxrQkFMekIsS0FNQSxlQXpCQSxhQWJ5QixtR0FDSixtQkFDa0IscUNBQ0csd0NBQ1IsZ0NBQ2xDIiwiZmlsZSI6Ii9Vc2Vycy9waGFtdGllbi9Xb3JrL05pbWJ1cy9ibG9nL2NvbXBvbmVudHMvaGVhZGVyL3N0eWxlcy5qcyIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCBjc3MgZnJvbSBcInN0eWxlZC1qc3gvY3NzXCI7XG5cbmV4cG9ydCBkZWZhdWx0IGNzc2BcbiAgLmNvbnRhaW5lciB7XG4gICAgd2lkdGg6IDEwMCU7XG4gICAgYWxpZ24taXRlbXM6IGNlbnRlcjtcbiAgICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcbiAgICBtYXJnaW4tYm90dG9tOiAzMHB4O1xuICAgIC1tb3otYm94LXNoYWRvdzogMHB4IDFweCAxcHggMXB4ICNjY2M7XG4gICAgLXdlYmtpdC1ib3gtc2hhZG93OiAwcHggMXB4IDFweCAxcHggI2NjYztcbiAgICBib3gtc2hhZG93OiAwcHggMXB4IDFweCAxcHggI2NjYztcbiAgfVxuICAuY29udGFpbmVyLXNlYXJjaCB7XG4gICAgd2lkdGg6IDkwJTtcbiAgICBtYXJnaW46IGF1dG87XG4gIH1cbiAgLmhlYWRlci1sb2dvIHtcbiAgICBwYWRkaW5nLXRvcDogMTRweDtcbiAgICBkaXNwbGF5OiBmbGV4O1xuICB9XG4gIC5sb2dvIHtcbiAgICBoZWlnaHQ6IDM3cHg7XG4gICAgbWFyZ2luLWJvdHRvbTogMTBweDtcbiAgICB3aWR0aDogYXV0bztcbiAgfVxuICAuaGVhZGVyLXNlYXJjaCB7XG4gICAgYm9yZGVyLWNvbG9yOiAjZmZmO1xuICAgIG1hcmdpbi1sZWZ0OiA0MHB4O1xuICAgIG1pbi13aWR0aDogNDAlO1xuICB9XG4gIC5pY29uLXNlYXJjaCB7XG4gICAgbWFyZ2luLWJvdHRvbTogMTBweDtcbiAgfVxuICAuYnRuLXdyaXRlIHtcbiAgICBib3JkZXItcmFkaXVzOiAyMHB4O1xuICAgIG1hcmdpbi1sZWZ0OiAyMHB4O1xuICAgIG1hcmdpbi10b3A6IDEwcHg7XG4gICAgbWFyZ2luLWJvdHRvbTogMTBweDtcbiAgfVxuICAubmF2LW1lbnUge1xuICAgIHdpZHRoOiA5MCU7XG4gICAgcGFkZGluZy1sZWZ0OiA1JTtcbiAgICAtd2Via2l0LWZsZXgtZGlyZWN0aW9uOiByb3c7XG4gICAgLXdlYmtpdC1mbGV4LXdyYXA6IHdyYXA7XG4gIH1cbmA7XG4iXX0= */\n/*@ sourceURL=/Users/phamtien/Work/Nimbus/blog/components/header/styles.js */");
 
-_defaultExport.__hash = "1555577757";
+_defaultExport.__hash = "681074853";
 /* harmony default export */ __webpack_exports__["default"] = (_defaultExport);
 
 /***/ }),
@@ -664,21 +784,47 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _styles__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./styles */ "./components/highlight/styles.js");
 /* harmony import */ var _Item_Item__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Item/Item */ "./components/highlight/Item/Item.js");
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! next/router */ "next/router");
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_4__);
 var _jsxFileName = "/Users/phamtien/Work/Nimbus/blog/components/highlight/HighlightComponent.js";
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
 
 
 
+
 const HighlightComponent = ({
   data
 }) => {
+  const router = Object(next_router__WEBPACK_IMPORTED_MODULE_4__["useRouter"])();
+  const {
+    0: txtSearch,
+    1: setTxtSearch
+  } = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])("");
+
+  const onSearch = () => {
+    if (txtSearch !== "") {
+      console.log(txtSearch);
+      router.push(`/search?query=${txtSearch}`);
+    }
+  };
+
+  const onChangeTxtSearch = evt => {
+    setTxtSearch(evt.target.value);
+  };
+
+  const onKeyDownSearch = evt => {
+    if (evt.key === "Enter") {
+      onSearch();
+    }
+  };
+
   return __jsx("div", {
     className: `jsx-${_styles__WEBPACK_IMPORTED_MODULE_2__["default"].__hash}` + " " + "right floated five wide column",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 7,
+      lineNumber: 29,
       columnNumber: 5
     }
   }, __jsx("div", {
@@ -686,7 +832,7 @@ const HighlightComponent = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 8,
+      lineNumber: 30,
       columnNumber: 7
     }
   }, __jsx("div", {
@@ -694,26 +840,29 @@ const HighlightComponent = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 9,
+      lineNumber: 31,
       columnNumber: 9
     }
   }, __jsx("input", {
     type: "text",
     placeholder: "Search...",
+    onChange: onChangeTxtSearch,
+    onKeyDown: onKeyDownSearch,
     className: `jsx-${_styles__WEBPACK_IMPORTED_MODULE_2__["default"].__hash}`,
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 10,
+      lineNumber: 32,
       columnNumber: 11
     }
   }), __jsx("i", {
     "aria-hidden": "true",
+    onClick: onSearch,
     className: `jsx-${_styles__WEBPACK_IMPORTED_MODULE_2__["default"].__hash}` + " " + "search circular link icon",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 11,
+      lineNumber: 38,
       columnNumber: 11
     }
   })), __jsx("div", {
@@ -721,7 +870,7 @@ const HighlightComponent = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 13,
+      lineNumber: 44,
       columnNumber: 9
     }
   }, __jsx("h2", {
@@ -729,7 +878,7 @@ const HighlightComponent = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 14,
+      lineNumber: 45,
       columnNumber: 11
     }
   }, "B\xE0i vi\u1EBFt n\u1ED5i b\u1EADt:"), __jsx("div", {
@@ -738,7 +887,7 @@ const HighlightComponent = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 15,
+      lineNumber: 46,
       columnNumber: 11
     }
   }, data.map((highlight, index) => __jsx(_Item_Item__WEBPACK_IMPORTED_MODULE_3__["HighlightItemComponent"], {
@@ -747,7 +896,7 @@ const HighlightComponent = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 17,
+      lineNumber: 48,
       columnNumber: 15
     }
   }))))), __jsx(styled_jsx_style__WEBPACK_IMPORTED_MODULE_0___default.a, {
@@ -958,7 +1107,8 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
 
 
 const ListBlogComponent = ({
-  data
+  data,
+  isSearch
 }) => {
   return __jsx("div", {
     className: `jsx-${_styles__WEBPACK_IMPORTED_MODULE_2__["default"].__hash}` + " " + "container",
@@ -968,13 +1118,21 @@ const ListBlogComponent = ({
       lineNumber: 7,
       columnNumber: 5
     }
-  }, __jsx("h1", {
+  }, isSearch && __jsx("h1", {
     className: `jsx-${_styles__WEBPACK_IMPORTED_MODULE_2__["default"].__hash}` + " " + "header-title",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 8,
-      columnNumber: 7
+      lineNumber: 9,
+      columnNumber: 9
+    }
+  }, "K\u1EBFt qu\u1EA3 t\xECm ki\u1EBFm c\u1EE7a: ", data.searchQuery), !isSearch && __jsx("h1", {
+    className: `jsx-${_styles__WEBPACK_IMPORTED_MODULE_2__["default"].__hash}` + " " + "header-title",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 13,
+      columnNumber: 21
     }
   }, data.category.title, ":"), __jsx("div", {
     role: "list",
@@ -982,7 +1140,7 @@ const ListBlogComponent = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 9,
+      lineNumber: 14,
       columnNumber: 7
     }
   }, data.blogs.map((blog, index) => __jsx(_item_Item__WEBPACK_IMPORTED_MODULE_3__["ListBlogItemComponent"], {
@@ -991,7 +1149,7 @@ const ListBlogComponent = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 11,
+      lineNumber: 16,
       columnNumber: 11
     }
   }))), __jsx(styled_jsx_style__WEBPACK_IMPORTED_MODULE_0___default.a, {
@@ -3393,31 +3551,49 @@ const Slug = ({
       lineNumber: 41,
       columnNumber: 41
     }
+  }), type === _utils_constants__WEBPACK_IMPORTED_MODULE_7__["SLUG_TYPE"].SEARCH && __jsx(_components_list_blog_ListBlogsComponent__WEBPACK_IMPORTED_MODULE_8__["ListBlogComponent"], {
+    data: dataPage,
+    isSearch: true,
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 43,
+      columnNumber: 15
+    }
   })), __jsx(_components_highlight_HighlightComponent__WEBPACK_IMPORTED_MODULE_9__["HighlightComponent"], {
     data: highlights,
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 43,
+      lineNumber: 46,
       columnNumber: 11
     }
   })), __jsx(_components_footer_FooterComponent__WEBPACK_IMPORTED_MODULE_11__["default"], {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 45,
+      lineNumber: 48,
       columnNumber: 9
     }
   })));
 };
 
 async function getServerSideProps({
-  params
+  params,
+  query
 }) {
   const resCategories = await _service_serverapi_ajax__WEBPACK_IMPORTED_MODULE_3__["default"].getCategories();
   const categories = resCategories.data.data;
-  const resSlug = await _service_serverapi_ajax__WEBPACK_IMPORTED_MODULE_3__["default"].getSlug(params.slug);
-  const slug = resSlug.data.data;
+  let slug = null;
+
+  if (params.slug === "search") {
+    const resSearch = await _service_serverapi_ajax__WEBPACK_IMPORTED_MODULE_3__["default"].searchByQuery(query.query);
+    slug = resSearch.data.data;
+  } else {
+    const resSlug = await _service_serverapi_ajax__WEBPACK_IMPORTED_MODULE_3__["default"].getSlug(params.slug);
+    slug = resSlug.data.data;
+  }
+
   const highlights = slug.highlights;
   const type = slug.type;
   let dataPage = null;
@@ -3432,6 +3608,13 @@ async function getServerSideProps({
   if (type === _utils_constants__WEBPACK_IMPORTED_MODULE_7__["SLUG_TYPE"].BLOG) {
     dataPage = {
       blog: slug.blog
+    };
+  }
+
+  if (type === _utils_constants__WEBPACK_IMPORTED_MODULE_7__["SLUG_TYPE"].SEARCH) {
+    dataPage = {
+      blogs: slug.blogs,
+      searchQuery: query.query
     };
   }
 
@@ -3499,6 +3682,15 @@ class ServerAPI {
     return this.client.get(url);
   }
 
+  searchByQuery(query) {
+    let url = `${PUBLIC_URL}/search`;
+    return this.client.get(url, {
+      params: {
+        query
+      }
+    });
+  }
+
 } // export singleton API
 
 
@@ -3520,7 +3712,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "randomColor", function() { return randomColor; });
 const SLUG_TYPE = {
   CATEGORY: "CATEGORY",
-  BLOG: "BLOG"
+  BLOG: "BLOG",
+  SEARCH: "SEARCH"
 };
 const randomColor = () => {
   const COLORS_BUTTON_RANDOM = ["orange", "green", "blue", "grey"];
@@ -3529,7 +3722,7 @@ const randomColor = () => {
 
 /***/ }),
 
-/***/ 4:
+/***/ 5:
 /*!*******************************!*\
   !*** multi ./pages/[slug].js ***!
   \*******************************/
