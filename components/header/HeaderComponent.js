@@ -10,7 +10,6 @@ const Header = ({ categories }) => {
 
   const onSearch = () => {
     if (txtSearch !== "") {
-      console.log(txtSearch);
       router.push(`/search?query=${txtSearch}`);
     }
   };
@@ -57,7 +56,7 @@ const Header = ({ categories }) => {
             <a
               className={`${
                 router.asPath.substring(1) === "" ? "active" : ""
-              } item`}
+                } item`}
             >
               Trang chủ
             </a>
@@ -68,7 +67,7 @@ const Header = ({ categories }) => {
                 <a
                   className={`${
                     router.asPath.substring(1) === category.slug ? "active" : ""
-                  } item`}
+                    } item`}
                 >
                   {category.title}
                 </a>

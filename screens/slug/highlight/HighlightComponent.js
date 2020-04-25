@@ -10,7 +10,6 @@ export const HighlightComponent = ({ data }) => {
 
   const onSearch = () => {
     if (txtSearch !== "") {
-      console.log(txtSearch);
       router.push(`/search?query=${txtSearch}`);
     }
   };
