@@ -17,13 +17,13 @@ export default function Home({ children, features }) {
                 Nổi bật
               </Typography>
             </div>
-            <div className="ui two column grid">
+            <div className="ui stackable two column grid">
               <div className="stretched row">
                 <div className="column">
                   <CardLeft blog={highlights[0]} />
                 </div>
                 <div className="column">
-                  <div className="ui two column grid">
+                  <div className="ui stackable two column grid">
                     <div className="column">
                       <CardRight blog={highlights[1]} />
                       <CardRight blog={highlights[2]} />

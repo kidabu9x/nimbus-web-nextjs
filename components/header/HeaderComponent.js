@@ -46,7 +46,7 @@ const Header = ({ categories }) => {
               />
               <i
                 aria-hidden="true"
-                className="search circular link icon icon-search"
+                className="search link icon icon-search"
                 onClick={onSearch}
               ></i>
             </div>

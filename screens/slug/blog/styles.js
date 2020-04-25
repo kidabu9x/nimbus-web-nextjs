@@ -1,6 +1,9 @@
 import css from "styled-jsx/css";
 
 export default css`
+  :global(img) {
+    max-width: 100%;
+  }
   .container {
     margin: 20px;
     margin-left: 6%;

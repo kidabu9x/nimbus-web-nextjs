@@ -19,7 +19,6 @@ class ServerAPI {
     this.client = axios.create({
       baseURL: PUBLIC_URL,
       timeout: 20000,
-      headers: { "X-Custom-Header": "foobar" },
     });
   }
 
