@@ -1,0 +1,9 @@
+version: '3.2'
+services:
+  web-nextjs:
+    hostname: web-nextjs.local
+    container_name: web-nextjs
+    ports:
+      - 48084:3000
+    build:
+        context: ./
