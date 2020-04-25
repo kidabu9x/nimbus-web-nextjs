@@ -9,7 +9,7 @@ const Index = ({ categories, features }) => {
   return (
     <Layout>
       <Head>
-        <title>Nimbus Service</title>
+        <title>Nimbus Computer School</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="shortcut icon" href="/static/favicon.ico" />
         <link
