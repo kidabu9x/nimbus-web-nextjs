@@ -57761,7 +57761,7 @@ function Category(_ref) {
       columnNumber: 11
     }
   }, "Xem th\xEAm >"))), __jsx("div", {
-    className: "jsx-".concat(_styles__WEBPACK_IMPORTED_MODULE_2__["default"].__hash) + " " + "ui two stackable column grid",
+    className: "jsx-".concat(_styles__WEBPACK_IMPORTED_MODULE_2__["default"].__hash) + " " + "ui stackable two column grid",
     __self: this,
     __source: {
       fileName: _jsxFileName,
@@ -57801,7 +57801,7 @@ function Category(_ref) {
       columnNumber: 11
     }
   }, __jsx("div", {
-    className: "jsx-".concat(_styles__WEBPACK_IMPORTED_MODULE_2__["default"].__hash) + " " + "ui two stackable column grid",
+    className: "jsx-".concat(_styles__WEBPACK_IMPORTED_MODULE_2__["default"].__hash) + " " + "ui stackable two column grid",
     __self: this,
     __source: {
       fileName: _jsxFileName,
@@ -58152,7 +58152,7 @@ var Dashboard = function Dashboard(_ref) {
 
 /***/ }),
 
-/***/ 3:
+/***/ 2:
 /*!******************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2F&absolutePagePath=%2FUsers%2Fphamtien%2FWork%2FNimbus%2Fblog%2Fpages%2Findex.js ***!
   \******************************************************************************************************************************/
@@ -58175,5 +58175,5 @@ module.exports = dll_c2e10d183b950a67d9e7;
 
 /***/ })
 
-},[[3,"static/runtime/webpack.js"]]]);
+},[[2,"static/runtime/webpack.js"]]]);
 //# sourceMappingURL=index.js.map

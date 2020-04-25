@@ -58367,7 +58367,7 @@ var randomColor = function randomColor() {
 
 /***/ }),
 
-/***/ 2:
+/***/ 3:
 /*!*********************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2F%5Bslug%5D&absolutePagePath=%2FUsers%2Fphamtien%2FWork%2FNimbus%2Fblog%2Fpages%2F%5Bslug%5D.js ***!
   \*********************************************************************************************************************************************/
@@ -58390,5 +58390,5 @@ module.exports = dll_c2e10d183b950a67d9e7;
 
 /***/ })
 
-},[[2,"static/runtime/webpack.js"]]]);
+},[[3,"static/runtime/webpack.js"]]]);
 //# sourceMappingURL=[slug].js.map

@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 5);
+/******/ 	return __webpack_require__(__webpack_require__.s = 4);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -3265,7 +3265,7 @@ function Category({
       columnNumber: 11
     }
   }, "Xem th\xEAm >"))), __jsx("div", {
-    className: `jsx-${_styles__WEBPACK_IMPORTED_MODULE_2__["default"].__hash}` + " " + "ui two stackable column grid",
+    className: `jsx-${_styles__WEBPACK_IMPORTED_MODULE_2__["default"].__hash}` + " " + "ui stackable two column grid",
     __self: this,
     __source: {
       fileName: _jsxFileName,
@@ -3305,7 +3305,7 @@ function Category({
       columnNumber: 11
     }
   }, __jsx("div", {
-    className: `jsx-${_styles__WEBPACK_IMPORTED_MODULE_2__["default"].__hash}` + " " + "ui two stackable column grid",
+    className: `jsx-${_styles__WEBPACK_IMPORTED_MODULE_2__["default"].__hash}` + " " + "ui stackable two column grid",
     __self: this,
     __source: {
       fileName: _jsxFileName,
@@ -3718,7 +3718,7 @@ const api = new ServerAPI();
 
 /***/ }),
 
-/***/ 5:
+/***/ 4:
 /*!******************************!*\
   !*** multi ./pages/index.js ***!
   \******************************/
