@@ -4,6 +4,6 @@ services:
     hostname: web-nextjs.local
     container_name: web-nextjs
     ports:
-      - 48084:8080
+      - 48084:3000
     build:
         context: ./
