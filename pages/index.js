@@ -2,6 +2,8 @@ import Layout from "../components/layout";
 import Head from "next/head";
 import api from "../service/serverapi_ajax";
 import Dashboard from "../screens/dashboard";
+import { NextSeo } from "next-seo";
+import SEO from "../next-seo/index.config";
 
 const Index = ({ categories, features }) => {
   return (
@@ -24,6 +26,8 @@ const Index = ({ categories, features }) => {
           integrity="sha256-CuUPKpitgFmSNQuPDL5cEfPOOJT/+bwUlhfumDJ9CI4="
           crossorigin="anonymous"
         />
+        {/* Next SEO config */}
+        <NextSeo {...SEO}></NextSeo>
       </Head>
       <Dashboard categories={categories} features={features}></Dashboard>
     </Layout>

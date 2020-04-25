@@ -3,6 +3,10 @@ import api from "../service/serverapi_ajax";
 import Head from "next/head";
 import { SLUG_TYPE } from "../utils/constants";
 import SlugPage from "../screens/slug";
+import { NextSeo } from "next-seo";
+import SEO_CATEGORY from "../next-seo/slug.category.config";
+import SEO_BLOG from "../next-seo/slug.blog.config";
+import SEO_SEARCH from "../next-seo/slug.search.config";
 
 const Slug = ({ categories, highlights, type, dataPage }) => {
   return (
@@ -23,13 +27,17 @@ const Slug = ({ categories, highlights, type, dataPage }) => {
           href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,400;1,500;1,700&display=swap"
           rel="stylesheet"
         />
+        {/* Next SEO config */}
+        {type === SLUG_TYPE.CATEGORY && <NextSeo {...SEO_CATEGORY}></NextSeo>}
+        {type === SLUG_TYPE.BLOG && <NextSeo {...SEO_BLOG}></NextSeo>}
+        {type === SLUG_TYPE.SEARCH && <NextSeo {...SEO_SEARCH}></NextSeo>}
       </Head>
       <SlugPage
         categories={categories}
         highlights={highlights}
         type={type}
         dataPage={dataPage}
-      ></SlugPage>
+      />
     </Layout>
   );
 };
