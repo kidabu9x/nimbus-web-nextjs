@@ -1,14 +1,11 @@
-import Container from "../components/container";
 import Layout from "../components/layout";
 import Head from "next/head";
-import Header from "../components/header/HeaderComponent";
 import api from "../service/serverapi_ajax";
-import { useRouter } from "next/router";
-import Home from "../components/home/HomeComponent";
-import Footer from "../components/footer/FooterComponent";
+import Dashboard from "../screens/dashboard";
+import { NextSeo } from "next-seo";
+import SEO from "../next-seo/index.config";
 
 const Index = ({ categories, features }) => {
-  const router = useRouter();
   return (
     <Layout>
       <Head>
@@ -29,12 +26,10 @@ const Index = ({ categories, features }) => {
           integrity="sha256-CuUPKpitgFmSNQuPDL5cEfPOOJT/+bwUlhfumDJ9CI4="
           crossorigin="anonymous"
         />
+        {/* Next SEO config */}
+        <NextSeo {...SEO}></NextSeo>
       </Head>
-      <Container>
-        <Header categories={categories} />
-        <Home features={features} />
-        <Footer />
-      </Container>
+      <Dashboard categories={categories} features={features}></Dashboard>
     </Layout>
   );
 };

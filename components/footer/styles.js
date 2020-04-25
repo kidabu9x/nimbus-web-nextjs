@@ -5,13 +5,6 @@ export default css`
     width: 100%;
     margin-bottom: 20px;
   }
-  .input-field {
-    width: 85%;
-    margin-bottom: 30px;
-  }
-  .list-field {
-    margin-right: 10%;
-  }
   .copyright {
     text-align: center;
     background-color: #333333;
@@ -20,7 +13,7 @@ export default css`
   }
   .information-field {
     display: flex;
-    width: 60%;
+    width: 100%;
     margin: auto;
     justify-content: space-between;
     background-color: #3c3d41;
