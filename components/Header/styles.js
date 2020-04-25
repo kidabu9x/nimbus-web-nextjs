@@ -11,7 +11,7 @@ export default css`
     box-shadow: 0px 1px 1px 1px #ccc;
   }
   .container-search {
-    width: 90%;
+    width: 100%;
     margin: auto;
   }
   .header-logo {
@@ -38,7 +38,7 @@ export default css`
     margin-bottom: 10px;
   }
   .nav-menu {
-    width: 90%;
+    width: 100%;
     padding-left: 5%;
     -webkit-flex-direction: row;
     -webkit-flex-wrap: wrap;

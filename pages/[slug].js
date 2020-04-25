@@ -1,22 +1,18 @@
-import Container from "../components/container";
-
 import Layout from "../components/layout";
 import api from "../service/serverapi_ajax";
-import Header from "../components/header/HeaderComponent";
 import Head from "next/head";
-import { useRouter } from "next/router";
 import { SLUG_TYPE } from "../utils/constants";
-import { ListBlogComponent } from "../components/list-blog/ListBlogsComponent";
-import { HighlightComponent } from "../components/highlight/HighlightComponent";
-import { BlogComponent } from "../components/blog/BlogComponent";
-import Footer from "../components/footer/FooterComponent";
+import SlugPage from "../screens/slug";
 
 const Slug = ({ categories, highlights, type, dataPage }) => {
-  const router = useRouter();
   return (
     <Layout>
       <Head>
-        <title>Nimbus Service</title>
+        {type === SLUG_TYPE.CATEGORY && (
+          <title>{dataPage.category.title}</title>
+        )}
+        {type === SLUG_TYPE.BLOG && <title>{dataPage.blog.title}</title>}
+        {type === SLUG_TYPE.SEARCH && <title>{dataPage.searchQuery}</title>}
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="shortcut icon" href="/static/favicon.ico" />
         <link
@@ -28,25 +24,12 @@ const Slug = ({ categories, highlights, type, dataPage }) => {
           rel="stylesheet"
         />
       </Head>
-      <Container>
-        <Header categories={categories} />
-        <div className="ui grid">
-          <div
-            className="left floated eleven wide column"
-            style={{ padding: 0 }}
-          >
-            {type === SLUG_TYPE.CATEGORY && (
-              <ListBlogComponent data={dataPage} />
-            )}
-            {type === SLUG_TYPE.BLOG && <BlogComponent data={dataPage.blog} />}
-            {type === SLUG_TYPE.SEARCH && (
-              <ListBlogComponent data={dataPage} isSearch />
-            )}
-          </div>
-          <HighlightComponent data={highlights} />
-        </div>
-        <Footer />
-      </Container>
+      <SlugPage
+        categories={categories}
+        highlights={highlights}
+        type={type}
+        dataPage={dataPage}
+      ></SlugPage>
     </Layout>
   );
 };
