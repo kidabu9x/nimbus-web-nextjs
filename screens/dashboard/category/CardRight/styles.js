@@ -11,10 +11,19 @@ export default css`
     width: 100%;
     object-fit: cover;
   }
-  .img-author {
+  .author-img {
     border-radius: 30px;
     max-width: 40px;
     height: auto;
     margin-right: 20px;
+  }
+  .author {
+    display: flex;
+  }
+  .author-name {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 40px;
   }
 `;

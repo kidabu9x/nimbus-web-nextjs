@@ -19,11 +19,11 @@ export default function CardRight({ blog }) {
             <div className="content">
               <div className="header">{blog.title}</div>
             </div>
-            <div className="extra content">
-              <a>
-                <img src={blog.authors[0].avatar} className="img-author" />
+            <div className="content author">
+              <img src={blog.authors[0].avatar} className="author-img" />
+              <span className="author-name">
                 {`${blog.authors[0].first_name} ${blog.authors[0].last_name}`}
-              </a>
+              </span>
             </div>
 
             <style jsx>{styles}</style>
