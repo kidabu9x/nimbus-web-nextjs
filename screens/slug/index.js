@@ -26,7 +26,7 @@ const SlugPage = ({ categories, highlights, type, dataPage }) => {
           <HighlightComponent data={highlights} />
         </div>
       </Container>
-      <Footer />
+      <Footer categories={categories} />
     </ContainerComponent>
   );
 };

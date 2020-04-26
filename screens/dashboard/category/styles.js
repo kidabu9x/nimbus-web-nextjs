@@ -6,6 +6,7 @@ export default css`
   }
   .header-highlight {
     border-bottom: 1px solid #ddd;
+    margin-top: 60px;
     margin-bottom: 10px;
     display: flex;
     justify-content: space-between;

@@ -9,7 +9,7 @@ const Dashboard = ({ categories, features }) => {
     <Container>
       <Header categories={categories} />
       <Home features={features} />
-      <Footer />
+      <Footer categories={categories} />
     </Container>
   );
 };

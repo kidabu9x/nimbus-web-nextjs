@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./styles";
 import { Typography, Container } from "@material-ui/core";
 
-const Footer = () => {
+const Footer = ({ categories }) => {
   return (
     <footer className="ui inverted vertical footer segment form-page">
       <Container maxWidth="md">
@@ -30,6 +30,26 @@ const Footer = () => {
             </p>
             <br />
             <p className="information-txt">Hotline: 0969 849 603</p>
+          </div>
+          <div>
+            <div className="ui padded stackable two column grid">
+              <div className="column">
+                {categories
+                  .splice(0, Math.ceil(categories.length / 2))
+                  .map((category) => {
+                    <p key={category.slug}>{category.title}</p>;
+                  })}
+              </div>
+              <div className="column">
+                {categories
+                  .splice(
+                    Math.ceil(categories.length / 2, categories.length - 1)
+                  )
+                  .map((category) => {
+                    <p key={category.slug}>{category.title}</p>;
+                  })}
+              </div>
+            </div>
           </div>
           <div className="footer-right">
             <iframe

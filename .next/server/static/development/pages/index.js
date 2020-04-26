@@ -170,7 +170,9 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
 
 
 
-const Footer = () => {
+const Footer = ({
+  categories
+}) => {
   return __jsx("footer", {
     className: `jsx-${_styles__WEBPACK_IMPORTED_MODULE_2__["default"].__hash}` + " " + "ui inverted vertical footer segment form-page",
     __self: undefined,
@@ -280,11 +282,65 @@ const Footer = () => {
       columnNumber: 13
     }
   }, "Hotline: 0969 849 603")), __jsx("div", {
-    className: `jsx-${_styles__WEBPACK_IMPORTED_MODULE_2__["default"].__hash}` + " " + "footer-right",
+    className: `jsx-${_styles__WEBPACK_IMPORTED_MODULE_2__["default"].__hash}`,
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 34,
+      columnNumber: 11
+    }
+  }, __jsx("div", {
+    className: `jsx-${_styles__WEBPACK_IMPORTED_MODULE_2__["default"].__hash}` + " " + "ui padded stackable two column grid",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 35,
+      columnNumber: 13
+    }
+  }, __jsx("div", {
+    className: `jsx-${_styles__WEBPACK_IMPORTED_MODULE_2__["default"].__hash}` + " " + "column",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 36,
+      columnNumber: 15
+    }
+  }, categories.splice(0, Math.ceil(categories.length / 2)).map(category => {
+    __jsx("p", {
+      key: category.slug,
+      className: `jsx-${_styles__WEBPACK_IMPORTED_MODULE_2__["default"].__hash}`,
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 40,
+        columnNumber: 21
+      }
+    }, category.title);
+  })), __jsx("div", {
+    className: `jsx-${_styles__WEBPACK_IMPORTED_MODULE_2__["default"].__hash}` + " " + "column",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 43,
+      columnNumber: 15
+    }
+  }, categories.splice(Math.ceil(categories.length / 2, categories.length - 1)).map(category => {
+    __jsx("p", {
+      key: category.slug,
+      className: `jsx-${_styles__WEBPACK_IMPORTED_MODULE_2__["default"].__hash}`,
+      __self: undefined,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 49,
+        columnNumber: 21
+      }
+    }, category.title);
+  })))), __jsx("div", {
+    className: `jsx-${_styles__WEBPACK_IMPORTED_MODULE_2__["default"].__hash}` + " " + "footer-right",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 54,
       columnNumber: 11
     }
   }, __jsx("iframe", {
@@ -299,7 +355,7 @@ const Footer = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 35,
+      lineNumber: 55,
       columnNumber: 13
     }
   }), __jsx("div", {
@@ -307,7 +363,7 @@ const Footer = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 44,
+      lineNumber: 64,
       columnNumber: 13
     }
   }, __jsx("a", {
@@ -319,7 +375,7 @@ const Footer = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 45,
+      lineNumber: 65,
       columnNumber: 15
     }
   }, __jsx("i", {
@@ -328,7 +384,7 @@ const Footer = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 46,
+      lineNumber: 66,
       columnNumber: 17
     }
   })), __jsx("a", {
@@ -341,7 +397,7 @@ const Footer = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 51,
+      lineNumber: 71,
       columnNumber: 15
     }
   }, __jsx("i", {
@@ -350,7 +406,7 @@ const Footer = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 56,
+      lineNumber: 76,
       columnNumber: 17
     }
   })), __jsx("a", {
@@ -362,7 +418,7 @@ const Footer = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 61,
+      lineNumber: 81,
       columnNumber: 15
     }
   }, __jsx("i", {
@@ -371,7 +427,7 @@ const Footer = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 65,
+      lineNumber: 85,
       columnNumber: 17
     }
   }))), __jsx("button", {
@@ -382,7 +438,7 @@ const Footer = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 71,
+      lineNumber: 91,
       columnNumber: 13
     }
   }, "Li\xEAn h\u1EC7")))), __jsx("div", {
@@ -390,7 +446,7 @@ const Footer = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 80,
+      lineNumber: 100,
       columnNumber: 7
     }
   }, __jsx(_material_ui_core__WEBPACK_IMPORTED_MODULE_3__["Typography"], {
@@ -399,7 +455,7 @@ const Footer = () => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 81,
+      lineNumber: 101,
       columnNumber: 9
     }
   }, "Copyright @ 2020 - B\u1EA3n quy\u1EC1n c\u1EE7a C\xF4ng ty TNHH Gi\xE1o d\u1EE5c v\xE0 \u0110\xE0o t\u1EA1o Nimbus")), __jsx(styled_jsx_style__WEBPACK_IMPORTED_MODULE_0___default.a, {
@@ -587,8 +643,8 @@ const Header = ({
       lineNumber: 56,
       columnNumber: 13
     }
-  }, "Trang ch\u1EE7")), categories && categories.map(category => __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
-    key: category.id,
+  }, "Trang ch\u1EE7")), categories && categories.map((category, index) => __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
+    key: index.toString(),
     href: `/${category.slug}`,
     __self: undefined,
     __source: {
@@ -853,17 +909,21 @@ const HOME_OG_IMAGE_URL = 'https://og-image.now.sh/Next.js%20Blog%20Starter%20Ex
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
-  openGraph: {
-    type: 'website',
-    locale: 'en_IE',
-    url: 'https://www.url.ie/',
-    site_name: 'SiteName'
-  },
-  twitter: {
-    handle: '@handle',
-    site: '@site',
-    cardType: 'summary_large_image'
-  }
+  type: "website",
+  url: "https://www.example.com/page",
+  title: "Open Graph Title",
+  description: "Open Graph Description",
+  images: [{
+    url: "https://www.example.ie/og-image.jpg",
+    width: 800,
+    height: 600,
+    alt: "Og Image Alt"
+  }, {
+    url: "https://www.example.ie/og-image-2.jpg",
+    width: 800,
+    height: 600,
+    alt: "Og Image Alt 2"
+  }]
 });
 
 /***/ }),
@@ -3141,31 +3201,31 @@ function CardRight({
       columnNumber: 15
     }
   }, blog.title)), __jsx("div", {
-    className: `jsx-${_styles__WEBPACK_IMPORTED_MODULE_2__["default"].__hash}` + " " + "extra content",
+    className: `jsx-${_styles__WEBPACK_IMPORTED_MODULE_2__["default"].__hash}` + " " + "content author",
     __self: this,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 22,
       columnNumber: 13
     }
-  }, __jsx("a", {
-    className: `jsx-${_styles__WEBPACK_IMPORTED_MODULE_2__["default"].__hash}`,
+  }, __jsx("img", {
+    src: blog.authors[0].avatar,
+    className: `jsx-${_styles__WEBPACK_IMPORTED_MODULE_2__["default"].__hash}` + " " + "author-img",
     __self: this,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 23,
       columnNumber: 15
     }
-  }, __jsx("img", {
-    src: blog.authors[0].avatar,
-    className: `jsx-${_styles__WEBPACK_IMPORTED_MODULE_2__["default"].__hash}` + " " + "img-author",
+  }), __jsx("span", {
+    className: `jsx-${_styles__WEBPACK_IMPORTED_MODULE_2__["default"].__hash}` + " " + "author-name",
     __self: this,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 24,
-      columnNumber: 17
+      columnNumber: 15
     }
-  }), `${blog.authors[0].first_name} ${blog.authors[0].last_name}`)), __jsx(styled_jsx_style__WEBPACK_IMPORTED_MODULE_0___default.a, {
+  }, `${blog.authors[0].first_name} ${blog.authors[0].last_name}`)), __jsx(styled_jsx_style__WEBPACK_IMPORTED_MODULE_0___default.a, {
     id: _styles__WEBPACK_IMPORTED_MODULE_2__["default"].__hash,
     __self: this
   }, _styles__WEBPACK_IMPORTED_MODULE_2__["default"]))));
@@ -3182,9 +3242,9 @@ function CardRight({
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-const _defaultExport = new String(".card-right.jsx-746306820{width:100%;cursor:pointer;}.image.jsx-746306820 img.jsx-746306820{display:block;max-height:100px;width:100%;object-fit:cover;}.img-author.jsx-746306820{border-radius:30px;max-width:40px;height:auto;margin-right:20px;}\n/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9waGFtdGllbi9Xb3JrL05pbWJ1cy9ibG9nL3NjcmVlbnMvZGFzaGJvYXJkL2NhdGVnb3J5L0NhcmRSaWdodC9zdHlsZXMuanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBRWtCLEFBR2dCLEFBSUcsQUFNSyxXQVRKLEdBSUUsS0FNRixPQVRqQixLQUlhLEdBTUMsUUFMSyxJQU1DLGFBTHBCLEtBTUEiLCJmaWxlIjoiL1VzZXJzL3BoYW10aWVuL1dvcmsvTmltYnVzL2Jsb2cvc2NyZWVucy9kYXNoYm9hcmQvY2F0ZWdvcnkvQ2FyZFJpZ2h0L3N0eWxlcy5qcyIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCBjc3MgZnJvbSBcInN0eWxlZC1qc3gvY3NzXCI7XG5cbmV4cG9ydCBkZWZhdWx0IGNzc2BcbiAgLmNhcmQtcmlnaHQge1xuICAgIHdpZHRoOiAxMDAlO1xuICAgIGN1cnNvcjogcG9pbnRlcjtcbiAgfVxuICAuaW1hZ2UgaW1nIHtcbiAgICBkaXNwbGF5OiBibG9jaztcbiAgICBtYXgtaGVpZ2h0OiAxMDBweDtcbiAgICB3aWR0aDogMTAwJTtcbiAgICBvYmplY3QtZml0OiBjb3ZlcjtcbiAgfVxuICAuaW1nLWF1dGhvciB7XG4gICAgYm9yZGVyLXJhZGl1czogMzBweDtcbiAgICBtYXgtd2lkdGg6IDQwcHg7XG4gICAgaGVpZ2h0OiBhdXRvO1xuICAgIG1hcmdpbi1yaWdodDogMjBweDtcbiAgfVxuYDtcbiJdfQ== */\n/*@ sourceURL=/Users/phamtien/Work/Nimbus/blog/screens/dashboard/category/CardRight/styles.js */");
+const _defaultExport = new String(".card-right.jsx-3898812783{width:100%;cursor:pointer;}.image.jsx-3898812783 img.jsx-3898812783{display:block;max-height:100px;width:100%;object-fit:cover;}.author-img.jsx-3898812783{border-radius:30px;max-width:40px;height:auto;margin-right:20px;}.author.jsx-3898812783{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;}.author-name.jsx-3898812783{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;line-height:40px;}\n/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9waGFtdGllbi9Xb3JrL05pbWJ1cy9ibG9nL3NjcmVlbnMvZGFzaGJvYXJkL2NhdGVnb3J5L0NhcmRSaWdodC9zdHlsZXMuanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBRWtCLEFBR2dCLEFBSUcsQUFNSyxBQU1OLEFBR00sV0FsQkosR0FJRSxLQU1GLEFBU0MsT0FsQmxCLEtBSWEsR0FNQyxDQVNXLE9BZE4sSUFNQyxZQVNELENBZG5CLEtBTUEsVUFHQSxDQU1BIiwiZmlsZSI6Ii9Vc2Vycy9waGFtdGllbi9Xb3JrL05pbWJ1cy9ibG9nL3NjcmVlbnMvZGFzaGJvYXJkL2NhdGVnb3J5L0NhcmRSaWdodC9zdHlsZXMuanMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgY3NzIGZyb20gXCJzdHlsZWQtanN4L2Nzc1wiO1xuXG5leHBvcnQgZGVmYXVsdCBjc3NgXG4gIC5jYXJkLXJpZ2h0IHtcbiAgICB3aWR0aDogMTAwJTtcbiAgICBjdXJzb3I6IHBvaW50ZXI7XG4gIH1cbiAgLmltYWdlIGltZyB7XG4gICAgZGlzcGxheTogYmxvY2s7XG4gICAgbWF4LWhlaWdodDogMTAwcHg7XG4gICAgd2lkdGg6IDEwMCU7XG4gICAgb2JqZWN0LWZpdDogY292ZXI7XG4gIH1cbiAgLmF1dGhvci1pbWcge1xuICAgIGJvcmRlci1yYWRpdXM6IDMwcHg7XG4gICAgbWF4LXdpZHRoOiA0MHB4O1xuICAgIGhlaWdodDogYXV0bztcbiAgICBtYXJnaW4tcmlnaHQ6IDIwcHg7XG4gIH1cbiAgLmF1dGhvciB7XG4gICAgZGlzcGxheTogZmxleDtcbiAgfVxuICAuYXV0aG9yLW5hbWUge1xuICAgIHdoaXRlLXNwYWNlOiBub3dyYXA7XG4gICAgb3ZlcmZsb3c6IGhpZGRlbjtcbiAgICB0ZXh0LW92ZXJmbG93OiBlbGxpcHNpcztcbiAgICBsaW5lLWhlaWdodDogNDBweDtcbiAgfVxuYDtcbiJdfQ== */\n/*@ sourceURL=/Users/phamtien/Work/Nimbus/blog/screens/dashboard/category/CardRight/styles.js */");
 
-_defaultExport.__hash = "746306820";
+_defaultExport.__hash = "3898812783";
 /* harmony default export */ __webpack_exports__["default"] = (_defaultExport);
 
 /***/ }),
@@ -3376,9 +3436,9 @@ function Category({
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-const _defaultExport = new String(".container.jsx-3693094029{margin-bottom:20px;}.header-highlight.jsx-3693094029{border-bottom:1px solid #ddd;margin-bottom:10px;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:justify;-webkit-justify-content:space-between;-ms-flex-pack:justify;justify-content:space-between;}.show-more.jsx-3693094029{line-height:10px;}.category-title.jsx-3693094029{font-weight:bold;font-size:1.3em;margin-bottom:5px;}.image.jsx-3693094029 img.jsx-3693094029{height:200px;width:100%;background-size:cover;}\n/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9waGFtdGllbi9Xb3JrL05pbWJ1cy9ibG9nL3NjcmVlbnMvZGFzaGJvYXJkL2NhdGVnb3J5L3N0eWxlcy5qcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFFa0IsQUFHd0IsQUFHVSxBQU1aLEFBR0EsQUFLSixhQUNGLElBUmIsQUFHa0IsRUFabEIsS0FrQndCLEtBZkgsSUFVRCxhQU1wQixFQWZlLEdBVWYsdUVBVGdDLG1IQUNoQyIsImZpbGUiOiIvVXNlcnMvcGhhbXRpZW4vV29yay9OaW1idXMvYmxvZy9zY3JlZW5zL2Rhc2hib2FyZC9jYXRlZ29yeS9zdHlsZXMuanMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgY3NzIGZyb20gXCJzdHlsZWQtanN4L2Nzc1wiO1xuXG5leHBvcnQgZGVmYXVsdCBjc3NgXG4gIC5jb250YWluZXIge1xuICAgIG1hcmdpbi1ib3R0b206IDIwcHg7XG4gIH1cbiAgLmhlYWRlci1oaWdobGlnaHQge1xuICAgIGJvcmRlci1ib3R0b206IDFweCBzb2xpZCAjZGRkO1xuICAgIG1hcmdpbi1ib3R0b206IDEwcHg7XG4gICAgZGlzcGxheTogZmxleDtcbiAgICBqdXN0aWZ5LWNvbnRlbnQ6IHNwYWNlLWJldHdlZW47XG4gIH1cbiAgLnNob3ctbW9yZSB7XG4gICAgbGluZS1oZWlnaHQ6IDEwcHg7XG4gIH1cbiAgLmNhdGVnb3J5LXRpdGxlIHtcbiAgICBmb250LXdlaWdodDogYm9sZDtcbiAgICBmb250LXNpemU6IDEuM2VtO1xuICAgIG1hcmdpbi1ib3R0b206IDVweDtcbiAgfVxuICAuaW1hZ2UgaW1nIHtcbiAgICBoZWlnaHQ6IDIwMHB4O1xuICAgIHdpZHRoOiAxMDAlO1xuICAgIGJhY2tncm91bmQtc2l6ZTogY292ZXI7XG4gIH1cbmA7XG4iXX0= */\n/*@ sourceURL=/Users/phamtien/Work/Nimbus/blog/screens/dashboard/category/styles.js */");
+const _defaultExport = new String(".container.jsx-2733935791{margin-bottom:20px;}.header-highlight.jsx-2733935791{border-bottom:1px solid #ddd;margin-top:60px;margin-bottom:10px;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:justify;-webkit-justify-content:space-between;-ms-flex-pack:justify;justify-content:space-between;}.show-more.jsx-2733935791{line-height:10px;}.category-title.jsx-2733935791{font-weight:bold;font-size:1.3em;margin-bottom:5px;}.image.jsx-2733935791 img.jsx-2733935791{height:200px;width:100%;background-size:cover;}\n/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9waGFtdGllbi9Xb3JrL05pbWJ1cy9ibG9nL3NjcmVlbnMvZGFzaGJvYXJkL2NhdGVnb3J5L3N0eWxlcy5qcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFFa0IsQUFHd0IsQUFHVSxBQU9aLEFBR0EsQUFLSixhQUNGLElBUmIsQUFHa0IsRUFibEIsS0FtQndCLEtBaEJOLElBV0UsWUFWQyxDQWdCckIsS0FMQSxhQVZlLDBFQUNpQixtSEFDaEMiLCJmaWxlIjoiL1VzZXJzL3BoYW10aWVuL1dvcmsvTmltYnVzL2Jsb2cvc2NyZWVucy9kYXNoYm9hcmQvY2F0ZWdvcnkvc3R5bGVzLmpzIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IGNzcyBmcm9tIFwic3R5bGVkLWpzeC9jc3NcIjtcblxuZXhwb3J0IGRlZmF1bHQgY3NzYFxuICAuY29udGFpbmVyIHtcbiAgICBtYXJnaW4tYm90dG9tOiAyMHB4O1xuICB9XG4gIC5oZWFkZXItaGlnaGxpZ2h0IHtcbiAgICBib3JkZXItYm90dG9tOiAxcHggc29saWQgI2RkZDtcbiAgICBtYXJnaW4tdG9wOiA2MHB4O1xuICAgIG1hcmdpbi1ib3R0b206IDEwcHg7XG4gICAgZGlzcGxheTogZmxleDtcbiAgICBqdXN0aWZ5LWNvbnRlbnQ6IHNwYWNlLWJldHdlZW47XG4gIH1cbiAgLnNob3ctbW9yZSB7XG4gICAgbGluZS1oZWlnaHQ6IDEwcHg7XG4gIH1cbiAgLmNhdGVnb3J5LXRpdGxlIHtcbiAgICBmb250LXdlaWdodDogYm9sZDtcbiAgICBmb250LXNpemU6IDEuM2VtO1xuICAgIG1hcmdpbi1ib3R0b206IDVweDtcbiAgfVxuICAuaW1hZ2UgaW1nIHtcbiAgICBoZWlnaHQ6IDIwMHB4O1xuICAgIHdpZHRoOiAxMDAlO1xuICAgIGJhY2tncm91bmQtc2l6ZTogY292ZXI7XG4gIH1cbmA7XG4iXX0= */\n/*@ sourceURL=/Users/phamtien/Work/Nimbus/blog/screens/dashboard/category/styles.js */");
 
-_defaultExport.__hash = "3693094029";
+_defaultExport.__hash = "2733935791";
 /* harmony default export */ __webpack_exports__["default"] = (_defaultExport);
 
 /***/ }),
@@ -3639,6 +3699,7 @@ const Dashboard = ({
       columnNumber: 7
     }
   }), __jsx(_components_footer_FooterComponent__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    categories: categories,
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
