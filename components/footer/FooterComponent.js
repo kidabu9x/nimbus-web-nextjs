@@ -12,16 +12,16 @@ const Footer = ({ categories }) => {
     return firstHalf
       ? newCategories.splice(0, Math.ceil(newCategories.length / 2))
       : newCategories.splice(
-          Math.ceil(newCategories.length / 2),
-          newCategories.length
-        );
+        Math.ceil(newCategories.length / 2),
+        newCategories.length
+      );
   };
 
   return (
     <footer className="ui inverted vertical footer segment form-page">
       <Container maxWidth="md">
         <Grid container spacing={0} style={{ marginBottom: 40 }}>
-          <Grid item xs style={{ marginBottom: 40 }}>
+          <Grid item xs={12} sm={4} style={{ marginBottom: 40 }}>
             <div>
               <img
                 alt="logo"
@@ -47,7 +47,7 @@ const Footer = ({ categories }) => {
               <p className="information-txt">Hotline: 0969 849 603</p>
             </div>
           </Grid>
-          <Grid item xs style={{ marginBottom: 40 }}>
+          <Grid item xs={12} sm={4} style={{ marginBottom: 40 }}>
             <Grid container spacing={0}>
               <Grid item xs>
                 <div className="column">
@@ -69,7 +69,7 @@ const Footer = ({ categories }) => {
               </Grid>
             </Grid>
           </Grid>
-          <Grid item xs style={{ marginBottom: 40 }}>
+          <Grid item xs={12} sm={4} style={{ marginBottom: 40 }}>
             <div className="footer-right">
               <iframe
                 src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fnimbustrainingcenter%2F&tabs=timeline&width=300&height=70&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=709969695863741"
