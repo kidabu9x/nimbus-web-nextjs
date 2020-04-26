@@ -6,7 +6,7 @@ export const ListBlogItemComponent = ({ data }) => {
   return (
     <Link href={`/${data.slug}`}>
       <div role="listitem" className="item container">
-        <div className="ui padded two column grid">
+        <div className="ui padded stackable two column grid">
           <div className="column" style={{ paddingLeft: 0 }}>
             <img
               src={

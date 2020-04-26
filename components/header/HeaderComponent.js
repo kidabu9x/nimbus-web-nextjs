@@ -56,18 +56,18 @@ const Header = ({ categories }) => {
             <a
               className={`${
                 router.asPath.substring(1) === "" ? "active" : ""
-                } item`}
+              } item`}
             >
               Trang chủ
             </a>
           </Link>
           {categories &&
-            categories.map((category) => (
-              <Link key={category.id} href={`/${category.slug}`}>
+            categories.map((category, index) => (
+              <Link key={index.toString()} href={`/${category.slug}`}>
                 <a
                   className={`${
                     router.asPath.substring(1) === category.slug ? "active" : ""
-                    } item`}
+                  } item`}
                 >
                   {category.title}
                 </a>

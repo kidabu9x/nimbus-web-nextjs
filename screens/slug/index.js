@@ -13,7 +13,7 @@ const SlugPage = ({ categories, highlights, type, dataPage }) => {
     <ContainerComponent>
       <Header categories={categories} />
       <Container maxWidth="md">
-        <div className="ui grid" style={{ marginBottom: 50 }}>
+        <div className="ui stackable grid" style={{ marginBottom: 50 }}>
           <div className="left floated eleven wide column">
             {type === SLUG_TYPE.CATEGORY && (
               <ListBlogComponent data={dataPage} />
@@ -26,7 +26,7 @@ const SlugPage = ({ categories, highlights, type, dataPage }) => {
           <HighlightComponent data={highlights} />
         </div>
       </Container>
-      <Footer />
+      <Footer categories={categories} />
     </ContainerComponent>
   );
 };
