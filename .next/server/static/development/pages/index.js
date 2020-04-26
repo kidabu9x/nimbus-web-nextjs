@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 4);
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -468,7 +468,6 @@ const Header = ({
 
   const onSearch = () => {
     if (txtSearch !== "") {
-      console.log(txtSearch);
       router.push(`/search?query=${txtSearch}`);
     }
   };
@@ -488,7 +487,7 @@ const Header = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 29,
+      lineNumber: 28,
       columnNumber: 5
     }
   }, __jsx(_material_ui_core__WEBPACK_IMPORTED_MODULE_5__["Container"], {
@@ -496,7 +495,7 @@ const Header = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 30,
+      lineNumber: 29,
       columnNumber: 7
     }
   }, __jsx("h3", {
@@ -504,7 +503,7 @@ const Header = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 31,
+      lineNumber: 30,
       columnNumber: 9
     }
   }, __jsx("div", {
@@ -512,7 +511,7 @@ const Header = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 32,
+      lineNumber: 31,
       columnNumber: 11
     }
   }, __jsx("a", {
@@ -521,7 +520,7 @@ const Header = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 33,
+      lineNumber: 32,
       columnNumber: 13
     }
   }, __jsx("img", {
@@ -531,7 +530,7 @@ const Header = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 34,
+      lineNumber: 33,
       columnNumber: 15
     }
   })), __jsx("div", {
@@ -539,7 +538,7 @@ const Header = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 40,
+      lineNumber: 39,
       columnNumber: 13
     }
   }, __jsx("input", {
@@ -551,7 +550,7 @@ const Header = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 41,
+      lineNumber: 40,
       columnNumber: 15
     }
   }), __jsx("i", {
@@ -561,7 +560,7 @@ const Header = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 47,
+      lineNumber: 46,
       columnNumber: 15
     }
   })))), __jsx("div", {
@@ -569,7 +568,7 @@ const Header = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 55,
+      lineNumber: 54,
       columnNumber: 9
     }
   }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
@@ -577,7 +576,7 @@ const Header = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 56,
+      lineNumber: 55,
       columnNumber: 11
     }
   }, __jsx("a", {
@@ -585,7 +584,7 @@ const Header = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 57,
+      lineNumber: 56,
       columnNumber: 13
     }
   }, "Trang ch\u1EE7")), categories && categories.map(category => __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
@@ -594,7 +593,7 @@ const Header = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 67,
+      lineNumber: 66,
       columnNumber: 15
     }
   }, __jsx("a", {
@@ -602,7 +601,7 @@ const Header = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 68,
+      lineNumber: 67,
       columnNumber: 17
     }
   }, category.title))))), __jsx(styled_jsx_style__WEBPACK_IMPORTED_MODULE_0___default.a, {
@@ -2852,7 +2851,7 @@ const Index = ({
       lineNumber: 12,
       columnNumber: 9
     }
-  }, "Nimbus Service"), __jsx("meta", {
+  }, "Nimbus Computer School"), __jsx("meta", {
     name: "viewport",
     content: "width=device-width, initial-scale=1",
     __self: undefined,
@@ -3718,7 +3717,7 @@ const api = new ServerAPI();
 
 /***/ }),
 
-/***/ 4:
+/***/ 3:
 /*!******************************!*\
   !*** multi ./pages/index.js ***!
   \******************************/

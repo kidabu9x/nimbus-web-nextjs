@@ -353,7 +353,6 @@ var Header = function Header(_ref) {
 
   var onSearch = function onSearch() {
     if (txtSearch !== "") {
-      console.log(txtSearch);
       router.push("/search?query=".concat(txtSearch));
     }
   };
@@ -373,7 +372,7 @@ var Header = function Header(_ref) {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 29,
+      lineNumber: 28,
       columnNumber: 5
     }
   }, __jsx(_material_ui_core__WEBPACK_IMPORTED_MODULE_5__["Container"], {
@@ -381,7 +380,7 @@ var Header = function Header(_ref) {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 30,
+      lineNumber: 29,
       columnNumber: 7
     }
   }, __jsx("h3", {
@@ -389,7 +388,7 @@ var Header = function Header(_ref) {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 31,
+      lineNumber: 30,
       columnNumber: 9
     }
   }, __jsx("div", {
@@ -397,7 +396,7 @@ var Header = function Header(_ref) {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 32,
+      lineNumber: 31,
       columnNumber: 11
     }
   }, __jsx("a", {
@@ -406,7 +405,7 @@ var Header = function Header(_ref) {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 33,
+      lineNumber: 32,
       columnNumber: 13
     }
   }, __jsx("img", {
@@ -416,7 +415,7 @@ var Header = function Header(_ref) {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 34,
+      lineNumber: 33,
       columnNumber: 15
     }
   })), __jsx("div", {
@@ -424,7 +423,7 @@ var Header = function Header(_ref) {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 40,
+      lineNumber: 39,
       columnNumber: 13
     }
   }, __jsx("input", {
@@ -436,7 +435,7 @@ var Header = function Header(_ref) {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 41,
+      lineNumber: 40,
       columnNumber: 15
     }
   }), __jsx("i", {
@@ -446,7 +445,7 @@ var Header = function Header(_ref) {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 47,
+      lineNumber: 46,
       columnNumber: 15
     }
   })))), __jsx("div", {
@@ -454,7 +453,7 @@ var Header = function Header(_ref) {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 55,
+      lineNumber: 54,
       columnNumber: 9
     }
   }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
@@ -462,7 +461,7 @@ var Header = function Header(_ref) {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 56,
+      lineNumber: 55,
       columnNumber: 11
     }
   }, __jsx("a", {
@@ -470,7 +469,7 @@ var Header = function Header(_ref) {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 57,
+      lineNumber: 56,
       columnNumber: 13
     }
   }, "Trang ch\u1EE7")), categories && categories.map(function (category) {
@@ -480,7 +479,7 @@ var Header = function Header(_ref) {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 67,
+        lineNumber: 66,
         columnNumber: 15
       }
     }, __jsx("a", {
@@ -488,7 +487,7 @@ var Header = function Header(_ref) {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 68,
+        lineNumber: 67,
         columnNumber: 17
       }
     }, category.title));
@@ -57746,7 +57745,6 @@ var HighlightComponent = function HighlightComponent(_ref) {
 
   var onSearch = function onSearch() {
     if (txtSearch !== "") {
-      console.log(txtSearch);
       router.push("/search?query=".concat(txtSearch));
     }
   };
@@ -57766,7 +57764,7 @@ var HighlightComponent = function HighlightComponent(_ref) {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 29,
+      lineNumber: 28,
       columnNumber: 5
     }
   }, __jsx("div", {
@@ -57774,7 +57772,7 @@ var HighlightComponent = function HighlightComponent(_ref) {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 30,
+      lineNumber: 29,
       columnNumber: 7
     }
   }, __jsx("div", {
@@ -57782,7 +57780,7 @@ var HighlightComponent = function HighlightComponent(_ref) {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 31,
+      lineNumber: 30,
       columnNumber: 9
     }
   }, __jsx("input", {
@@ -57794,7 +57792,7 @@ var HighlightComponent = function HighlightComponent(_ref) {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 32,
+      lineNumber: 31,
       columnNumber: 11
     }
   }), __jsx("i", {
@@ -57804,7 +57802,7 @@ var HighlightComponent = function HighlightComponent(_ref) {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 38,
+      lineNumber: 37,
       columnNumber: 11
     }
   })), __jsx("div", {
@@ -57812,7 +57810,7 @@ var HighlightComponent = function HighlightComponent(_ref) {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 44,
+      lineNumber: 43,
       columnNumber: 9
     }
   }, __jsx("h2", {
@@ -57820,7 +57818,7 @@ var HighlightComponent = function HighlightComponent(_ref) {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 45,
+      lineNumber: 44,
       columnNumber: 11
     }
   }, "B\xE0i vi\u1EBFt n\u1ED5i b\u1EADt:"), __jsx("div", {
@@ -57829,7 +57827,7 @@ var HighlightComponent = function HighlightComponent(_ref) {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 46,
+      lineNumber: 45,
       columnNumber: 11
     }
   }, data.map(function (highlight, index) {
@@ -57839,7 +57837,7 @@ var HighlightComponent = function HighlightComponent(_ref) {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 48,
+        lineNumber: 47,
         columnNumber: 15
       }
     });
@@ -58045,7 +58043,7 @@ var SlugPage = function SlugPage(_ref) {
       columnNumber: 7
     }
   }, __jsx("div", {
-    className: "ui grid",
+    className: "ui stackable grid",
     style: {
       marginBottom: 50
     },
@@ -58234,7 +58232,7 @@ var ListBlogItemComponent = function ListBlogItemComponent(_ref) {
       columnNumber: 7
     }
   }, __jsx("div", {
-    className: "jsx-".concat(_styles__WEBPACK_IMPORTED_MODULE_2__["default"].__hash) + " " + "ui padded two column grid",
+    className: "jsx-".concat(_styles__WEBPACK_IMPORTED_MODULE_2__["default"].__hash) + " " + "ui padded stackable two column grid",
     __self: _this,
     __source: {
       fileName: _jsxFileName,
@@ -58367,7 +58365,7 @@ var randomColor = function randomColor() {
 
 /***/ }),
 
-/***/ 3:
+/***/ 2:
 /*!*********************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2F%5Bslug%5D&absolutePagePath=%2FUsers%2Fphamtien%2FWork%2FNimbus%2Fblog%2Fpages%2F%5Bslug%5D.js ***!
   \*********************************************************************************************************************************************/
@@ -58390,5 +58388,5 @@ module.exports = dll_c2e10d183b950a67d9e7;
 
 /***/ })
 
-},[[3,"static/runtime/webpack.js"]]]);
+},[[2,"static/runtime/webpack.js"]]]);
 //# sourceMappingURL=[slug].js.map

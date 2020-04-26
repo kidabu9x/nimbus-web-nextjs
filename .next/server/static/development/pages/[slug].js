@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 5);
+/******/ 	return __webpack_require__(__webpack_require__.s = 4);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -468,7 +468,6 @@ const Header = ({
 
   const onSearch = () => {
     if (txtSearch !== "") {
-      console.log(txtSearch);
       router.push(`/search?query=${txtSearch}`);
     }
   };
@@ -488,7 +487,7 @@ const Header = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 29,
+      lineNumber: 28,
       columnNumber: 5
     }
   }, __jsx(_material_ui_core__WEBPACK_IMPORTED_MODULE_5__["Container"], {
@@ -496,7 +495,7 @@ const Header = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 30,
+      lineNumber: 29,
       columnNumber: 7
     }
   }, __jsx("h3", {
@@ -504,7 +503,7 @@ const Header = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 31,
+      lineNumber: 30,
       columnNumber: 9
     }
   }, __jsx("div", {
@@ -512,7 +511,7 @@ const Header = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 32,
+      lineNumber: 31,
       columnNumber: 11
     }
   }, __jsx("a", {
@@ -521,7 +520,7 @@ const Header = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 33,
+      lineNumber: 32,
       columnNumber: 13
     }
   }, __jsx("img", {
@@ -531,7 +530,7 @@ const Header = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 34,
+      lineNumber: 33,
       columnNumber: 15
     }
   })), __jsx("div", {
@@ -539,7 +538,7 @@ const Header = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 40,
+      lineNumber: 39,
       columnNumber: 13
     }
   }, __jsx("input", {
@@ -551,7 +550,7 @@ const Header = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 41,
+      lineNumber: 40,
       columnNumber: 15
     }
   }), __jsx("i", {
@@ -561,7 +560,7 @@ const Header = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 47,
+      lineNumber: 46,
       columnNumber: 15
     }
   })))), __jsx("div", {
@@ -569,7 +568,7 @@ const Header = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 55,
+      lineNumber: 54,
       columnNumber: 9
     }
   }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
@@ -577,7 +576,7 @@ const Header = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 56,
+      lineNumber: 55,
       columnNumber: 11
     }
   }, __jsx("a", {
@@ -585,7 +584,7 @@ const Header = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 57,
+      lineNumber: 56,
       columnNumber: 13
     }
   }, "Trang ch\u1EE7")), categories && categories.map(category => __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
@@ -594,7 +593,7 @@ const Header = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 67,
+      lineNumber: 66,
       columnNumber: 15
     }
   }, __jsx("a", {
@@ -602,7 +601,7 @@ const Header = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 68,
+      lineNumber: 67,
       columnNumber: 17
     }
   }, category.title))))), __jsx(styled_jsx_style__WEBPACK_IMPORTED_MODULE_0___default.a, {
@@ -3277,7 +3276,6 @@ const HighlightComponent = ({
 
   const onSearch = () => {
     if (txtSearch !== "") {
-      console.log(txtSearch);
       router.push(`/search?query=${txtSearch}`);
     }
   };
@@ -3297,7 +3295,7 @@ const HighlightComponent = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 29,
+      lineNumber: 28,
       columnNumber: 5
     }
   }, __jsx("div", {
@@ -3305,7 +3303,7 @@ const HighlightComponent = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 30,
+      lineNumber: 29,
       columnNumber: 7
     }
   }, __jsx("div", {
@@ -3313,7 +3311,7 @@ const HighlightComponent = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 31,
+      lineNumber: 30,
       columnNumber: 9
     }
   }, __jsx("input", {
@@ -3325,7 +3323,7 @@ const HighlightComponent = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 32,
+      lineNumber: 31,
       columnNumber: 11
     }
   }), __jsx("i", {
@@ -3335,7 +3333,7 @@ const HighlightComponent = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 38,
+      lineNumber: 37,
       columnNumber: 11
     }
   })), __jsx("div", {
@@ -3343,7 +3341,7 @@ const HighlightComponent = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 44,
+      lineNumber: 43,
       columnNumber: 9
     }
   }, __jsx("h2", {
@@ -3351,7 +3349,7 @@ const HighlightComponent = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 45,
+      lineNumber: 44,
       columnNumber: 11
     }
   }, "B\xE0i vi\u1EBFt n\u1ED5i b\u1EADt:"), __jsx("div", {
@@ -3360,7 +3358,7 @@ const HighlightComponent = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 46,
+      lineNumber: 45,
       columnNumber: 11
     }
   }, data.map((highlight, index) => __jsx(_Item_Item__WEBPACK_IMPORTED_MODULE_3__["HighlightItemComponent"], {
@@ -3369,7 +3367,7 @@ const HighlightComponent = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 48,
+      lineNumber: 47,
       columnNumber: 15
     }
   }))))), __jsx(styled_jsx_style__WEBPACK_IMPORTED_MODULE_0___default.a, {
@@ -3573,7 +3571,7 @@ const SlugPage = ({
       columnNumber: 7
     }
   }, __jsx("div", {
-    className: "ui grid",
+    className: "ui stackable grid",
     style: {
       marginBottom: 50
     },
@@ -3758,7 +3756,7 @@ const ListBlogItemComponent = ({
       columnNumber: 7
     }
   }, __jsx("div", {
-    className: `jsx-${_styles__WEBPACK_IMPORTED_MODULE_2__["default"].__hash}` + " " + "ui padded two column grid",
+    className: `jsx-${_styles__WEBPACK_IMPORTED_MODULE_2__["default"].__hash}` + " " + "ui padded stackable two column grid",
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
@@ -3956,7 +3954,7 @@ const randomColor = () => {
 
 /***/ }),
 
-/***/ 5:
+/***/ 4:
 /*!*******************************!*\
   !*** multi ./pages/[slug].js ***!
   \*******************************/
