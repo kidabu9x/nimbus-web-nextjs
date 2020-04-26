@@ -40,192 +40,278 @@ function ContainerComponent(_ref) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var styled_jsx_style__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! styled-jsx/style */ "./node_modules/styled-jsx/style.js");
-/* harmony import */ var styled_jsx_style__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(styled_jsx_style__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _styles__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./styles */ "./components/footer/styles.js");
-/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/index.js");
+/* harmony import */ var _babel_runtime_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/toConsumableArray */ "./node_modules/@babel/runtime/helpers/esm/toConsumableArray.js");
+/* harmony import */ var styled_jsx_style__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! styled-jsx/style */ "./node_modules/styled-jsx/style.js");
+/* harmony import */ var styled_jsx_style__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(styled_jsx_style__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _styles__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./styles */ "./components/footer/styles.js");
+/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/index.js");
+/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! next/link */ "./node_modules/next/link.js");
+/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! next/router */ "./node_modules/next/dist/client/router.js");
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_6__);
+
+
 var _this = undefined,
     _jsxFileName = "/Users/phamtien/Work/Nimbus/blog/components/footer/FooterComponent.js";
 
 
-var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
+var __jsx = react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement;
+
+
 
 
 
 
 var Footer = function Footer(_ref) {
   var categories = _ref.categories;
+  var router = Object(next_router__WEBPACK_IMPORTED_MODULE_6__["useRouter"])();
+
+  var getHalfOfCategories = function getHalfOfCategories() {
+    var firstHalf = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
+
+    var newCategories = Object(_babel_runtime_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_0__["default"])(categories);
+
+    return firstHalf ? newCategories.splice(0, Math.ceil(newCategories.length / 2)) : newCategories.splice(Math.ceil(newCategories.length / 2), newCategories.length);
+  };
+
   return __jsx("footer", {
-    className: "jsx-".concat(_styles__WEBPACK_IMPORTED_MODULE_2__["default"].__hash) + " " + "ui inverted vertical footer segment form-page",
+    className: "jsx-".concat(_styles__WEBPACK_IMPORTED_MODULE_3__["default"].__hash) + " " + "ui inverted vertical footer segment form-page",
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 7,
+      lineNumber: 21,
       columnNumber: 5
     }
-  }, __jsx(_material_ui_core__WEBPACK_IMPORTED_MODULE_3__["Container"], {
+  }, __jsx(_material_ui_core__WEBPACK_IMPORTED_MODULE_4__["Container"], {
     maxWidth: "md",
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 8,
+      lineNumber: 22,
       columnNumber: 7
     }
-  }, __jsx("div", {
-    className: "jsx-".concat(_styles__WEBPACK_IMPORTED_MODULE_2__["default"].__hash) + " " + "information-field",
-    __self: _this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 9,
-      columnNumber: 9
-    }
-  }, __jsx("div", {
-    className: "jsx-".concat(_styles__WEBPACK_IMPORTED_MODULE_2__["default"].__hash),
-    __self: _this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 10,
-      columnNumber: 11
-    }
-  }, __jsx("img", {
-    alt: "logo",
-    src: "/static/assets/images/logo_footer.png",
-    className: "jsx-".concat(_styles__WEBPACK_IMPORTED_MODULE_2__["default"].__hash) + " " + "logo",
-    __self: _this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 11,
-      columnNumber: 13
-    }
-  }), __jsx("p", {
-    className: "jsx-".concat(_styles__WEBPACK_IMPORTED_MODULE_2__["default"].__hash) + " " + "information-txt",
-    __self: _this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 16,
-      columnNumber: 13
-    }
-  }, "C\xD4NG TY TNHH NIMBUS"), __jsx("p", {
-    className: "jsx-".concat(_styles__WEBPACK_IMPORTED_MODULE_2__["default"].__hash) + " " + "information-txt",
-    __self: _this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 17,
-      columnNumber: 13
-    }
-  }, "\u0110\u1ECBa ch\u1EC9: S\u1ED1 5 ng\xF5 128 Ph\u1ED1 V\u1ECDng, H\xE0 N\u1ED9i"), __jsx("p", {
-    className: "jsx-".concat(_styles__WEBPACK_IMPORTED_MODULE_2__["default"].__hash) + " " + "information-txt",
-    __self: _this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 20,
-      columnNumber: 13
-    }
-  }, "Gi\u1EA5y ph\xE9p \u0110KKD s\u1ED1 0107927478 do S\u1EDF K\u1EBF ho\u1EA1ch v\xE0 \u0110\u1EA7u t\u01B0 H\xE0 N\u1ED9i c\u1EA5p"), __jsx("p", {
-    className: "jsx-".concat(_styles__WEBPACK_IMPORTED_MODULE_2__["default"].__hash) + " " + "information-txt",
+  }, __jsx(_material_ui_core__WEBPACK_IMPORTED_MODULE_4__["Grid"], {
+    container: true,
+    spacing: 0,
+    style: {
+      marginBottom: 40
+    },
     __self: _this,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 23,
-      columnNumber: 13
+      columnNumber: 9
     }
-  }, "T\xEAn mi\u1EC1n:", " ", __jsx("span", {
-    className: "jsx-".concat(_styles__WEBPACK_IMPORTED_MODULE_2__["default"].__hash),
+  }, __jsx(_material_ui_core__WEBPACK_IMPORTED_MODULE_4__["Grid"], {
+    item: true,
+    xs: true,
+    style: {
+      marginBottom: 40
+    },
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 24,
+      columnNumber: 11
+    }
+  }, __jsx("div", {
+    className: "jsx-".concat(_styles__WEBPACK_IMPORTED_MODULE_3__["default"].__hash),
     __self: _this,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 25,
-      columnNumber: 15
+      columnNumber: 13
     }
-  }, __jsx("a", {
-    href: "https://nimbus.com.vn",
-    target: "_blank",
-    className: "jsx-".concat(_styles__WEBPACK_IMPORTED_MODULE_2__["default"].__hash),
+  }, __jsx("img", {
+    alt: "logo",
+    src: "/static/assets/images/logo_footer.png",
+    className: "jsx-".concat(_styles__WEBPACK_IMPORTED_MODULE_3__["default"].__hash) + " " + "logo",
     __self: _this,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 26,
-      columnNumber: 17
+      columnNumber: 15
     }
-  }, "https://nimbus.com.vn"))), __jsx("br", {
-    className: "jsx-".concat(_styles__WEBPACK_IMPORTED_MODULE_2__["default"].__hash),
+  }), __jsx("p", {
+    className: "jsx-".concat(_styles__WEBPACK_IMPORTED_MODULE_3__["default"].__hash) + " " + "information-txt",
     __self: _this,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 31,
-      columnNumber: 13
+      columnNumber: 15
     }
-  }), __jsx("p", {
-    className: "jsx-".concat(_styles__WEBPACK_IMPORTED_MODULE_2__["default"].__hash) + " " + "information-txt",
+  }, "C\xD4NG TY TNHH NIMBUS"), __jsx("p", {
+    className: "jsx-".concat(_styles__WEBPACK_IMPORTED_MODULE_3__["default"].__hash) + " " + "information-txt",
     __self: _this,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 32,
-      columnNumber: 13
+      columnNumber: 15
     }
-  }, "Hotline: 0969 849 603")), __jsx("div", {
-    className: "jsx-".concat(_styles__WEBPACK_IMPORTED_MODULE_2__["default"].__hash),
-    __self: _this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 34,
-      columnNumber: 11
-    }
-  }, __jsx("div", {
-    className: "jsx-".concat(_styles__WEBPACK_IMPORTED_MODULE_2__["default"].__hash) + " " + "ui padded stackable two column grid",
+  }, "\u0110\u1ECBa ch\u1EC9: S\u1ED1 5 ng\xF5 128 Ph\u1ED1 V\u1ECDng, H\xE0 N\u1ED9i"), __jsx("p", {
+    className: "jsx-".concat(_styles__WEBPACK_IMPORTED_MODULE_3__["default"].__hash) + " " + "information-txt",
     __self: _this,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 35,
+      columnNumber: 15
+    }
+  }, "Gi\u1EA5y ph\xE9p \u0110KKD s\u1ED1 0107927478 do S\u1EDF K\u1EBF ho\u1EA1ch v\xE0 \u0110\u1EA7u t\u01B0 H\xE0 N\u1ED9i c\u1EA5p"), __jsx("p", {
+    className: "jsx-".concat(_styles__WEBPACK_IMPORTED_MODULE_3__["default"].__hash) + " " + "information-txt",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 38,
+      columnNumber: 15
+    }
+  }, "T\xEAn mi\u1EC1n:", " ", __jsx("span", {
+    className: "jsx-".concat(_styles__WEBPACK_IMPORTED_MODULE_3__["default"].__hash),
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 40,
+      columnNumber: 17
+    }
+  }, __jsx("a", {
+    href: "https://nimbus.com.vn",
+    target: "_blank",
+    className: "jsx-".concat(_styles__WEBPACK_IMPORTED_MODULE_3__["default"].__hash),
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 41,
+      columnNumber: 19
+    }
+  }, "https://nimbus.com.vn"))), __jsx("br", {
+    className: "jsx-".concat(_styles__WEBPACK_IMPORTED_MODULE_3__["default"].__hash),
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 46,
+      columnNumber: 15
+    }
+  }), __jsx("p", {
+    className: "jsx-".concat(_styles__WEBPACK_IMPORTED_MODULE_3__["default"].__hash) + " " + "information-txt",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 47,
+      columnNumber: 15
+    }
+  }, "Hotline: 0969 849 603"))), __jsx(_material_ui_core__WEBPACK_IMPORTED_MODULE_4__["Grid"], {
+    item: true,
+    xs: true,
+    style: {
+      marginBottom: 40
+    },
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 50,
+      columnNumber: 11
+    }
+  }, __jsx(_material_ui_core__WEBPACK_IMPORTED_MODULE_4__["Grid"], {
+    container: true,
+    spacing: 0,
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 51,
       columnNumber: 13
     }
+  }, __jsx(_material_ui_core__WEBPACK_IMPORTED_MODULE_4__["Grid"], {
+    item: true,
+    xs: true,
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 52,
+      columnNumber: 15
+    }
   }, __jsx("div", {
-    className: "jsx-".concat(_styles__WEBPACK_IMPORTED_MODULE_2__["default"].__hash) + " " + "column",
+    className: "jsx-".concat(_styles__WEBPACK_IMPORTED_MODULE_3__["default"].__hash) + " " + "column",
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 36,
-      columnNumber: 15
+      lineNumber: 53,
+      columnNumber: 17
     }
-  }, categories.splice(0, Math.ceil(categories.length / 2)).map(function (category) {
-    __jsx("p", {
-      key: category.slug,
-      className: "jsx-".concat(_styles__WEBPACK_IMPORTED_MODULE_2__["default"].__hash),
+  }, getHalfOfCategories().map(function (category, index) {
+    return __jsx(next_link__WEBPACK_IMPORTED_MODULE_5___default.a, {
+      key: index.toString(),
+      href: "/".concat(category.slug),
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 40,
+        lineNumber: 55,
         columnNumber: 21
       }
-    }, category.title);
-  })), __jsx("div", {
-    className: "jsx-".concat(_styles__WEBPACK_IMPORTED_MODULE_2__["default"].__hash) + " " + "column",
-    __self: _this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 43,
-      columnNumber: 15
-    }
-  }, categories.splice(Math.ceil(categories.length / 2, categories.length - 1)).map(function (category) {
-    __jsx("p", {
-      key: category.slug,
-      className: "jsx-".concat(_styles__WEBPACK_IMPORTED_MODULE_2__["default"].__hash),
+    }, __jsx("p", {
+      className: "jsx-".concat(_styles__WEBPACK_IMPORTED_MODULE_3__["default"].__hash) + " " + "category-link",
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 49,
-        columnNumber: 21
+        lineNumber: 56,
+        columnNumber: 23
       }
-    }, category.title);
-  })))), __jsx("div", {
-    className: "jsx-".concat(_styles__WEBPACK_IMPORTED_MODULE_2__["default"].__hash) + " " + "footer-right",
+    }, category.title));
+  }))), __jsx(_material_ui_core__WEBPACK_IMPORTED_MODULE_4__["Grid"], {
+    item: true,
+    xs: true,
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 54,
+      lineNumber: 61,
+      columnNumber: 15
+    }
+  }, __jsx("div", {
+    className: "jsx-".concat(_styles__WEBPACK_IMPORTED_MODULE_3__["default"].__hash) + " " + "column",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 62,
+      columnNumber: 17
+    }
+  }, getHalfOfCategories(false).map(function (category, index) {
+    return __jsx(next_link__WEBPACK_IMPORTED_MODULE_5___default.a, {
+      key: index.toString(),
+      href: "/".concat(category.slug),
+      __self: _this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 64,
+        columnNumber: 21
+      }
+    }, __jsx("p", {
+      className: "jsx-".concat(_styles__WEBPACK_IMPORTED_MODULE_3__["default"].__hash) + " " + "category-link",
+      __self: _this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 65,
+        columnNumber: 23
+      }
+    }, category.title));
+  }))))), __jsx(_material_ui_core__WEBPACK_IMPORTED_MODULE_4__["Grid"], {
+    item: true,
+    xs: true,
+    style: {
+      marginBottom: 40
+    },
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 72,
       columnNumber: 11
+    }
+  }, __jsx("div", {
+    className: "jsx-".concat(_styles__WEBPACK_IMPORTED_MODULE_3__["default"].__hash) + " " + "footer-right",
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 73,
+      columnNumber: 13
     }
   }, __jsx("iframe", {
     src: "https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fnimbustrainingcenter%2F&tabs=timeline&width=300&height=70&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=709969695863741",
@@ -235,41 +321,41 @@ var Footer = function Footer(_ref) {
     frameBorder: "0",
     allowtransparency: "true",
     allow: "encrypted-media",
-    className: "jsx-".concat(_styles__WEBPACK_IMPORTED_MODULE_2__["default"].__hash),
+    className: "jsx-".concat(_styles__WEBPACK_IMPORTED_MODULE_3__["default"].__hash),
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 55,
-      columnNumber: 13
+      lineNumber: 74,
+      columnNumber: 15
     }
   }), __jsx("div", {
-    className: "jsx-".concat(_styles__WEBPACK_IMPORTED_MODULE_2__["default"].__hash) + " " + "contact-logos",
+    className: "jsx-".concat(_styles__WEBPACK_IMPORTED_MODULE_3__["default"].__hash) + " " + "contact-logos",
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 64,
-      columnNumber: 13
+      lineNumber: 83,
+      columnNumber: 15
     }
   }, __jsx("a", {
     href: "tel:+84969849603",
     style: {
       color: "white"
     },
-    className: "jsx-".concat(_styles__WEBPACK_IMPORTED_MODULE_2__["default"].__hash),
+    className: "jsx-".concat(_styles__WEBPACK_IMPORTED_MODULE_3__["default"].__hash),
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 65,
-      columnNumber: 15
+      lineNumber: 84,
+      columnNumber: 17
     }
   }, __jsx("i", {
     "aria-hidden": "true",
-    className: "jsx-".concat(_styles__WEBPACK_IMPORTED_MODULE_2__["default"].__hash) + " " + "phone square icon logo-contact",
+    className: "jsx-".concat(_styles__WEBPACK_IMPORTED_MODULE_3__["default"].__hash) + " " + "phone square icon logo-contact",
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 66,
-      columnNumber: 17
+      lineNumber: 85,
+      columnNumber: 19
     }
   })), __jsx("a", {
     href: "https://www.facebook.com/nimbustrainingcenter/",
@@ -277,75 +363,75 @@ var Footer = function Footer(_ref) {
     style: {
       color: "white"
     },
-    className: "jsx-".concat(_styles__WEBPACK_IMPORTED_MODULE_2__["default"].__hash),
+    className: "jsx-".concat(_styles__WEBPACK_IMPORTED_MODULE_3__["default"].__hash),
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 71,
-      columnNumber: 15
+      lineNumber: 90,
+      columnNumber: 17
     }
   }, __jsx("i", {
     "aria-hidden": "true",
-    className: "jsx-".concat(_styles__WEBPACK_IMPORTED_MODULE_2__["default"].__hash) + " " + "facebook icon logo-contact",
+    className: "jsx-".concat(_styles__WEBPACK_IMPORTED_MODULE_3__["default"].__hash) + " " + "facebook icon logo-contact",
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 76,
-      columnNumber: 17
+      lineNumber: 95,
+      columnNumber: 19
     }
   })), __jsx("a", {
     href: "mailto:tuyensinh.nimbuscenter@gmail.com",
     style: {
       color: "white"
     },
-    className: "jsx-".concat(_styles__WEBPACK_IMPORTED_MODULE_2__["default"].__hash),
+    className: "jsx-".concat(_styles__WEBPACK_IMPORTED_MODULE_3__["default"].__hash),
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 81,
-      columnNumber: 15
+      lineNumber: 100,
+      columnNumber: 17
     }
   }, __jsx("i", {
     "aria-hidden": "true",
-    className: "jsx-".concat(_styles__WEBPACK_IMPORTED_MODULE_2__["default"].__hash) + " " + "envelope icon logo-contact",
+    className: "jsx-".concat(_styles__WEBPACK_IMPORTED_MODULE_3__["default"].__hash) + " " + "envelope icon logo-contact",
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 85,
-      columnNumber: 17
+      lineNumber: 104,
+      columnNumber: 19
     }
   }))), __jsx("button", {
     style: {
       backgroundColor: "#207347"
     },
-    className: "jsx-".concat(_styles__WEBPACK_IMPORTED_MODULE_2__["default"].__hash) + " " + "ui green button",
+    className: "jsx-".concat(_styles__WEBPACK_IMPORTED_MODULE_3__["default"].__hash) + " " + "ui green button",
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 91,
-      columnNumber: 13
+      lineNumber: 110,
+      columnNumber: 15
     }
-  }, "Li\xEAn h\u1EC7")))), __jsx("div", {
-    className: "jsx-".concat(_styles__WEBPACK_IMPORTED_MODULE_2__["default"].__hash) + " " + "copyright",
+  }, "Li\xEAn h\u1EC7"))))), __jsx("div", {
+    className: "jsx-".concat(_styles__WEBPACK_IMPORTED_MODULE_3__["default"].__hash) + " " + "copyright",
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 100,
+      lineNumber: 120,
       columnNumber: 7
     }
-  }, __jsx(_material_ui_core__WEBPACK_IMPORTED_MODULE_3__["Typography"], {
+  }, __jsx(_material_ui_core__WEBPACK_IMPORTED_MODULE_4__["Typography"], {
     variant: "body1",
     gutterBottom: true,
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 101,
+      lineNumber: 121,
       columnNumber: 9
     }
-  }, "Copyright @ 2020 - B\u1EA3n quy\u1EC1n c\u1EE7a C\xF4ng ty TNHH Gi\xE1o d\u1EE5c v\xE0 \u0110\xE0o t\u1EA1o Nimbus")), __jsx(styled_jsx_style__WEBPACK_IMPORTED_MODULE_0___default.a, {
-    id: _styles__WEBPACK_IMPORTED_MODULE_2__["default"].__hash,
+  }, "Copyright @ 2020 - B\u1EA3n quy\u1EC1n c\u1EE7a C\xF4ng ty TNHH Gi\xE1o d\u1EE5c v\xE0 \u0110\xE0o t\u1EA1o Nimbus")), __jsx(styled_jsx_style__WEBPACK_IMPORTED_MODULE_1___default.a, {
+    id: _styles__WEBPACK_IMPORTED_MODULE_3__["default"].__hash,
     __self: _this
-  }, _styles__WEBPACK_IMPORTED_MODULE_2__["default"]));
+  }, _styles__WEBPACK_IMPORTED_MODULE_3__["default"]));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Footer);
@@ -361,9 +447,9 @@ var Footer = function Footer(_ref) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-var _defaultExport = new String(".container.jsx-1224668994{width:100%;margin-bottom:20px;}.copyright.jsx-1224668994{text-align:center;background-color:#333333;margin:0;padding:0;}.information-field.jsx-1224668994{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;width:100%;margin:auto;-webkit-box-pack:justify;-webkit-justify-content:space-between;-ms-flex-pack:justify;justify-content:space-between;background-color:#3c3d41;margin-bottom:50px;-webkit-flex-direction:row;-webkit-flex-wrap:wrap;}.information-txt.jsx-1224668994{width:60%;}.logo.jsx-1224668994{height:30px;}.footer-right.jsx-1224668994{-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;text-align:center;}.contact-logos.jsx-1224668994{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;}.logo-contact.jsx-1224668994{font-size:30px;padding:5px;margin-bottom:8px;}@media (min-height:320px){.ui.footer.form-page.jsx-1224668994{bottom:0;width:100%;background-color:#3c3d41;padding-bottom:0px;}}\n/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9waGFtdGllbi9Xb3JrL05pbWJ1cy9ibG9nL2NvbXBvbmVudHMvZm9vdGVyL3N0eWxlcy5qcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFFa0IsQUFHZ0IsQUFJTyxBQU1MLEFBVUgsQUFHRSxBQUdPLEFBS04sQUFJRSxBQU9KLFNBQ0UsQ0F0QmYsQ0FwQnFCLENBdUJyQixHQVljLEdBL0JhLEVBdUNFLE9BUFQsR0FuQ3BCLGFBSVcsRUFnQ1gsQUFPdUIsT0F0Q1gsVUFDWixFQXNDRSxVQW5DVyxBQXFCWSxXQXBCWCxRQWVXLElBZE8sNEVBb0JoQyxtQkFMb0Isa0JBQ3BCLEVBZjJCLHlCQUNOLG1CQUNRLDJCQUNKLHVCQUN6QiIsImZpbGUiOiIvVXNlcnMvcGhhbXRpZW4vV29yay9OaW1idXMvYmxvZy9jb21wb25lbnRzL2Zvb3Rlci9zdHlsZXMuanMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgY3NzIGZyb20gXCJzdHlsZWQtanN4L2Nzc1wiO1xuXG5leHBvcnQgZGVmYXVsdCBjc3NgXG4gIC5jb250YWluZXIge1xuICAgIHdpZHRoOiAxMDAlO1xuICAgIG1hcmdpbi1ib3R0b206IDIwcHg7XG4gIH1cbiAgLmNvcHlyaWdodCB7XG4gICAgdGV4dC1hbGlnbjogY2VudGVyO1xuICAgIGJhY2tncm91bmQtY29sb3I6ICMzMzMzMzM7XG4gICAgbWFyZ2luOiAwO1xuICAgIHBhZGRpbmc6IDA7XG4gIH1cbiAgLmluZm9ybWF0aW9uLWZpZWxkIHtcbiAgICBkaXNwbGF5OiBmbGV4O1xuICAgIHdpZHRoOiAxMDAlO1xuICAgIG1hcmdpbjogYXV0bztcbiAgICBqdXN0aWZ5LWNvbnRlbnQ6IHNwYWNlLWJldHdlZW47XG4gICAgYmFja2dyb3VuZC1jb2xvcjogIzNjM2Q0MTtcbiAgICBtYXJnaW4tYm90dG9tOiA1MHB4O1xuICAgIC13ZWJraXQtZmxleC1kaXJlY3Rpb246IHJvdztcbiAgICAtd2Via2l0LWZsZXgtd3JhcDogd3JhcDtcbiAgfVxuICAuaW5mb3JtYXRpb24tdHh0IHtcbiAgICB3aWR0aDogNjAlO1xuICB9XG4gIC5sb2dvIHtcbiAgICBoZWlnaHQ6IDMwcHg7XG4gIH1cbiAgLmZvb3Rlci1yaWdodCB7XG4gICAgYWxpZ24taXRlbXM6IGNlbnRlcjtcbiAgICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcbiAgICB0ZXh0LWFsaWduOiBjZW50ZXI7XG4gIH1cbiAgLmNvbnRhY3QtbG9nb3Mge1xuICAgIGRpc3BsYXk6IGZsZXg7XG4gICAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XG4gIH1cbiAgLmxvZ28tY29udGFjdCB7XG4gICAgZm9udC1zaXplOiAzMHB4O1xuICAgIHBhZGRpbmc6IDVweDtcbiAgICBtYXJnaW4tYm90dG9tOiA4cHg7XG4gIH1cbiAgQG1lZGlhIChtaW4taGVpZ2h0OiAzMjBweCkge1xuICAgIC51aS5mb290ZXIuZm9ybS1wYWdlIHtcbiAgICAgIC8qIEluY3JlYXNlZCBzcGVjaWZpY2l0eSBmb3IgU08gc25pcHBldCBwcmlvcml0eSAqL1xuICAgICAgYm90dG9tOiAwO1xuICAgICAgd2lkdGg6IDEwMCU7XG4gICAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjM2MzZDQxO1xuICAgICAgcGFkZGluZy1ib3R0b206IDBweDtcbiAgICB9XG4gIH1cbmA7XG4iXX0= */\n/*@ sourceURL=/Users/phamtien/Work/Nimbus/blog/components/footer/styles.js */");
+var _defaultExport = new String(".container.jsx-2082923181{width:100%;margin-bottom:20px;}.copyright.jsx-2082923181{text-align:center;background-color:#333333;margin:0;padding:0;}.information-field.jsx-2082923181{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;margin:auto;-webkit-box-pack:justify;-webkit-justify-content:space-between;-ms-flex-pack:justify;justify-content:space-between;background-color:#3c3d41;margin-bottom:50px;-webkit-flex-direction:row;-webkit-flex-wrap:wrap;}.categories-field.jsx-2082923181{background-color:red;width:100%;}.information-txt.jsx-2082923181{width:250px;}.category-link.jsx-2082923181{cursor:pointer;}.logo.jsx-2082923181{height:30px;}.footer-right.jsx-2082923181{-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;text-align:center;}.contact-logos.jsx-2082923181{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;}.logo-contact.jsx-2082923181{font-size:30px;padding:5px;margin-bottom:8px;}@media (min-height:320px){.ui.footer.form-page.jsx-2082923181{bottom:0;width:100%;background-color:#3c3d41;padding-bottom:0px;}}\n/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9waGFtdGllbi9Xb3JrL05pbWJ1cy9ibG9nL2NvbXBvbmVudHMvZm9vdGVyL3N0eWxlcy5qcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFFa0IsQUFHZ0IsQUFJTyxBQU1MLEFBU1EsQUFJVCxBQUdHLEFBR0gsQUFHTyxBQUtOLEFBSUUsQUFPSixTQUNFLEVBaERNLENBdUJyQixBQU1BLEdBSEEsQUFlYyxHQXJDYSxFQTZDRSxDQTlCaEIsTUF1Qk8sR0F6Q3BCLEVBbUJBLFdBZlcsRUFzQ1gsQUFPdUIsT0E1Q1gsVUFDWixFQTRDRSxVQXpDWSxBQTJCVyxZQTFCTyxPQXFCUCxnRkFNekIsbUJBTG9CLFNBckJPLFNBc0IzQixnQkFyQnFCLG1CQUNRLDJCQUNKLHVCQUN6QiIsImZpbGUiOiIvVXNlcnMvcGhhbXRpZW4vV29yay9OaW1idXMvYmxvZy9jb21wb25lbnRzL2Zvb3Rlci9zdHlsZXMuanMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgY3NzIGZyb20gXCJzdHlsZWQtanN4L2Nzc1wiO1xuXG5leHBvcnQgZGVmYXVsdCBjc3NgXG4gIC5jb250YWluZXIge1xuICAgIHdpZHRoOiAxMDAlO1xuICAgIG1hcmdpbi1ib3R0b206IDIwcHg7XG4gIH1cbiAgLmNvcHlyaWdodCB7XG4gICAgdGV4dC1hbGlnbjogY2VudGVyO1xuICAgIGJhY2tncm91bmQtY29sb3I6ICMzMzMzMzM7XG4gICAgbWFyZ2luOiAwO1xuICAgIHBhZGRpbmc6IDA7XG4gIH1cbiAgLmluZm9ybWF0aW9uLWZpZWxkIHtcbiAgICBkaXNwbGF5OiBmbGV4O1xuICAgIG1hcmdpbjogYXV0bztcbiAgICBqdXN0aWZ5LWNvbnRlbnQ6IHNwYWNlLWJldHdlZW47XG4gICAgYmFja2dyb3VuZC1jb2xvcjogIzNjM2Q0MTtcbiAgICBtYXJnaW4tYm90dG9tOiA1MHB4O1xuICAgIC13ZWJraXQtZmxleC1kaXJlY3Rpb246IHJvdztcbiAgICAtd2Via2l0LWZsZXgtd3JhcDogd3JhcDtcbiAgfVxuICAuY2F0ZWdvcmllcy1maWVsZCB7XG4gICAgYmFja2dyb3VuZC1jb2xvcjogcmVkO1xuICAgIHdpZHRoOiAxMDAlO1xuICB9XG4gIC5pbmZvcm1hdGlvbi10eHQge1xuICAgIHdpZHRoOiAyNTBweDtcbiAgfVxuICAuY2F0ZWdvcnktbGluayB7XG4gICAgY3Vyc29yOiBwb2ludGVyO1xuICB9XG4gIC5sb2dvIHtcbiAgICBoZWlnaHQ6IDMwcHg7XG4gIH1cbiAgLmZvb3Rlci1yaWdodCB7XG4gICAgYWxpZ24taXRlbXM6IGNlbnRlcjtcbiAgICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcbiAgICB0ZXh0LWFsaWduOiBjZW50ZXI7XG4gIH1cbiAgLmNvbnRhY3QtbG9nb3Mge1xuICAgIGRpc3BsYXk6IGZsZXg7XG4gICAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XG4gIH1cbiAgLmxvZ28tY29udGFjdCB7XG4gICAgZm9udC1zaXplOiAzMHB4O1xuICAgIHBhZGRpbmc6IDVweDtcbiAgICBtYXJnaW4tYm90dG9tOiA4cHg7XG4gIH1cbiAgQG1lZGlhIChtaW4taGVpZ2h0OiAzMjBweCkge1xuICAgIC51aS5mb290ZXIuZm9ybS1wYWdlIHtcbiAgICAgIC8qIEluY3JlYXNlZCBzcGVjaWZpY2l0eSBmb3IgU08gc25pcHBldCBwcmlvcml0eSAqL1xuICAgICAgYm90dG9tOiAwO1xuICAgICAgd2lkdGg6IDEwMCU7XG4gICAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjM2MzZDQxO1xuICAgICAgcGFkZGluZy1ib3R0b206IDBweDtcbiAgICB9XG4gIH1cbmA7XG4iXX0= */\n/*@ sourceURL=/Users/phamtien/Work/Nimbus/blog/components/footer/styles.js */");
 
-_defaultExport.__hash = "1224668994";
+_defaultExport.__hash = "2082923181";
 /* harmony default export */ __webpack_exports__["default"] = (_defaultExport);
 
 /***/ }),
@@ -796,8 +882,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   type: "website",
   url: "https://www.example.com/page",
-  title: "Open Graph Title",
-  description: "Open Graph Description",
+  title: "Dashboard",
+  description: "Open Graph Dashboard",
   images: [{
     url: "https://www.example.ie/og-image.jpg",
     width: 800,
@@ -57368,12 +57454,12 @@ module.exports = g;
 /*!************************!*\
   !*** ./pages/index.js ***!
   \************************/
-/*! exports provided: __N_SSG, default */
+/*! exports provided: __N_SSP, default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__N_SSG", function() { return __N_SSG; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__N_SSP", function() { return __N_SSP; });
 /* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
@@ -57397,29 +57483,38 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
 
 
 
+
 var Index = function Index(_ref) {
   var categories = _ref.categories,
       features = _ref.features;
-  return __jsx(_components_layout__WEBPACK_IMPORTED_MODULE_2__["default"], {
+
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])(false),
+      ssrDone = _useState[0],
+      setSsrDone = _useState[1];
+
+  Object(react__WEBPACK_IMPORTED_MODULE_1__["useEffect"])(function () {
+    setSsrDone(true);
+  }, []);
+  return __jsx(react__WEBPACK_IMPORTED_MODULE_1___default.a.Fragment, null, ssrDone && __jsx(_components_layout__WEBPACK_IMPORTED_MODULE_2__["default"], {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 10,
-      columnNumber: 5
+      lineNumber: 17,
+      columnNumber: 9
     }
   }, __jsx(next_head__WEBPACK_IMPORTED_MODULE_3___default.a, {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 11,
-      columnNumber: 7
+      lineNumber: 18,
+      columnNumber: 11
     }
   }, __jsx("title", {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 12,
-      columnNumber: 9
+      lineNumber: 19,
+      columnNumber: 13
     }
   }, "Nimbus Computer School"), __jsx("meta", {
     name: "viewport",
@@ -57427,8 +57522,8 @@ var Index = function Index(_ref) {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 13,
-      columnNumber: 9
+      lineNumber: 20,
+      columnNumber: 13
     }
   }), __jsx("link", {
     rel: "shortcut icon",
@@ -57436,8 +57531,8 @@ var Index = function Index(_ref) {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 14,
-      columnNumber: 9
+      lineNumber: 24,
+      columnNumber: 13
     }
   }), __jsx("link", {
     rel: "stylesheet",
@@ -57445,8 +57540,8 @@ var Index = function Index(_ref) {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 15,
-      columnNumber: 9
+      lineNumber: 25,
+      columnNumber: 13
     }
   }), __jsx("link", {
     href: "https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,400;1,500;1,700&display=swap",
@@ -57454,8 +57549,8 @@ var Index = function Index(_ref) {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 19,
-      columnNumber: 9
+      lineNumber: 29,
+      columnNumber: 13
     }
   }), __jsx("link", {
     rel: "stylesheet",
@@ -57465,15 +57560,15 @@ var Index = function Index(_ref) {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 23,
-      columnNumber: 9
+      lineNumber: 33,
+      columnNumber: 13
     }
   }), __jsx(next_seo__WEBPACK_IMPORTED_MODULE_5__["NextSeo"], Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, _next_seo_index_config__WEBPACK_IMPORTED_MODULE_6__["default"], {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 30,
-      columnNumber: 9
+      lineNumber: 40,
+      columnNumber: 13
     }
   }))), __jsx(_screens_dashboard__WEBPACK_IMPORTED_MODULE_4__["default"], {
     categories: categories,
@@ -57481,13 +57576,13 @@ var Index = function Index(_ref) {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 32,
-      columnNumber: 7
+      lineNumber: 42,
+      columnNumber: 11
     }
-  }));
+  })));
 };
 
-var __N_SSG = true;
+var __N_SSP = true;
 /* harmony default export */ __webpack_exports__["default"] = (Index);
 
 /***/ }),
@@ -58211,7 +58306,7 @@ var Dashboard = function Dashboard(_ref) {
 
 /***/ }),
 
-/***/ 1:
+/***/ 2:
 /*!******************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2F&absolutePagePath=%2FUsers%2Fphamtien%2FWork%2FNimbus%2Fblog%2Fpages%2Findex.js ***!
   \******************************************************************************************************************************/
@@ -58234,5 +58329,5 @@ module.exports = dll_c2e10d183b950a67d9e7;
 
 /***/ })
 
-},[[1,"static/runtime/webpack.js"]]]);
+},[[2,"static/runtime/webpack.js"]]]);
 //# sourceMappingURL=index.js.map

@@ -1,8 +1,8 @@
 export default {
   type: "website",
   url: "https://www.example.com/page",
-  title: "Open Graph Title",
-  description: "Open Graph Description",
+  title: "Dashboard",
+  description: "Open Graph Dashboard",
   images: [
     {
       url: "https://www.example.ie/og-image.jpg",

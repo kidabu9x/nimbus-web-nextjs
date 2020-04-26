@@ -13,7 +13,6 @@ export default css`
   }
   .information-field {
     display: flex;
-    width: 100%;
     margin: auto;
     justify-content: space-between;
     background-color: #3c3d41;
@@ -21,8 +20,15 @@ export default css`
     -webkit-flex-direction: row;
     -webkit-flex-wrap: wrap;
   }
+  .categories-field {
+    background-color: red;
+    width: 100%;
+  }
   .information-txt {
-    width: 60%;
+    width: 250px;
+  }
+  .category-link {
+    cursor: pointer;
   }
   .logo {
     height: 30px;
