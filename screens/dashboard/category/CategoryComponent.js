@@ -15,13 +15,13 @@ export default function Category({ categoryFeature }) {
           <a>Xem thêm ></a>
         </Link>
       </div>
-      <div className="ui two column grid">
+      <div className="ui stackable two column grid">
         <div className="stretched row">
           <div className="column">
             <CardLeft blog={categoryFeature.blogs[0]} />
           </div>
           <div className="column">
-            <div className="ui two column grid">
+            <div className="ui stackable two column grid">
               <div className="column">
                 <CardRight blog={categoryFeature.blogs[1]} />
                 <CardRight blog={categoryFeature.blogs[2]} />

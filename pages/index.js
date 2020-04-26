@@ -24,7 +24,7 @@ const Index = ({ categories, features }) => {
           rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/fontawesome.min.css"
           integrity="sha256-CuUPKpitgFmSNQuPDL5cEfPOOJT/+bwUlhfumDJ9CI4="
-          crossorigin="anonymous"
+          crossOrigin="anonymous"
         />
         {/* Next SEO config */}
         <NextSeo {...SEO}></NextSeo>

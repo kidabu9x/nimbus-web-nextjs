@@ -30,6 +30,7 @@ export default css`
   }
   .icon-search {
     margin-bottom: 10px;
+    border-width: 0px;
   }
   .btn-write {
     border-radius: 20px;
