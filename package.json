@@ -4,7 +4,7 @@
   "license": "MIT",
   "scripts": {
     "build": "next build",
-    "dev": "ext",
+    "dev": "next",
     "start": "ENV=production next start",
     "start:uat": "NODE_ENV=production ENV=uat next start"
   },
