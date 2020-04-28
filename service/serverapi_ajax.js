@@ -11,7 +11,7 @@
  */
 
 import axios from "axios";
-
+console.log(process.env);
 const PUBLIC_URL = "http://api-uat.nimbus.com.vn/v1";
 
 class ServerAPI {
