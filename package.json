@@ -3,9 +3,10 @@
   "version": "1.0.0",
   "license": "MIT",
   "scripts": {
-    "dev": "next",
     "build": "next build",
-    "start": "next start"
+    "dev": "ext",
+    "start": "ENV=production next start",
+    "start:uat": "NODE_ENV=production ENV=uat next start"
   },
   "dependencies": {
     "@material-ui/core": "^4.9.11",

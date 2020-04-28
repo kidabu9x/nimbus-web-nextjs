@@ -11,14 +11,19 @@
  */
 
 import axios from "axios";
+import https from "https";
+import config from "../config";
 
-const PUBLIC_URL = "http://api-uat.nimbus.com.vn/v1";
+const PUBLIC_URL = config.domain.blogService + "/v1";
 
 class ServerAPI {
   constructor() {
     this.client = axios.create({
       baseURL: PUBLIC_URL,
       timeout: 20000,
+      httpsAgent: new https.Agent({
+        rejectUnauthorized: false
+      })
     });
   }
 
