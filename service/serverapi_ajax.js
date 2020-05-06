@@ -11,15 +11,19 @@
  */
 
 import axios from "axios";
+import https from "https";
+import config from "../config";
 
-const PUBLIC_URL = "http://api-uat.nimbus.com.vn/v1";
+const PUBLIC_URL = config.domain.blogService + "/v1";
 
 class ServerAPI {
   constructor() {
     this.client = axios.create({
       baseURL: PUBLIC_URL,
       timeout: 20000,
-      headers: { "X-Custom-Header": "foobar" },
+      httpsAgent: new https.Agent({
+        rejectUnauthorized: false
+      })
     });
   }
 
@@ -36,6 +40,15 @@ class ServerAPI {
   getSlug(slug) {
     let url = `${PUBLIC_URL}/${slug}`;
     return this.client.get(url);
+  }
+
+  searchByQuery(query) {
+    let url = `${PUBLIC_URL}/search`;
+    return this.client.get(url, {
+      params: {
+        query,
+      },
+    });
   }
 }
 

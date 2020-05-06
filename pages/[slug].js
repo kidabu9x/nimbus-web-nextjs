@@ -1,22 +1,89 @@
-import Container from "../components/container";
-
 import Layout from "../components/layout";
 import api from "../service/serverapi_ajax";
-import Header from "../components/header/HeaderComponent";
 import Head from "next/head";
-import { useRouter } from "next/router";
 import { SLUG_TYPE } from "../utils/constants";
-import { ListBlogComponent } from "../components/list-blog/ListBlogsComponent";
-import { HighlightComponent } from "../components/highlight/HighlightComponent";
-import { BlogComponent } from "../components/blog/BlogComponent";
+import SlugPage from "../screens/slug";
+import { NextSeo } from "next-seo";
 
-const Slug = ({ categories, highlights, type, dataPage }) => {
-  const router = useRouter();
+const Slug = ({ host, categories, highlights, type, dataPage }) => {
+  const title = (() => {
+    switch (type) {
+      case SLUG_TYPE.BLOG:
+        return dataPage.blog.title;
+      case SLUG_TYPE.CATEGORY:
+        return dataPage.category.title;
+      case SLUG_TYPE.SEARCH:
+        return dataPage.searchQuery;
+      default:
+        return "Nimbus Study Hub";
+    }
+  })();
+
+  const description = (() => {
+    switch (type) {
+      case SLUG_TYPE.BLOG:
+        return dataPage.blog.description;
+      default:
+        return "Nơi nâng cao kĩ năng của bạn";
+    }
+  })();
+
+  const canonical = host + (() => {
+    switch (type) {
+      case SLUG_TYPE.BLOG:
+        return dataPage.blog.slug;
+      case SLUG_TYPE.CATEGORY:
+        return dataPage.category.slug;
+      case SLUG_TYPE.SEARCH:
+        return "search?query=" + dataPage.searchQuery;
+      default:
+        return "Nimbus Study Hub";
+    }
+  })();
+
+  const image = (() => {
+    switch (type) {
+      case SLUG_TYPE.BLOG:
+        return dataPage.blog.thumbnail;
+      default:
+        return "https://res.cloudinary.com/nimbus-education/image/upload/v1588748885/blogs/uat/logo-white-bg.png";
+    }
+  })();
+
+  const openGraph = {
+    url: canonical,
+    title: title,
+    description: description,
+    locale: "vi_VN",
+    type: "article",
+    images: [
+      {
+        url: image
+      }
+    ],
+    site_name: 'Nimbus Study Hub',
+  };
+
+  const twitter = {
+    handle: '@handle',
+    site: '@site'
+  }
+
   return (
     <Layout>
       <Head>
-        <title>Nimbus Service</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>{title}</title>
+        <NextSeo
+          title={title}
+          description={description}
+          canonical={canonical}
+          openGraph={openGraph}
+          twitter={twitter}
+        />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1"
+        />
         <link rel="shortcut icon" href="/static/favicon.ico" />
         <link
           rel="stylesheet"
@@ -27,30 +94,28 @@ const Slug = ({ categories, highlights, type, dataPage }) => {
           rel="stylesheet"
         />
       </Head>
-      <Container>
-        <Header categories={categories} />
-        <div className="ui grid">
-          <div
-            className="left floated eleven wide column"
-            style={{ padding: 0 }}
-          >
-            {type === SLUG_TYPE.CATEGORY && (
-              <ListBlogComponent data={dataPage} />
-            )}
-            {type === SLUG_TYPE.BLOG && <BlogComponent data={dataPage.blog} />}
-          </div>
-          <HighlightComponent data={highlights} />
-        </div>
-      </Container>
+      <SlugPage
+        categories={categories}
+        highlights={highlights}
+        type={type}
+        dataPage={dataPage}
+      />
     </Layout>
   );
 };
 
-export async function getServerSideProps({ params }) {
+export async function getServerSideProps({ req, params, query }) {
+  const host = "https://" + req.headers.host + "/";
   const resCategories = await api.getCategories();
   const categories = resCategories.data.data;
-  const resSlug = await api.getSlug(params.slug);
-  const slug = resSlug.data.data;
+  let slug = null;
+  if (params.slug === "search") {
+    const resSearch = await api.searchByQuery(query.query);
+    slug = resSearch.data.data;
+  } else {
+    const resSlug = await api.getSlug(params.slug);
+    slug = resSlug.data.data;
+  }
   const highlights = slug.highlights;
   const type = slug.type;
   let dataPage = null;
@@ -65,9 +130,15 @@ export async function getServerSideProps({ params }) {
       blog: slug.blog,
     };
   }
+  if (type === SLUG_TYPE.SEARCH) {
+    dataPage = {
+      blogs: slug.blogs,
+      searchQuery: query.query,
+    };
+  }
 
   return {
-    props: { categories, highlights, type, dataPage },
+    props: { host, categories, highlights, type, dataPage },
   };
 }
 
