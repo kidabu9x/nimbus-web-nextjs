@@ -4,59 +4,108 @@ import Head from "next/head";
 import { SLUG_TYPE } from "../utils/constants";
 import SlugPage from "../screens/slug";
 import { NextSeo } from "next-seo";
-import SEO_CATEGORY from "../next-seo/slug.category.config";
-import SEO_BLOG from "../next-seo/slug.blog.config";
-import SEO_SEARCH from "../next-seo/slug.search.config";
-import { useState, useEffect } from "react";
 
-const Slug = ({ categories, highlights, type, dataPage }) => {
-  const [ssrDone, setSsrDone] = useState(false);
-  useEffect(() => {
-    setSsrDone(true);
-  }, []);
+const Slug = ({ host, categories, highlights, type, dataPage }) => {
+  const title = (() => {
+    switch (type) {
+      case SLUG_TYPE.BLOG:
+        return dataPage.blog.title;
+      case SLUG_TYPE.CATEGORY:
+        return dataPage.category.title;
+      case SLUG_TYPE.SEARCH:
+        return dataPage.searchQuery;
+      default:
+        return "Nimbus Study Hub";
+    }
+  })();
+
+  const description = (() => {
+    switch (type) {
+      case SLUG_TYPE.BLOG:
+        return dataPage.blog.description;
+      default:
+        return "Nơi nâng cao kĩ năng của bạn";
+    }
+  })();
+
+  const canonical = host + (() => {
+    switch (type) {
+      case SLUG_TYPE.BLOG:
+        return dataPage.blog.slug;
+      case SLUG_TYPE.CATEGORY:
+        return dataPage.category.slug;
+      case SLUG_TYPE.SEARCH:
+        return "search?query=" + dataPage.searchQuery;
+      default:
+        return "Nimbus Study Hub";
+    }
+  })();
+
+  const image = (() => {
+    switch (type) {
+      case SLUG_TYPE.BLOG:
+        return dataPage.blog.thumbnail;
+      default:
+        return "https://res.cloudinary.com/nimbus-education/image/upload/v1588748885/blogs/uat/logo-white-bg.png";
+    }
+  })();
+
+  const openGraph = {
+    url: canonical,
+    title: title,
+    description: description,
+    locale: "vi_VN",
+    type: "article",
+    images: [
+      {
+        url: image
+      }
+    ],
+    site_name: 'Nimbus Study Hub',
+  };
+
+  const twitter = {
+    handle: '@handle',
+    site: '@site'
+  }
+
   return (
-    <>
-      {ssrDone && (
-        <Layout>
-          <Head>
-            {type === SLUG_TYPE.CATEGORY && (
-              <title>{dataPage.category.title}</title>
-            )}
-            {type === SLUG_TYPE.BLOG && <title>{dataPage.blog.title}</title>}
-            {type === SLUG_TYPE.SEARCH && <title>{dataPage.searchQuery}</title>}
-            <meta
-              name="viewport"
-              content="width=device-width, initial-scale=1"
-            />
-            <link rel="shortcut icon" href="/static/favicon.ico" />
-            <link
-              rel="stylesheet"
-              href="//cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css"
-            />
-            <link
-              href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,400;1,500;1,700&display=swap"
-              rel="stylesheet"
-            />
-            {/* Next SEO config */}
-            {type === SLUG_TYPE.CATEGORY && (
-              <NextSeo {...SEO_CATEGORY}></NextSeo>
-            )}
-            {type === SLUG_TYPE.BLOG && <NextSeo {...SEO_BLOG}></NextSeo>}
-            {type === SLUG_TYPE.SEARCH && <NextSeo {...SEO_SEARCH}></NextSeo>}
-          </Head>
-          <SlugPage
-            categories={categories}
-            highlights={highlights}
-            type={type}
-            dataPage={dataPage}
-          />
-        </Layout>
-      )}
-    </>
+    <Layout>
+      <Head>
+        <title>{title}</title>
+        <NextSeo
+          title={title}
+          description={description}
+          canonical={canonical}
+          openGraph={openGraph}
+          twitter={twitter}
+        />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1"
+        />
+        <link rel="shortcut icon" href="/static/favicon.ico" />
+        <link
+          rel="stylesheet"
+          href="//cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css"
+        />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,400;1,500;1,700&display=swap"
+          rel="stylesheet"
+        />
+      </Head>
+      <SlugPage
+        categories={categories}
+        highlights={highlights}
+        type={type}
+        dataPage={dataPage}
+      />
+    </Layout>
   );
 };
 
-export async function getServerSideProps({ params, query }) {
+export async function getServerSideProps({ req, params, query }) {
+  const host = "https://" + req.headers.host + "/";
   const resCategories = await api.getCategories();
   const categories = resCategories.data.data;
   let slug = null;
@@ -89,7 +138,7 @@ export async function getServerSideProps({ params, query }) {
   }
 
   return {
-    props: { categories, highlights, type, dataPage },
+    props: { host, categories, highlights, type, dataPage },
   };
 }
 
