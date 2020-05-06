@@ -1,16 +1,37 @@
-import "../styles/index.css";
+import App from 'next/app';
+import React from 'react';
+import Head from 'next/head'
+import { DefaultSeo } from 'next-seo';
 
-export default function MyApp({ Component, pageProps }) {
-  return (
-    <div>
-      <Component {...pageProps} />
-      <style jsx global>{`
-        @font-face {
-          font-family: "Roboto";
-          font-style: normal;
-          font-display: swap;
+export default class MyApp extends App {
+  render() {
+    const { Component, pageProps } = this.props;
+
+    const openGraph = {
+      url: "https://nimbus.com.vn/",
+      title: "Nimbus Study Hub",
+      description: "Nơi nâng cao kĩ năng của bạn",
+      locale: "vi_VN",
+      type: "website",
+      images: [
+        {
+          url: "https://res.cloudinary.com/nimbus-education/image/upload/v1588748885/blogs/uat/logo-white-bg.png"
         }
-      `}</style>
-    </div>
-  );
+      ],
+      site_name: 'Nimbus Study Hub',
+    };
+    return (
+      <>
+        <DefaultSeo
+          openGraph={openGraph}
+          twitter={{
+            handle: '@handle',
+            site: '@site',
+            cardType: 'summary_large_image',
+          }}
+        />
+        <Component {...pageProps} />
+      </>
+    );
+  }
 }

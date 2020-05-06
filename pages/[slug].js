@@ -1,4 +1,3 @@
-import Layout from "../components/layout";
 import api from "../service/serverapi_ajax";
 import Head from "next/head";
 import { SLUG_TYPE } from "../utils/constants";
@@ -70,7 +69,7 @@ const Slug = ({ host, categories, highlights, type, dataPage }) => {
   }
 
   return (
-    <Layout>
+    <>
       <Head>
         <title>{title}</title>
         <NextSeo
@@ -100,7 +99,7 @@ const Slug = ({ host, categories, highlights, type, dataPage }) => {
         type={type}
         dataPage={dataPage}
       />
-    </Layout>
+    </>
   );
 };
 
