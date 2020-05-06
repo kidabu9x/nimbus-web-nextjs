@@ -12,7 +12,7 @@
 
 import axios from "axios";
 import https from "https";
-import config from "../config";
+import config from "../configs/apis/config";
 
 const PUBLIC_URL = config.domain.blogService + "/v1";
 

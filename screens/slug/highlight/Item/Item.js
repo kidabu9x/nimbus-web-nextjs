@@ -1,31 +1,30 @@
 import React from "react";
-import styles from "./styles";
-import Link from "next/link";
+import {
+  Link,
+  Grid,
+  Typography,
+  Box
+} from "@material-ui/core";
 
 export const HighlightItemComponent = ({ data }) => {
   return (
-    <Link href={`/${data.slug}`}>
-      <div role="listitem" className="item container">
-        <div className="ui padded two column grid">
-          <div className="five wide column" style={{ padding: 0 }}>
+    <Box marginBottom={1}>
+      <Link href={`/${data.slug}`} color="textPrimary" underline="none">
+        <Grid container spacing={1}>
+          <Grid item xs={4}>
             <img
               src={
                 data.thumbnail
                   ? data.thumbnail
                   : "https://react.semantic-ui.com/images/avatar/large/matthew.png"
               }
-              className="ui image"
             />
-          </div>
-          <div
-            className="nine wide column"
-            style={{ padding: 0, paddingLeft: 8 }}
-          >
-            <h4>{data.title}</h4>
-          </div>
-        </div>
-        <style jsx>{styles}</style>
-      </div>
-    </Link>
+          </Grid>
+          <Grid item xs={8}>
+            <Typography variant="body1">{data.title}</Typography>
+          </Grid>
+        </Grid>
+      </Link>
+    </Box>
   );
 };
