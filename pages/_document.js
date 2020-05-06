@@ -19,11 +19,10 @@ class MyDocument extends Document {
                         href="//cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css"
                     />
                     <link
-                        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,400;1,500;1,700&display=swap"
+                        href="https://fonts.googleapis.com/css?family=Roboto&display=swap"
                         rel="stylesheet"
                     />
-
-                    <link rel="shortcut icon" href="/favicon/favicon.ico" />
+                    <link rel="icon" href="/favicon/favicon.ico" />
                 </Head>
                 <body>
                     <Main />

@@ -1,5 +1,4 @@
 import React from "react";
-import ContainerComponent from "../../components/container";
 import Header from "../../components/header/HeaderComponent";
 import { SLUG_TYPE } from "../../utils/constants";
 import { ListBlogComponent } from "./list-blog/ListBlogsComponent";
@@ -10,7 +9,7 @@ import { Container } from "@material-ui/core";
 
 const SlugPage = ({ categories, highlights, type, dataPage }) => {
   return (
-    <ContainerComponent>
+    <>
       <Header categories={categories} />
       <Container maxWidth="md">
         <div className="ui stackable grid" style={{ marginBottom: 50 }}>
@@ -27,7 +26,7 @@ const SlugPage = ({ categories, highlights, type, dataPage }) => {
         </div>
       </Container>
       <Footer categories={categories} />
-    </ContainerComponent>
+    </>
   );
 };
 

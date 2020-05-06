@@ -1,6 +1,5 @@
 import App from 'next/app';
 import React from 'react';
-import Head from 'next/head'
 import { DefaultSeo } from 'next-seo';
 
 export default class MyApp extends App {
@@ -31,6 +30,14 @@ export default class MyApp extends App {
           }}
         />
         <Component {...pageProps} />
+        <style jsx global>{`
+			      @font-face {
+			        font-family: 'Roboto';
+            }
+            body, html {
+              font-family: 'Roboto';
+            }
+				`}</style>
       </>
     );
   }
