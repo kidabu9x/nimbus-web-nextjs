@@ -12,7 +12,7 @@ import Author from "../../../components/ui/Author";
 
 export const BlogComponent = ({ data }) => {
   return (
-    <Container>
+    <Container maxWidth="lg">
       <Box marginBottom={2}>
         <Breadcrumbs separator="›">
           <Link color="inherit" href="/">
@@ -26,30 +26,33 @@ export const BlogComponent = ({ data }) => {
         {data.title.toUpperCase()}
       </Typography>
 
-      <Box display="flex" marginBottom={2}>
-        {data.categories.map((category) => (
-          <Tag key={category.id} title={category.title} link={`/${category.slug}`} />
+      <Box
+        display="flex"
+        flexWrap="wrap"
+        marginBottom={2}
+      >
+        {data.categories.map((category, index) => (
+          <Tag key={index} title={category.title} link={`/${category.slug}`} />
         ))}
-        &emsp;
+
         <Author author={data.authors[0]} />
+
       </Box>
 
       <Divider />
 
-      <Box marginTop={2} >
-        <div
-          className="field-cke"
-          dangerouslySetInnerHTML={{
-            __html: data.contents[0].content,
-          }}
-        />
-      </Box>
+      <div
+        className="cke"
+        dangerouslySetInnerHTML={{
+          __html: data.contents[0].content,
+        }}
+      />
 
       <Box marginTop={4} marginBottom={6}>
         <Typography display="inline">Tags: </Typography>
 
-        {data.tags.map((tag) => (
-          <Tag key={tag.id} title={tag.title} link={`/${tag.slug}`} />
+        {data.tags.map((tag, index) => (
+          <Tag key={index} title={tag.title} link={`/${tag.slug}`} />
         ))}
       </Box>
 

@@ -27,7 +27,6 @@ const SlugPage = ({ categories, highlights, type, dataPage }) => {
           </Grid>
           <Grid item sm={12} md={3}>
             <HighlightComponent data={highlights} />
-
           </Grid>
         </Grid>
       </Container>

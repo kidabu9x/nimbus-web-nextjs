@@ -1,15 +1,9 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { Avatar, Typography } from '@material-ui/core';
+import { Avatar, Typography, Box } from '@material-ui/core';
 import grey from '@material-ui/core/colors/grey';
 
 const useStyles = makeStyles((theme) => ({
-    root: {
-        display: 'flex',
-        '& > *': {
-            margin: theme.spacing(1),
-        },
-    },
     small: {
         width: theme.spacing(3),
         height: theme.spacing(3),
@@ -31,9 +25,9 @@ export default function Author({ author, avatarSize = 'small' }) {
         return author.first_name + ' ' + author.last_name;
     })();
     return (
-        <>
+        <Box display="flex" margin={0.5}>
             <Avatar className={classes[avatarSize]} alt={fullName} src={author.avatar} />
             <Typography className={classes.title}>{fullName}</Typography>
-        </>
+        </Box>
     )
 }

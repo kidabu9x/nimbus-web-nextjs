@@ -1,8 +1,10 @@
 import styles from "./styles";
 import CardLeft from "./CardLeft/CardLeft";
 import CardRight from "./CardRight/CardRight";
-import Link from "next/link";
-import { Typography } from "@material-ui/core";
+import {
+  Typography,
+  Link
+} from "@material-ui/core";
 
 export default function Category({ categoryFeature }) {
   return (

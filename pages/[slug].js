@@ -100,36 +100,39 @@ export async function getServerSideProps({ req, params, query }) {
     asycnSlug = api.getSlug(params.slug);
   }
   const asycnCategories = api.getCategories();
-  const resData = await Promise.all([asycnCategories, asycnSlug]);
+  try {
+    const resData = await Promise.all([asycnCategories, asycnSlug]);
 
-  const resCategories = resData[0];
-  const categories = resCategories.data.data;
-  const resSlug = resData[1];
-  const slug = resSlug.data.data;
-  const highlights = slug.highlights;
-  const type = slug.type;
-  let dataPage = null;
-  if (type === SLUG_TYPE.CATEGORY) {
-    dataPage = {
-      category: slug.category,
-      blogs: slug.blogs,
+    const resCategories = resData[0];
+    const categories = resCategories.data.data;
+    const resSlug = resData[1];
+    const slug = resSlug.data.data;
+    const highlights = slug.highlights;
+    const type = slug.type;
+    let dataPage = null;
+    if (type === SLUG_TYPE.CATEGORY) {
+      dataPage = {
+        category: slug.category,
+        blogs: slug.blogs,
+      };
+    }
+    if (type === SLUG_TYPE.BLOG) {
+      dataPage = {
+        blog: slug.blog,
+      };
+    }
+    if (type === SLUG_TYPE.SEARCH) {
+      dataPage = {
+        blogs: slug.blogs,
+        searchQuery: query.query,
+      };
+    }
+    return {
+      props: { host, categories, highlights, type, dataPage },
     };
+  } catch (e) {
+    return {};
   }
-  if (type === SLUG_TYPE.BLOG) {
-    dataPage = {
-      blog: slug.blog,
-    };
-  }
-  if (type === SLUG_TYPE.SEARCH) {
-    dataPage = {
-      blogs: slug.blogs,
-      searchQuery: query.query,
-    };
-  }
-
-  return {
-    props: { host, categories, highlights, type, dataPage },
-  };
 }
 
 export default Slug;

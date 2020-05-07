@@ -30,11 +30,16 @@ const styles = makeStyles(theme => ({
 
 const CustomLink = ({ href, text, isBlock = true }) => {
   return (
-    <Link href={href} color="inherit" underline="none">
-      <Typography variant="body2" display={isBlock ? "block" : "inline"} gutterBottom>
+    <Typography
+      component="span"
+      variant="body2"
+      display={isBlock ? "block" : "inline"}
+      gutterBottom
+    >
+      <Link href={href} color="inherit" underline="none">
         {text}
-      </Typography>
-    </Link>
+      </Link>
+    </Typography>
   )
 }
 
@@ -59,7 +64,7 @@ const Footer = ({ categories }) => {
           <Grid item xs={12} sm={4} style={{ marginBottom: 40 }}>
             <img
               alt="logo"
-              src="/static/assets/images/logo_footer.png"
+              src="/images/logo_footer.png"
               className={classes.logo}
             />
             <Typography variant="body2" gutterBottom>
