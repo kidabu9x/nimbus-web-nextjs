@@ -1,20 +1,22 @@
 import React from "react";
-import ContainerComponent from "../../components/container";
 import Header from "../../components/header/HeaderComponent";
 import { SLUG_TYPE } from "../../utils/constants";
 import { ListBlogComponent } from "./list-blog/ListBlogsComponent";
 import { BlogComponent } from "./blog/BlogComponent";
 import { HighlightComponent } from "./highlight/HighlightComponent";
 import Footer from "../../components/footer/FooterComponent";
-import { Container } from "@material-ui/core";
+import {
+  Container,
+  Grid
+} from "@material-ui/core";
 
 const SlugPage = ({ categories, highlights, type, dataPage }) => {
   return (
-    <ContainerComponent>
+    <>
       <Header categories={categories} />
-      <Container maxWidth="md">
-        <div className="ui stackable grid" style={{ marginBottom: 50 }}>
-          <div className="left floated eleven wide column">
+      <Container maxWidth="lg">
+        <Grid container spacing={1}>
+          <Grid item sm={12} md={9}>
             {type === SLUG_TYPE.CATEGORY && (
               <ListBlogComponent data={dataPage} />
             )}
@@ -22,12 +24,14 @@ const SlugPage = ({ categories, highlights, type, dataPage }) => {
             {type === SLUG_TYPE.SEARCH && (
               <ListBlogComponent data={dataPage} isSearch />
             )}
-          </div>
-          <HighlightComponent data={highlights} />
-        </div>
+          </Grid>
+          <Grid item sm={12} md={3}>
+            <HighlightComponent data={highlights} />
+          </Grid>
+        </Grid>
       </Container>
       <Footer categories={categories} />
-    </ContainerComponent>
+    </>
   );
 };
 

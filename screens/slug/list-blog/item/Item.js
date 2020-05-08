@@ -1,32 +1,48 @@
 import React from "react";
-import styles from "./styles";
-import Link from "next/link";
+import {
+  Link,
+  Grid,
+  makeStyles,
+  Box,
+  Typography
+} from "@material-ui/core";
+
+const styles = makeStyles(theme => ({
+  thumb: {
+    maxWidth: "290px"
+  }
+}));
 
 export const ListBlogItemComponent = ({ data }) => {
+  const classes = styles();
   return (
-    <Link href={`/${data.slug}`}>
-      <div role="listitem" className="item container">
-        <div className="ui padded stackable two column grid">
-          <div className="column" style={{ paddingLeft: 0 }}>
-            <img
-              src={
-                data.thumbnail
-                  ? data.thumbnail
-                  : "https://react.semantic-ui.com/images/avatar/large/matthew.png"
-              }
-              className="ui image thumb-image"
-            />
-          </div>
-          <div className="column right-field" style={{ paddingLeft: 0 }}>
-            <h3>{data.title}</h3>
-            <p>{data.description}</p>
-            <a>
-              <p>Đọc tiếp...</p>
-            </a>
-          </div>
-        </div>
-        <style jsx>{styles}</style>
-      </div>
+    <Link href={`/${data.slug}`} color="inherit" underline="none">
+      <Grid container spacing={6}>
+        <Grid item xs={4}>
+          <img
+            className={classes.thumb}
+            src={data.thumbnail}
+          />
+        </Grid>
+        <Grid item xs={8}>
+          <Box marginBottom={2}>
+            <Typography variant="h6">
+              {data.title}
+            </Typography>
+          </Box>
+
+          <Box marginBottom={1}>
+            <Typography variant="body2">
+              {data.description}
+            </Typography>
+          </Box>
+
+          <Typography variant="body2">
+            Đọc tiếp...
+          </Typography>
+        </Grid>
+      </Grid>
+
     </Link>
   );
 };
