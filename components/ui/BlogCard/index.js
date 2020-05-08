@@ -4,16 +4,18 @@ import {
     CardContent,
     CardMedia,
     Typography,
-    Box
+    Box,
+    Link
 } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import Author from "../Author";
 
 const useStyles = makeStyles(theme => ({
     root: {
-        width: "100%",
-        height: "100%",
-        minHeight: "270px"
+        width: "100%"
+    },
+    rootHighLight: {
+        height: "100%"
     },
     actionArea: {
         height: "100%",
@@ -21,55 +23,66 @@ const useStyles = makeStyles(theme => ({
         flexDirection: "column"
     },
     media: {
-        height: "40%",
+        height: "120px",
         width: "100%"
     },
+    mediaHighLight: {
+        height: "270px"
+    },
     content: {
-        height: "60%",
+        flex: 1,
+        width: "100%",
         display: "flex",
-        flexDirection: "column"
+        flexDirection: "column",
+        padding: 0
     },
     mainContent: {
-        flex: 1
+        flex: 1,
+        margin: theme.spacing(2)
     },
     author: {
-
+        margin: theme.spacing(0, 2, 2, 2)
     }
 }));
 
-export default function CardRight({ blog, showDescription = false }) {
+export default function CardRight({ blog, isHighLight = false, showDescription = false }) {
     const classes = useStyles();
     return (
         <>
             {blog && (
-                <Card className={classes.root}>
-                    <CardActionArea className={classes.actionArea}>
-                        <CardMedia
-                            className={classes.media}
-                            image={
-                                blog.thumbnail
-                                    ? blog.thumbnail
-                                    : "https://react.semantic-ui.com/images/avatar/large/matthew.png"
-                            }
-                            title={blog.title}
-                        />
-                        <CardContent className={classes.content}>
-                            <Box className={classes.mainContent}>
-                                <Typography gutterBottom variant="h6" component="h2">
-                                    {blog.title}
-                                </Typography>
-                                {showDescription && (
-                                    <Typography variant="body2" color="textSecondary" component="p">
-                                        {blog.description}
+                <Link
+                    href={`/${blog.slug}`}
+                    underline="none"
+                >
+                    <Card
+                        className={`${classes.root} ${isHighLight ? classes.rootHighLight : ''}`}
+                    >
+                        <CardActionArea className={classes.actionArea}>
+                            {blog.thumbnail && (
+                                <CardMedia
+                                    className={`${classes.media} ${isHighLight ? classes.mediaHighLight : ''}`}
+                                    image={blog.thumbnail}
+                                    title={blog.title}
+                                />
+                            )}
+                            <CardContent className={classes.content}>
+                                <Box className={classes.mainContent}>
+                                    <Typography gutterBottom variant="h6" component="h2">
+                                        {blog.title}
                                     </Typography>
-                                )}
-                            </Box>
-                            <Box className={classes.author}>
-                                <Author author={blog.authors[0]} />
-                            </Box>
-                        </CardContent>
-                    </CardActionArea>
-                </Card>
+                                    {showDescription && (
+                                        <Typography variant="body2" color="textSecondary" component="p">
+                                            {blog.description}
+                                        </Typography>
+                                    )}
+                                </Box>
+                                <Box className={classes.author}>
+                                    <Author author={blog.authors[0]} />
+                                </Box>
+                            </CardContent>
+                        </CardActionArea>
+                    </Card>
+                </Link>
             )}
         </>
     );

@@ -1,22 +1,29 @@
 import React from "react";
-import styles from "./styles";
 import { ListBlogItemComponent } from "./item/Item";
+import {
+  Container,
+  Typography,
+  Box
+} from "@material-ui/core";
 
 export const ListBlogComponent = ({ data, isSearch }) => {
+  const title = (() => {
+    if (isSearch) {
+      return 'Kết quả tìm kiếm của: ' + data.searchQuery
+    } else {
+      return data.category.title;
+    }
+  })();
   return (
-    <div className="container">
-      {isSearch && (
-        <h1 className="header-title">
-          Kết quả tìm kiếm của: {data.searchQuery}
-        </h1>
-      )}
-      {!isSearch && <h1 className="header-title">{data.category.title}:</h1>}
-      <div role="list" className="ui list">
-        {data.blogs.map((blog, index) => (
-          <ListBlogItemComponent key={index.toString()} data={blog} />
-        ))}
-      </div>
-      <style jsx>{styles}</style>
-    </div>
+    <Container maxWidth="lg">
+      <Typography variant="h4" component="h1" gutterBottom>
+        {title}
+      </Typography>
+      {data.blogs.map((blog, index) => (
+        <ListBlogItemComponent key={index.toString()} data={blog} />
+      ))}
+
+      <Box marginBottom={5} />
+    </Container>
   );
 };

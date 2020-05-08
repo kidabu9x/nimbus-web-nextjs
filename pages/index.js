@@ -13,7 +13,7 @@ const Index = ({ categories, features }) => {
   );
 };
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const result = await Promise.all([api.getCategories(), api.getFeatures()]);
   const resCategories = result[0];
   const resFeatures = result[1];

@@ -131,6 +131,7 @@ export async function getServerSideProps({ req, params, query }) {
       props: { host, categories, highlights, type, dataPage },
     };
   } catch (e) {
+    console.log(e);
     return {};
   }
 }

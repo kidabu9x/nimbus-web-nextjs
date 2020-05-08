@@ -14,7 +14,7 @@ export default function Category({ categoryFeature }) {
           {categoryFeature.category.title}
         </Typography>
         <Link href={categoryFeature.category.slug}>
-          <a>Xem thêm ></a>
+          Xem thêm
         </Link>
       </div>
       <div className="ui stackable two column grid">
