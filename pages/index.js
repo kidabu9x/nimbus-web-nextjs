@@ -1,4 +1,7 @@
-import api from "../service/serverapi_ajax";
+import {
+  getCategories,
+  getFeatures
+} from "../api/blog";
 import Head from "next/head";
 import Dashboard from "../screens/dashboard";
 
@@ -14,11 +17,18 @@ const Index = ({ categories, features }) => {
 };
 
 export async function getServerSideProps() {
-  const result = await Promise.all([api.getCategories(), api.getFeatures()]);
-  const resCategories = result[0];
-  const resFeatures = result[1];
-  const categories = resCategories.data.data;
-  const features = resFeatures.data.data;
+  let categories = new Array();
+  let features = new Array();
+
+  try {
+    const result = await Promise.all([getCategories(), getFeatures()]);
+    const resCategories = result[0];
+    const resFeatures = result[1];
+    categories = resCategories.data.data;
+    features = resFeatures.data.data;
+  } catch (error) {
+    console.log(error.message);
+  }
   return {
     props: { categories, features }
   };
