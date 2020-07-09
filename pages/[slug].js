@@ -3,7 +3,6 @@ import {
   searchByQuery,
   getCategories
 } from "../api/blog";
-import Head from "next/head";
 import { SLUG_TYPE } from "../utils/constants";
 import SlugPage from "../screens/slug";
 import { NextSeo } from "next-seo";
@@ -71,7 +70,6 @@ const Slug = ({ host, categories, highlights, type, dataPage }) => {
     site_name: 'Nimbus Study Hub',
   };
 
-
   const twitter = {
     handle: '@handle',
     site: '@site'
@@ -79,16 +77,13 @@ const Slug = ({ host, categories, highlights, type, dataPage }) => {
 
   return (
     <>
-      <Head>
-        <title>{title}</title>
-        <NextSeo
-          title={title}
-          description={description}
-          canonical={canonical}
-          openGraph={openGraph}
-          twitter={twitter}
-        />
-      </Head>
+      <NextSeo
+        title={title}
+        description={description}
+        canonical={canonical}
+        openGraph={openGraph}
+        twitter={twitter}
+      />
       <SlugPage
         categories={categories}
         highlights={highlights}
@@ -101,14 +96,6 @@ const Slug = ({ host, categories, highlights, type, dataPage }) => {
 
 export async function getServerSideProps({ req, params, query }) {
   const host = "https://" + req.headers.host + "/";
-  // fetch data
-  // let asycnSlug;
-  // if (params.slug === "search") {
-  //   asycnSlug = searchByQuery(query.query);
-  // } else {
-  //   asycnSlug = getSlug(params.slug);
-  // }
-  // const asycnCategories = getCategories();
 
   let categories = [];
   let highlights = [];
@@ -123,36 +110,33 @@ export async function getServerSideProps({ req, params, query }) {
   }
 
   try {
-    if (params.slug !== "favicon.ico") {
-      const resSlug = params.slug === "search" ? await searchByQuery(query.query) : await getSlug(params.slug);
-      const slug = resSlug.data.data;
-      highlights = slug.highlights;
-      type = slug.type;
-      if (type === SLUG_TYPE.CATEGORY) {
-        dataPage = {
-          category: slug.category,
-          blogs: slug.blogs,
-        };
-      }
-      if (type === SLUG_TYPE.BLOG) {
-        dataPage = {
-          blog: slug.blog,
-        };
-      }
-      if (type === SLUG_TYPE.SEARCH) {
-        dataPage = {
-          blogs: slug.blogs,
-          searchQuery: query.query,
-        };
-      }
+    const resSlug = params.slug === "search" ? await searchByQuery(query.query) : await getSlug(params.slug);
+    const slug = resSlug.data.data;
+    highlights = slug.highlights;
+    type = slug.type;
+    if (type === SLUG_TYPE.CATEGORY) {
+      dataPage = {
+        category: slug.category,
+        blogs: slug.blogs,
+      };
     }
-
+    if (type === SLUG_TYPE.BLOG) {
+      dataPage = {
+        blog: slug.blog,
+      };
+    }
+    if (type === SLUG_TYPE.SEARCH) {
+      dataPage = {
+        blogs: slug.blogs,
+        searchQuery: query.query,
+      };
+    }
   } catch (e) {
     console.log(e.message);
   }
 
   return {
-    props: { host, categories, highlights, type, dataPage },
+    props: { host, categories, highlights, type, dataPage }
   };
 }
 

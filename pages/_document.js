@@ -16,7 +16,7 @@ class MyDocument extends Document {
                         name="viewport"
                         content="width=device-width, initial-scale=1"
                     />
-                    <link rel="icon" href="/favicon/favicon.ico" />
+                    <link rel="icon" type="image/x-icon" href="/favicon/favicon.ico" />
                     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
                 </Head>
                 <body>
