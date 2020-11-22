@@ -4,9 +4,12 @@ import { ThemeProvider } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import theme from '../configs/theme/primary';
 import "../configs/css/global.css";
+import { useRouter } from 'next/router'
+import * as gtag from '../lib/gtag'
 
-export default function MyApp(props) {
+export default function App(props) {
   const { Component, pageProps } = props;
+  const router = useRouter()
 
   React.useEffect(() => {
     const jssStyles = document.querySelector('#jss-server-side');
@@ -14,6 +17,16 @@ export default function MyApp(props) {
       jssStyles.parentElement.removeChild(jssStyles);
     }
   }, []);
+
+  React.useEffect(() => {
+    const handleRouteChange = (url) => {
+      gtag.pageview(url);
+    }
+    router.events.on('routeChangeComplete', handleRouteChange)
+    return () => {
+      router.events.off('routeChangeComplete', handleRouteChange)
+    }
+  }, [router.events]);
 
   const openGraph = {
     url: "https://nimbus.com.vn/",

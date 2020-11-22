@@ -11,7 +11,9 @@ export const ListBlogComponent = ({ data, isSearch }) => {
     if (isSearch) {
       return 'Kết quả tìm kiếm của: ' + data.searchQuery
     } else {
-      return data.category.title;
+      return data.category ? data.category.title :
+        data.tag ? data.tag.title : "Kết quả không tồn tại"
+        ;
     }
   })();
   return (

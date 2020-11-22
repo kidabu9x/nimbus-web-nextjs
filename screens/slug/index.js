@@ -20,6 +20,9 @@ const SlugPage = ({ categories, highlights, type, dataPage }) => {
             {type === SLUG_TYPE.CATEGORY && (
               <ListBlogComponent data={dataPage} />
             )}
+            {type === SLUG_TYPE.TAG && (
+              <ListBlogComponent data={dataPage} />
+            )}
             {type === SLUG_TYPE.BLOG && <BlogComponent data={dataPage.blog} />}
             {type === SLUG_TYPE.SEARCH && (
               <ListBlogComponent data={dataPage} isSearch />

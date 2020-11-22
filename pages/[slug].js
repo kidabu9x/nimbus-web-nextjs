@@ -122,7 +122,7 @@ export async function getServerSideProps({ req, params, query }) {
     }
     if (type === SLUG_TYPE.BLOG) {
       dataPage = {
-        blog: slug.blog,
+        blog: slug,
       };
     }
     if (type === SLUG_TYPE.SEARCH) {

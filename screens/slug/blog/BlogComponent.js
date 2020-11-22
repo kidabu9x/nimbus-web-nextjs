@@ -44,7 +44,7 @@ export const BlogComponent = ({ data }) => {
       <div
         className="cke"
         dangerouslySetInnerHTML={{
-          __html: data.contents[0].content,
+          __html: data.content,
         }}
       />
 
@@ -52,7 +52,7 @@ export const BlogComponent = ({ data }) => {
         <Typography display="inline">Tags: </Typography>
 
         {data.tags.map((tag, index) => (
-          <Tag key={index} title={tag.title} link={`/${tag.slug}`} />
+          <Tag key={index} title={tag.title} link={`/tag/${tag.slug}`} />
         ))}
       </Box>
 

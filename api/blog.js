@@ -29,6 +29,11 @@ export const getSlug = (slug) => {
     return apiInstance.get(url);
 }
 
+export const getTag = (slug) => {
+    let url = `/tag/${slug}`;
+    return apiInstance.get(url);
+}
+
 export const searchByQuery = (query) => {
     let url = `/search`;
     return apiInstance.get(url, {

@@ -3,7 +3,7 @@ const env = process.env.ENV || 'development';
 const configs = {
     development: {
         domain: {
-            blogService: 'https://api.nimbus.com.vn/blog-service',
+            blogService: 'http://localhost:8088',
             authService: 'https://api.nimbus.com.vn/auth-service'
         }
     },
