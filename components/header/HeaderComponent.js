@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { useRouter } from "next/router";
 import {
   Container,
@@ -56,6 +56,20 @@ const CustomLink = ({ href, title }) => {
 }
 
 const Header = ({ categories }) => {
+  const [visible, setVisible] = useState(false);
+  const placeholderRef = useRef(null);
+  useEffect(() => {
+    if (!visible && placeholderRef.current) {
+      const observer = new IntersectionObserver(([{ intersectionRatio }]) => {
+        if (intersectionRatio > 0) {
+          setVisible(true);
+        }
+      });
+      observer.observe(placeholderRef.current);
+      return () => observer.disconnect();
+    }
+  }, [visible, placeholderRef]);
+
   const classes = styles();
   const router = useRouter();
   const [txtSearch, setTxtSearch] = useState("");
@@ -80,11 +94,16 @@ const Header = ({ categories }) => {
       <Container maxWidth="lg">
         <Box display="flex" flexWrap="wrap">
           <Link href="/">
-            <img
-              alt="logo"
-              src="/images/logo.png"
-              className={classes.logo}
-            />
+            {visible
+              ?
+              <img
+                alt="logo"
+                src="/images/logo.png"
+                className={classes.logo}
+              />
+              :
+              <div aria-label="logo" ref={placeholderRef} />
+            }
           </Link>
           <Box
             component="form"

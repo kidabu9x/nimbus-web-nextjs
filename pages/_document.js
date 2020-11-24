@@ -21,9 +21,11 @@ class MyDocument extends Document {
                     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
                     <script
                         async
+                        async
                         src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
                     />
                     <script
+                        async
                         dangerouslySetInnerHTML={{
                             __html: `
                                 window.dataLayer = window.dataLayer || [];

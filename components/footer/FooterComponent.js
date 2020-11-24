@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useRef, useEffect } from "react";
 import {
   Typography,
   Container,
@@ -44,6 +44,19 @@ const CustomLink = ({ href, text, isBlock = true }) => {
 }
 
 const Footer = ({ categories }) => {
+  const [visible, setVisible] = useState(false);
+  const placeholderRef = useRef(null);
+  useEffect(() => {
+    if (!visible && placeholderRef.current) {
+      const observer = new IntersectionObserver(([{ intersectionRatio }]) => {
+        if (intersectionRatio > 0) {
+          setVisible(true);
+        }
+      });
+      observer.observe(placeholderRef.current);
+      return () => observer.disconnect();
+    }
+  }, [visible, placeholderRef]);
 
   const getHalfOfCategories = (firstHalf = true) => {
     const newCategories = [...categories];
@@ -62,11 +75,16 @@ const Footer = ({ categories }) => {
       <Container maxWidth="lg" style={{ paddingTop: 40 }}>
         <Grid container spacing={1} style={{ marginBottom: 40 }}>
           <Grid item xs={12} sm={4} style={{ marginBottom: 40 }}>
-            <img
-              alt="logo"
-              src="/images/logo_footer.png"
-              className={classes.logo}
-            />
+            {visible
+              ?
+              <img
+                alt="logo"
+                src="/images/logo_footer.png"
+                className={classes.logo}
+              />
+              :
+              <div aria-label="logo" ref={placeholderRef} />
+            }
             <Typography variant="body2" gutterBottom>
               CÔNG TY TNHH NIMBUS
               </Typography>

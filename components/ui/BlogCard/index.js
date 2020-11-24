@@ -1,3 +1,4 @@
+import React, { useState, useRef, useEffect } from "react";
 import {
     Card,
     CardActionArea,
@@ -45,6 +46,36 @@ const useStyles = makeStyles(theme => ({
     }
 }));
 
+const LazyLoadMedia = (props) => {
+    const [visible, setVisible] = useState(false);
+    const placeholderRef = useRef(null);
+    useEffect(() => {
+
+        if (!visible && placeholderRef.current) {
+            const observer = new IntersectionObserver(([{ intersectionRatio }]) => {
+                if (intersectionRatio > 0) {
+                    setVisible(true);
+                }
+            });
+            observer.observe(placeholderRef.current);
+            return () => observer.disconnect();
+        }
+    }, [visible, placeholderRef]);
+
+    return (visible
+        ?
+        <CardMedia
+            className={props.className}
+            component='img'
+            image={props.image}
+            alt={props.alt}
+            height={props.height}
+        />
+        :
+        <div style={{ height: props.height, backgroundColor: '#EEE' }} aria-label={props.alt} ref={placeholderRef} />
+    );
+};
+
 export default function CardRight({ blog, isHighLight = false, showDescription = false }) {
     const classes = useStyles();
     return (
@@ -59,10 +90,11 @@ export default function CardRight({ blog, isHighLight = false, showDescription =
                     >
                         <CardActionArea className={classes.actionArea}>
                             {blog.thumbnail && (
-                                <CardMedia
+                                <LazyLoadMedia
+                                    component="img"
                                     className={`${classes.media} ${isHighLight ? classes.mediaHighLight : ''}`}
                                     image={blog.thumbnail}
-                                    title={blog.title}
+                                    alt={blog.alt}
                                 />
                             )}
                             <CardContent className={classes.content}>
