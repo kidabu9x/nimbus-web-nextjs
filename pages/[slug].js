@@ -101,7 +101,6 @@ export async function getServerSideProps({ req, params, query }) {
   let highlights = [];
   let type = SLUG_TYPE.BLOG;
   let dataPage = null;
-
   try {
     const resCategories = await getCategories();
     categories = resCategories.data.data;

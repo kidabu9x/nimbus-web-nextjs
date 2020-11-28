@@ -1,4 +1,5 @@
 import React from 'react';
+import Head from 'next/head'
 import { DefaultSeo } from 'next-seo';
 import { ThemeProvider } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -43,6 +44,12 @@ export default function App(props) {
   };
   return (
     <>
+      <Head>
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1"
+        />
+      </Head>
       <DefaultSeo
         openGraph={openGraph}
         twitter={{

@@ -24,3 +24,9 @@ img {
     max-width: 100%;
     margin-bottom: 40px;
 }
+
+.cke img {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    max-width: 100%;
+}

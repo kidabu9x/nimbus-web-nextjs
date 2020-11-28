@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { HighlightItemComponent } from "./Item/Item";
+import HachiumCourseComponent from "./HachiumCourseComponent";
 import { makeStyles } from '@material-ui/core/styles';
 import {
   Box,
@@ -65,7 +66,10 @@ export const HighlightComponent = ({ data }) => {
           <SearchIcon />
         </IconButton>
       </Box>
-      <Box>
+      <Box mt={2} mb={3}>
+        <HachiumCourseComponent />
+      </Box>
+      <Box mt={2}>
         <Typography variant="h5" gutterBottom>Bài viết nổi bật:</Typography>
         {data.map((highlight, index) => (
           <HighlightItemComponent key={index.toString()} data={highlight} />

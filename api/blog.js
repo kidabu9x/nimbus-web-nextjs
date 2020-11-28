@@ -42,3 +42,13 @@ export const searchByQuery = (query) => {
         },
     });
 }
+
+export const getCourses = ({
+    slug
+}) => {
+    let url = `/course`;
+    if (slug) {
+        url = url.concat("?slug=".concat(slug));
+    }
+    return apiInstance.get(url);
+}
