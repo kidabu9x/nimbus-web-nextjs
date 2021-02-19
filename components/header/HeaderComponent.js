@@ -10,6 +10,16 @@ import {
   Divider
 } from "@material-ui/core";
 import SearchIcon from '@material-ui/icons/Search';
+import {
+  Menu,
+  MenuItem,
+  MenuButton,
+  SubMenu
+} from '@szhsin/react-menu';
+import '@szhsin/react-menu/dist/index.css';
+import {
+  getCourses
+} from "../../api/course";
 
 const styles = makeStyles(theme => ({
   root: {
@@ -58,6 +68,7 @@ const CustomLink = ({ href, title }) => {
 const Header = ({ categories }) => {
   const [visible, setVisible] = useState(false);
   const placeholderRef = useRef(null);
+
   useEffect(() => {
     if (!visible && placeholderRef.current) {
       const observer = new IntersectionObserver(([{ intersectionRatio }]) => {
@@ -73,6 +84,18 @@ const Header = ({ categories }) => {
   const classes = styles();
   const router = useRouter();
   const [txtSearch, setTxtSearch] = useState("");
+  const [courses, setCourses] = useState([]);
+
+  useEffect(() => {
+    getCourses()
+      .then(response => {
+        const data = response.data.data;
+        setCourses(Array.from(data).filter(course => Array.isArray(course.quizzes) && course.quizzes.length > 0));
+      })
+      .catch(error => {
+        console.log(error);
+      })
+  }, [setCourses]);
 
   const onSearch = () => {
     if (txtSearch !== "") {
@@ -140,6 +163,21 @@ const Header = ({ categories }) => {
                 title={category.title}
               />
             ))}
+
+          {courses && courses.length > 0 &&
+            <Menu menuButton={<MenuButton>Trắc nghiệm</MenuButton>}>
+              {courses.map((course, index) => (
+                <SubMenu key={index} label={course.name}>
+                  {course.quizzes.map((quiz, i) =>
+                    <MenuItem key={i} href={`/khoa-hoc/${course.slug}/trac-nghiem?focus=${quiz.slug}`}>
+                      {quiz.name}
+                    </MenuItem>
+                  )}
+                </SubMenu>
+              ))}
+
+            </Menu>
+          }
         </Box>
       </Container>
     </div>

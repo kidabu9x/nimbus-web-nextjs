@@ -1201,6 +1201,11 @@
   dependencies:
     mkdirp "^1.0.4"
 
+"@szhsin/react-menu@^1.6.1":
+  version "1.6.1"
+  resolved "https://registry.yarnpkg.com/@szhsin/react-menu/-/react-menu-1.6.1.tgz#a9e2c1abb85d9c76cf387e20858bf55c6d78d59d"
+  integrity sha512-4ghOgE4pXBOb6kBPXB0V8Xris/8inGod7rHnVdX9Hqc1IHiLrh1UWhVNNRQ9T9tCw1OW12WLUc3QWlzriQebEg==
+
 "@types/json-schema@^7.0.5":
   version "7.0.6"
   resolved "https://registry.yarnpkg.com/@types/json-schema/-/json-schema-7.0.6.tgz#f4c7ec43e81b319a9815115031709f26987891f0"
