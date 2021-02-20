@@ -17,3 +17,16 @@ export const getCourses = () => {
     let url = `/course`;
     return apiInstance.get(url);
 }
+
+export const getCourse = (slug) => {
+    let url = `/course/${slug}`;
+    return apiInstance.get(url);
+}
+
+export const getQuiz = ({
+    course_slug,
+    slug
+}) => {
+    let url = `/quiz/${slug}?course_slug=${course_slug}`;
+    return apiInstance.get(url);
+}
