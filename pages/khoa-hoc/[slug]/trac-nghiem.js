@@ -1,7 +1,6 @@
 import { makeStyles } from '@material-ui/core/styles';
 import {
     Card,
-    CardActions,
     CardContent,
     Button,
     Typography,
@@ -19,7 +18,8 @@ import ShuffleIcon from '@material-ui/icons/Shuffle';
 
 import {
     getCourse,
-    getQuiz
+    getQuiz,
+    getQuestions
 } from "../../../api/course";
 import Head from "next/head";
 import { NextSeo } from "next-seo";
@@ -43,22 +43,22 @@ const useStyles = makeStyles({
     },
 });
 
-const Quiz = ({host, course}) => {
+const Quiz = ({ host, course }) => {
     if (!course) {
         return (
             <div>
-              <Head>
-                <title>Khóa học không tồn tại</title>
-                <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-              </Head>
-              <p>Khóa học không tồn tại</p>
+                <Head>
+                    <title>Khóa học không tồn tại</title>
+                    <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+                </Head>
+                <p>Khóa học không tồn tại</p>
             </div>
-          )
+        )
     }
 
     const title = "Khóa học " + course.name;
     const description = title;
-    const canonical = host + "khoa-hoc/" + course.slug + "trac-nghiem" ;
+    const canonical = host + "khoa-hoc/" + course.slug + "trac-nghiem";
     const image = "https://res.cloudinary.com/nimbus-education/image/upload/v1588748885/blogs/uat/logo-white-bg.png";
 
     const openGraph = {
@@ -91,7 +91,10 @@ const Quiz = ({host, course}) => {
     const [quiz, setQuiz] = useState(null);
     const [quizLoading, setQuizLoading] = useState(true);
     const [config, setConfig] = useState(null);
+
+    const [fetchingQuestions, setFetchingQuestions] = useState(false);
     const [questions, setQuestions] = useState([]);
+    const [backupQuestions, setBackupQuestions] = useState([]);
 
     useEffect(() => {
         if (focusQuizSlug) {
@@ -123,6 +126,24 @@ const Quiz = ({host, course}) => {
         }
     }, [step]);
 
+    const fetchQuestions = () => {
+        setFetchingQuestions(true);
+        getQuestions({
+            course_slug: course.slug,
+            quiz_slug: quiz.slug
+        })
+            .then(response => {
+                const data = response.data.data;
+                setQuestions(data);
+                setBackupQuestions(data);
+                setFetchingQuestions(false);
+            })
+            .catch(error => {
+                console.log(error.message);
+                setFetchingQuestions(false);
+            });
+    }
+
     return (
         <>
             <NextSeo
@@ -143,56 +164,69 @@ const Quiz = ({host, course}) => {
                 <Grid item xs={6}>
                     <Card className={classes.root} variant="outlined">
                         <CardContent>
-                            {quizLoading && <LinearProgress />}
-                            {!quizLoading && quiz &&
+                            {(quizLoading || fetchingQuestions) && <LinearProgress />}
+                            {step === 2 &&
                                 <>
-                                    <Typography className={classes.title} color="textSecondary" gutterBottom>
-                                        Khóa học {course.name}
-                                    </Typography>
-                                    <Typography variant="h5" component="h2">
-                                        Bài trắc nghiệm: {quiz.name}
-                                    </Typography>
-                                    <List>
-                                        <ListItem>
-                                            <ListItemIcon>
-                                                <AccessTimeIcon />
-                                            </ListItemIcon>
-                                            <ListItemText>
-                                                Thời lượng
-                                            </ListItemText>
-                                            <ListItemSecondaryAction>
-                                                {config.duration} phút
-                                            </ListItemSecondaryAction>
-                                        </ListItem>
-                                        <ListItem>
-                                            <ListItemIcon>
-                                                <LiveHelpIcon />
-                                            </ListItemIcon>
-                                            <ListItemText>
-                                                Số lượng câu hỏi
-                                            </ListItemText>
-                                            <ListItemSecondaryAction>
-                                                {Math.min(quiz.total_questions, config.limit_number_of_questions)} câu
-                                            </ListItemSecondaryAction>
-                                        </ListItem>
-                                        <ListItem>
-                                            <ListItemIcon>
-                                                <ShuffleIcon />
-                                            </ListItemIcon>
-                                            <ListItemText>
-                                                Trộn câu hỏi
-                                            </ListItemText>
-                                            <ListItemSecondaryAction>
-                                                {config.shuffle_questions ? "Có" : "Không"}
-                                            </ListItemSecondaryAction>
-                                        </ListItem>
-                                    </List>
+                                    {!quizLoading && quiz &&
+                                        <>
+                                            <Typography className={classes.title} color="textSecondary" gutterBottom>
+                                                Khóa học {course.name}
+                                            </Typography>
+                                            <Typography variant="h5" component="h2">
+                                                Bài trắc nghiệm: {quiz.name}
+                                            </Typography>
+                                            <List>
+                                                <ListItem>
+                                                    <ListItemIcon>
+                                                        <AccessTimeIcon />
+                                                    </ListItemIcon>
+                                                    <ListItemText>
+                                                        Thời lượng
+                                                    </ListItemText>
+                                                    <ListItemSecondaryAction>
+                                                        {config.duration} phút
+                                                    </ListItemSecondaryAction>
+                                                </ListItem>
+                                                <ListItem>
+                                                    <ListItemIcon>
+                                                        <LiveHelpIcon />
+                                                    </ListItemIcon>
+                                                    <ListItemText>
+                                                        Số lượng câu hỏi
+                                                    </ListItemText>
+                                                    <ListItemSecondaryAction>
+                                                        {Math.min(quiz.total_questions, config.limit_number_of_questions)} câu
+                                                    </ListItemSecondaryAction>
+                                                </ListItem>
+                                                <ListItem>
+                                                    <ListItemIcon>
+                                                        <ShuffleIcon />
+                                                    </ListItemIcon>
+                                                    <ListItemText>
+                                                        Trộn câu hỏi
+                                                    </ListItemText>
+                                                    <ListItemSecondaryAction>
+                                                        {config.shuffle_questions ? "Có" : "Không"}
+                                                    </ListItemSecondaryAction>
+                                                </ListItem>
+                                            </List>
+                                        </>
+                                    }
+                                    <Button
+                                        variant="contained"
+                                        color="primary"
+                                        disableElevation
+                                        size="large"
+                                        fullWidth
+                                        disabled={fetchingQuestions || quizLoading}
+                                        onClick={fetchQuestions}
+                                    >
+                                        Bắt đầu
+                                    </Button>
                                 </>
                             }
+
                         </CardContent>
-                        <CardActions>
-                            <Button variant="contained" color="primary" disableElevation>Bắt đầu</Button>
-                        </CardActions>
                     </Card>
                 </Grid>
             </Grid>
@@ -211,17 +245,16 @@ export async function getServerSideProps({ req, params }) {
     try {
         const response = await getCourse(slug);
         course = response.data.data;
-        console.log(course);
     } catch (error) {
-        console.log(error);
+        console.log(error.message);
     }
-    
+
     return {
-      props: {
-        host,
-          course
-       }
+        props: {
+            host,
+            course
+        }
     };
-  }
+}
 
 export default Quiz;

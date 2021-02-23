@@ -30,3 +30,11 @@ export const getQuiz = ({
     let url = `/quiz/${slug}?course_slug=${course_slug}`;
     return apiInstance.get(url);
 }
+
+export const getQuestions = ({
+    course_slug,
+    quiz_slug
+}) => {
+    let url = `/question?course_slug=${course_slug}&quiz_slug=${quiz_slug}`;
+    return apiInstance.get(url);
+}
