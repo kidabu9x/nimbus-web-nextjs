@@ -3,6 +3,7 @@ import {
     Card,
     CardContent,
     Button,
+    IconButton,
     Typography,
     Grid,
     List,
@@ -10,11 +11,13 @@ import {
     ListItemText,
     ListItemSecondaryAction,
     ListItemIcon,
-    LinearProgress
+    LinearProgress,
+    Box
 } from "@material-ui/core";
 import AccessTimeIcon from '@material-ui/icons/AccessTime';
 import LiveHelpIcon from '@material-ui/icons/LiveHelp';
 import ShuffleIcon from '@material-ui/icons/Shuffle';
+import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 
 import {
     getCourse,
@@ -88,8 +91,9 @@ const Quiz = ({ host, course }) => {
 
     const [step, setStep] = useState(1);
     const [quizSlug, setQuizSlug] = useState(null);
+    const [quizzes, setQuizzes] = useState([]);
     const [quiz, setQuiz] = useState(null);
-    const [quizLoading, setQuizLoading] = useState(true);
+    const [quizLoading, setQuizLoading] = useState(false);
     const [config, setConfig] = useState(null);
 
     const [fetchingQuestions, setFetchingQuestions] = useState(false);
@@ -100,9 +104,11 @@ const Quiz = ({ host, course }) => {
         if (focusQuizSlug) {
             const isAcceptableQuizSlug = Array.from(course.quizzes).some(quiz => quiz.slug === focusQuizSlug);
             if (isAcceptableQuizSlug) {
-                setStep(2);
                 setQuizSlug(focusQuizSlug);
+                setStep(2);
             }
+        } else {
+            setQuizzes(Array.from(course.quizzes));
         }
     }, [focusQuizSlug]);
 
@@ -144,6 +150,16 @@ const Quiz = ({ host, course }) => {
             });
     }
 
+    const goToQuiz = (quizSlug) => {
+        setQuizSlug(quizSlug);
+        setStep(2);
+    }
+
+    const goToStep = (target) => {
+        console.log(target);
+        setStep(target);
+    }
+
     return (
         <>
             <NextSeo
@@ -165,16 +181,40 @@ const Quiz = ({ host, course }) => {
                     <Card className={classes.root} variant="outlined">
                         <CardContent>
                             {(quizLoading || fetchingQuestions) && <LinearProgress />}
+                            <Typography className={classes.title} color="textSecondary" gutterBottom>
+                                Khóa học {course.name}
+                            </Typography>
+                            {step === 1 &&
+                                <>
+                                    <Typography variant="h5" component="h2" gutterBottom>
+                                        Chọn bài trắc nghiệm
+                                    </Typography>
+                                    <Box mt={2}>
+                                        <Grid container spacing={2}>
+                                            {quizzes.map((quizItem) =>
+                                                <Grid key={quizItem.slug} item>
+                                                    <Button variant="outlined" size="large" color="primary" onClick={() => goToQuiz(quizItem.slug)}>
+                                                        {quizItem.name}
+                                                    </Button>
+                                                </Grid>
+                                            )}
+                                        </Grid>
+                                    </Box>
+                                </>
+                            }
                             {step === 2 &&
                                 <>
                                     {!quizLoading && quiz &&
                                         <>
-                                            <Typography className={classes.title} color="textSecondary" gutterBottom>
-                                                Khóa học {course.name}
-                                            </Typography>
-                                            <Typography variant="h5" component="h2">
-                                                Bài trắc nghiệm: {quiz.name}
-                                            </Typography>
+                                            <Box display="flex" alignItems="center">
+                                                <IconButton onClick={() => goToStep(1)}>
+                                                    <ArrowBackIosIcon />
+                                                </IconButton>
+                                                <Typography variant="h5" component="h2">
+                                                    Bài trắc nghiệm: {quiz.name}
+                                                </Typography>
+                                            </Box>
+
                                             <List>
                                                 <ListItem>
                                                     <ListItemIcon>
@@ -210,19 +250,19 @@ const Quiz = ({ host, course }) => {
                                                     </ListItemSecondaryAction>
                                                 </ListItem>
                                             </List>
+                                            <Button
+                                                variant="contained"
+                                                color="primary"
+                                                disableElevation
+                                                size="large"
+                                                fullWidth
+                                                disabled={fetchingQuestions}
+                                                onClick={fetchQuestions}
+                                            >
+                                                Bắt đầu
+                                            </Button>
                                         </>
                                     }
-                                    <Button
-                                        variant="contained"
-                                        color="primary"
-                                        disableElevation
-                                        size="large"
-                                        fullWidth
-                                        disabled={fetchingQuestions || quizLoading}
-                                        onClick={fetchQuestions}
-                                    >
-                                        Bắt đầu
-                                    </Button>
                                 </>
                             }
 
