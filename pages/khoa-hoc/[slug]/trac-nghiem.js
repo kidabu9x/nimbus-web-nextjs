@@ -12,12 +12,16 @@ import {
     ListItemSecondaryAction,
     ListItemIcon,
     LinearProgress,
-    Box
+    Box,
+    Divider
 } from "@material-ui/core";
 import AccessTimeIcon from '@material-ui/icons/AccessTime';
 import LiveHelpIcon from '@material-ui/icons/LiveHelp';
 import ShuffleIcon from '@material-ui/icons/Shuffle';
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
+import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
+import BookmarkBorderIcon from '@material-ui/icons/BookmarkBorder';
+import BookmarkIcon from '@material-ui/icons/Bookmark';
 
 import {
     getCourse,
@@ -28,10 +32,17 @@ import Head from "next/head";
 import { NextSeo } from "next-seo";
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
+import { yellow } from '@material-ui/core/colors';
+
+const STEP = {
+    CHOOSE_QUIZ: 1,
+    CONFIRM_INFO: 2,
+    TESTING: 3
+}
 
 const useStyles = makeStyles({
     root: {
-        minWidth: 400,
+        width: 500,
     },
     bullet: {
         display: 'inline-block',
@@ -89,7 +100,7 @@ const Quiz = ({ host, course }) => {
 
     const focusQuizSlug = router.query.focus;
 
-    const [step, setStep] = useState(1);
+    const [step, setStep] = useState(STEP.CHOOSE_QUIZ);
     const [quizSlug, setQuizSlug] = useState(null);
     const [quizzes, setQuizzes] = useState([]);
     const [quiz, setQuiz] = useState(null);
@@ -99,13 +110,17 @@ const Quiz = ({ host, course }) => {
     const [fetchingQuestions, setFetchingQuestions] = useState(false);
     const [questions, setQuestions] = useState([]);
     const [backupQuestions, setBackupQuestions] = useState([]);
+    const [question, setQuestion] = useState(null);
+    const [questionIndex, setQuestionIndex] = useState(0);
+    const [totalQuestions, setTotalQuestions] = useState(0);
+    const [bookmarkIds, setBookmarkIds] = useState([]);
 
     useEffect(() => {
         if (focusQuizSlug) {
             const isAcceptableQuizSlug = Array.from(course.quizzes).some(quiz => quiz.slug === focusQuizSlug);
             if (isAcceptableQuizSlug) {
                 setQuizSlug(focusQuizSlug);
-                setStep(2);
+                setStep(STEP.CONFIRM_INFO);
             }
         } else {
             setQuizzes(Array.from(course.quizzes));
@@ -139,10 +154,17 @@ const Quiz = ({ host, course }) => {
             quiz_slug: quiz.slug
         })
             .then(response => {
-                const data = response.data.data;
+                const data = Array.from(response.data.data);
                 setQuestions(data);
                 setBackupQuestions(data);
                 setFetchingQuestions(false);
+                setTotalQuestions(data.length);
+                if (data.length > 0) {
+                    setStep(STEP.TESTING);
+                    setQuestionIndex(0);
+                    setQuestion(data[0]);
+                }
+
             })
             .catch(error => {
                 console.log(error.message);
@@ -152,12 +174,37 @@ const Quiz = ({ host, course }) => {
 
     const goToQuiz = (quizSlug) => {
         setQuizSlug(quizSlug);
-        setStep(2);
+        setStep(STEP.CONFIRM_INFO);
     }
 
     const goToStep = (target) => {
-        console.log(target);
         setStep(target);
+    }
+
+    const toggleBookmarkQuestion = (id) => {
+        const index = bookmarkIds.indexOf(id);
+        if (index === -1) {
+            bookmarkIds.push(id);
+        } else {
+            bookmarkIds.splice(index, 1);
+        }
+        setBookmarkIds([...bookmarkIds]);
+    }
+
+    const nextQuestion = () => {
+        const nextIndex = questionIndex + 1;
+        if (nextIndex < totalQuestions) {
+            setQuestion(questions[nextIndex]);
+            setQuestionIndex(nextIndex);
+        }
+    }
+
+    const backQuestion = () => {
+        const backIndex = questionIndex - 1;
+        if (backIndex > -1 && backIndex < totalQuestions) {
+            setQuestion(questions[backIndex]);
+            setQuestionIndex(backIndex);
+        }
     }
 
     return (
@@ -181,10 +228,12 @@ const Quiz = ({ host, course }) => {
                     <Card className={classes.root} variant="outlined">
                         <CardContent>
                             {(quizLoading || fetchingQuestions) && <LinearProgress />}
-                            <Typography className={classes.title} color="textSecondary" gutterBottom>
-                                Khóa học {course.name}
-                            </Typography>
-                            {step === 1 &&
+                            {[STEP.CHOOSE_QUIZ, STEP.CONFIRM_INFO].includes(step) &&
+                                <Typography className={classes.title} color="textSecondary" gutterBottom>
+                                    Khóa học {course.name}
+                                </Typography>
+                            }
+                            {step === STEP.CHOOSE_QUIZ &&
                                 <>
                                     <Typography variant="h5" component="h2" gutterBottom>
                                         Chọn bài trắc nghiệm
@@ -202,7 +251,7 @@ const Quiz = ({ host, course }) => {
                                     </Box>
                                 </>
                             }
-                            {step === 2 &&
+                            {step === STEP.CONFIRM_INFO &&
                                 <>
                                     {!quizLoading && quiz &&
                                         <>
@@ -263,6 +312,72 @@ const Quiz = ({ host, course }) => {
                                             </Button>
                                         </>
                                     }
+                                </>
+                            }
+
+                            {step === STEP.TESTING && question != null &&
+                                <>
+                                    <Box mb={1}>
+                                        <Typography className={classes.title} color="textSecondary">
+                                            Câu {questionIndex + 1}:
+                                        </Typography>
+                                    </Box>
+                                    <Box mb={1}>
+                                        <div
+                                            className="cke"
+                                            dangerouslySetInnerHTML={{
+                                                __html: question.content
+                                            }}
+                                        />
+                                    </Box>
+                                    <Divider />
+                                    <Box my={2}>Test</Box>
+                                    <Divider />
+                                    <Box mt={2}>
+                                        <Grid container spacing={1}>
+                                            <Grid item xs={4}>
+                                                {questionIndex > 0 &&
+                                                    <Button
+                                                        onClick={backQuestion}
+                                                        fullWidth
+                                                        startIcon={<ArrowBackIosIcon />}
+                                                    >
+                                                        Câu trước
+                                                    </Button>
+                                                }
+                                            </Grid>
+                                            <Grid item xs={4}>
+                                                {bookmarkIds.includes(question.id) ?
+                                                    <Button
+                                                        onClick={() => toggleBookmarkQuestion(question.id)}
+                                                        fullWidth
+                                                        startIcon={<BookmarkIcon style={{ color: yellow[700] }} />}
+                                                    >
+                                                        Bỏ đánh dấu
+                                                    </Button>
+                                                    :
+                                                    <Button
+                                                        onClick={() => toggleBookmarkQuestion(question.id)}
+                                                        fullWidth
+                                                        startIcon={<BookmarkBorderIcon />}
+                                                    >
+                                                        Đánh dấu
+                                                    </Button>
+                                                }
+                                            </Grid>
+                                            <Grid item xs={4}>
+                                                {questionIndex < totalQuestions - 1 &&
+                                                    <Button
+                                                        onClick={nextQuestion}
+                                                        fullWidth
+                                                        endIcon={<ArrowForwardIosIcon />}
+                                                    >
+                                                        Câu tiếp
+                                                    </Button>
+                                                }
+                                            </Grid>
+                                        </Grid>
+                                    </Box>
                                 </>
                             }
 
