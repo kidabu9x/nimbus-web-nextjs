@@ -13,7 +13,10 @@ import {
     ListItemIcon,
     LinearProgress,
     Box,
-    Divider
+    Divider,
+    FormControlLabel,
+    Checkbox,
+    Radio
 } from "@material-ui/core";
 import AccessTimeIcon from '@material-ui/icons/AccessTime';
 import LiveHelpIcon from '@material-ui/icons/LiveHelp';
@@ -32,12 +35,18 @@ import Head from "next/head";
 import { NextSeo } from "next-seo";
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
-import { yellow } from '@material-ui/core/colors';
+import { grey, yellow } from '@material-ui/core/colors';
 
 const STEP = {
     CHOOSE_QUIZ: 1,
     CONFIRM_INFO: 2,
     TESTING: 3
+}
+
+const QUESTION_TYPE = {
+    PAIRING_ANSWERS: "PAIRING_ANSWERS",
+    MULTIPLE_CHOICE_MULTIPLE_ANSWERS: "MULTIPLE_CHOICE_MULTIPLE_ANSWERS",
+    MULTIPLE_CHOICE_ONE_ANSWER: "MULTIPLE_CHOICE_ONE_ANSWER"
 }
 
 const useStyles = makeStyles({
@@ -55,6 +64,15 @@ const useStyles = makeStyles({
     pos: {
         marginBottom: 12,
     },
+});
+
+const multipleAnswerStyles = makeStyles({
+    root: {
+        "&:hover": {
+            background: grey[200],
+            cursor: "pointer"
+        }
+    }
 });
 
 const Quiz = ({ host, course }) => {
@@ -95,6 +113,7 @@ const Quiz = ({ host, course }) => {
     }
 
     const classes = useStyles();
+    const multipleAnswerClasses = multipleAnswerStyles();
 
     const router = useRouter();
 
@@ -205,6 +224,48 @@ const Quiz = ({ host, course }) => {
             setQuestion(questions[backIndex]);
             setQuestionIndex(backIndex);
         }
+    }
+
+    const handleCheckboxChange = (id) => {
+        if (question.type !== QUESTION_TYPE.MULTIPLE_CHOICE_MULTIPLE_ANSWERS) {
+            return;
+        }
+
+        let answers = Array.from(question.answers);
+        const index = answers.findIndex(answer => answer.id === id);
+        if (index === -1) {
+            return;
+        }
+        answers[index].is_correct = !answers[index].is_correct;
+        setQuestion({
+            ...question,
+            answers: [...answers]
+        })
+    }
+
+    const handleRadioChange = (id) => {
+        if (question.type !== QUESTION_TYPE.MULTIPLE_CHOICE_ONE_ANSWER) {
+            return;
+        }
+
+        let answers = Array.from(question.answers);
+        const index = answers.findIndex(answer => answer.id === id);
+        if (index === -1) {
+            return;
+        }
+
+        for (let i = 0; i < answers.length; i++) {
+            if (i === index) {
+                answers[i].is_correct = true;
+            } else {
+                answers[i].is_correct = false;
+            }
+        }
+
+        setQuestion({
+            ...question,
+            answers: [...answers]
+        })
     }
 
     return (
@@ -322,16 +383,86 @@ const Quiz = ({ host, course }) => {
                                             Câu {questionIndex + 1}:
                                         </Typography>
                                     </Box>
-                                    <Box mb={1}>
+                                    <Box mt={2} mb={3}>
                                         <div
-                                            className="cke"
                                             dangerouslySetInnerHTML={{
                                                 __html: question.content
                                             }}
                                         />
                                     </Box>
                                     <Divider />
-                                    <Box my={2}>Test</Box>
+                                    <Box my={2}>
+                                        {question.type === QUESTION_TYPE.MULTIPLE_CHOICE_ONE_ANSWER &&
+                                            Array.from(question.answers).map(answer => (
+                                                <Box
+                                                    key={answer.id}
+                                                    p={1}
+                                                    onClick={() => handleRadioChange(answer.id)}
+                                                    className={multipleAnswerClasses.root}
+                                                    borderRadius={4}
+                                                >
+                                                    <Grid
+                                                        container
+                                                        spacing={1}
+                                                        alignItems="center"
+                                                        justify="center"
+                                                    >
+                                                        <Grid item xs={1}>
+                                                            <Radio
+                                                                color="primary"
+                                                                checked={answer.is_correct}
+                                                            />
+                                                        </Grid>
+                                                        <Grid item xs={11}>
+                                                            <div
+                                                                dangerouslySetInnerHTML={{
+                                                                    __html: answer.content
+                                                                }}
+                                                            />
+                                                        </Grid>
+                                                    </Grid>
+                                                </Box>
+                                            ))
+                                        }
+
+                                        {question.type === QUESTION_TYPE.MULTIPLE_CHOICE_MULTIPLE_ANSWERS &&
+                                            Array.from(question.answers).map(answer => (
+                                                <Box
+                                                    key={answer.id}
+                                                    p={1}
+                                                    onClick={() => handleCheckboxChange(answer.id)}
+                                                    className={multipleAnswerClasses.root}
+                                                    borderRadius={4}
+                                                >
+                                                    <Grid
+                                                        container
+                                                        alignItems="center"
+                                                        justify="center"
+                                                    >
+                                                        <Grid item xs={1}>
+                                                            <Checkbox
+                                                                color="primary"
+                                                                checked={answer.is_correct}
+                                                            />
+                                                        </Grid>
+                                                        <Grid item xs={11}>
+                                                            <div
+                                                                dangerouslySetInnerHTML={{
+                                                                    __html: answer.content
+                                                                }}
+                                                            />
+                                                        </Grid>
+                                                    </Grid>
+                                                </Box>
+                                            ))
+                                        }
+
+                                        {question.type === QUESTION_TYPE.PAIRING_ANSWERS &&
+                                            <>
+                                                Drag
+                                            </>
+                                        }
+                                    </Box>
                                     <Divider />
                                     <Box mt={2}>
                                         <Grid container spacing={1}>
