@@ -14,7 +14,6 @@ import {
     LinearProgress,
     Box,
     Divider,
-    FormControlLabel,
     Checkbox,
     Radio
 } from "@material-ui/core";
@@ -51,7 +50,7 @@ const QUESTION_TYPE = {
 
 const useStyles = makeStyles({
     root: {
-        width: 500,
+        width: 700,
     },
     bullet: {
         display: 'inline-block',
@@ -74,6 +73,22 @@ const multipleAnswerStyles = makeStyles({
         }
     }
 });
+
+const pairingAnswerStyles = makeStyles(theme => ({
+    root: {
+        border: `1px solid ${grey[300]}`,
+        borderRadius: 2,
+        padding: theme.spacing(1),
+        minHeight: 40,
+        marginBottom: theme.spacing(2),
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center"
+    },
+    pairing: {
+        height: "100%"
+    }
+}));
 
 const Quiz = ({ host, course }) => {
     if (!course) {
@@ -114,6 +129,7 @@ const Quiz = ({ host, course }) => {
 
     const classes = useStyles();
     const multipleAnswerClasses = multipleAnswerStyles();
+    const pairingAnswerClasses = pairingAnswerStyles();
 
     const router = useRouter();
 
@@ -459,7 +475,35 @@ const Quiz = ({ host, course }) => {
 
                                         {question.type === QUESTION_TYPE.PAIRING_ANSWERS &&
                                             <>
-                                                Drag
+                                                <Grid container spacing={2}>
+                                                    <Grid item xs={4}>
+                                                        {Array.from(question.temp_pairing_answers).map((temp, index) => (
+                                                            <Box key={index} className={pairingAnswerClasses.root}>
+                                                                {temp.content ? temp.content : "-"}
+                                                            </Box>
+                                                        ))}
+                                                    </Grid>
+
+                                                    <Grid item xs={8}>
+                                                        {Array.from({ length: Array.from(question.answers).length }, (_, i) => i).map(i => (
+                                                            <Grid container spacing={1}>
+                                                                <Grid item xs={6}>
+                                                                    <Box className={`${pairingAnswerClasses.root} ${pairingAnswerClasses.pairing}`}>
+                                                                        {question.answers[i].content ? question.answers[i].content : "-"}
+                                                                    </Box>
+                                                                </Grid>
+                                                                <Grid item xs={6}>
+                                                                    <Box className={`${pairingAnswerClasses.root} ${pairingAnswerClasses.pairing}`}>
+                                                                        {question.pairing_answers[i].content}
+                                                                    </Box>
+                                                                </Grid>
+                                                            </Grid>
+                                                        ))}
+
+
+                                                    </Grid>
+
+                                                </Grid>
                                             </>
                                         }
                                     </Box>
@@ -469,6 +513,7 @@ const Quiz = ({ host, course }) => {
                                             <Grid item xs={4}>
                                                 {questionIndex > 0 &&
                                                     <Button
+                                                        size="large"
                                                         onClick={backQuestion}
                                                         fullWidth
                                                         startIcon={<ArrowBackIosIcon />}
@@ -480,6 +525,7 @@ const Quiz = ({ host, course }) => {
                                             <Grid item xs={4}>
                                                 {bookmarkIds.includes(question.id) ?
                                                     <Button
+                                                        size="large"
                                                         onClick={() => toggleBookmarkQuestion(question.id)}
                                                         fullWidth
                                                         startIcon={<BookmarkIcon style={{ color: yellow[700] }} />}
@@ -488,6 +534,7 @@ const Quiz = ({ host, course }) => {
                                                     </Button>
                                                     :
                                                     <Button
+                                                        size="large"
                                                         onClick={() => toggleBookmarkQuestion(question.id)}
                                                         fullWidth
                                                         startIcon={<BookmarkBorderIcon />}
@@ -499,6 +546,7 @@ const Quiz = ({ host, course }) => {
                                             <Grid item xs={4}>
                                                 {questionIndex < totalQuestions - 1 &&
                                                     <Button
+                                                        size="large"
                                                         onClick={nextQuestion}
                                                         fullWidth
                                                         endIcon={<ArrowForwardIosIcon />}
