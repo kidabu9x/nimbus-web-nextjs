@@ -15,7 +15,8 @@ import {
     Box,
     Divider,
     Checkbox,
-    Radio
+    Radio,
+    RootRef
 } from "@material-ui/core";
 import AccessTimeIcon from '@material-ui/icons/AccessTime';
 import LiveHelpIcon from '@material-ui/icons/LiveHelp';
@@ -24,6 +25,7 @@ import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import BookmarkBorderIcon from '@material-ui/icons/BookmarkBorder';
 import BookmarkIcon from '@material-ui/icons/Bookmark';
+import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 
 import {
     getCourse,
@@ -89,6 +91,14 @@ const pairingAnswerStyles = makeStyles(theme => ({
         height: "100%"
     }
 }));
+
+const getDragStyle = (isDragging, draggableStyle) => ({
+    ...draggableStyle,
+  
+    ...(isDragging && {
+      background: "rgb(235,235,235)"
+    })
+  });
 
 const Quiz = ({ host, course }) => {
     if (!course) {
@@ -284,6 +294,12 @@ const Quiz = ({ host, course }) => {
         })
     }
 
+    const onDragEnd = result => {
+        const { source, destination } = result;
+        console.log(source);
+        console.log(destination);
+    }
+
     return (
         <>
             <NextSeo
@@ -474,37 +490,105 @@ const Quiz = ({ host, course }) => {
                                         }
 
                                         {question.type === QUESTION_TYPE.PAIRING_ANSWERS &&
-                                            <>
+                                            <DragDropContext onDragEnd={onDragEnd}>
                                                 <Grid container spacing={2}>
                                                     <Grid item xs={4}>
-                                                        {Array.from(question.temp_pairing_answers).map((temp, index) => (
-                                                            <Box key={index} className={pairingAnswerClasses.root}>
-                                                                {temp.content ? temp.content : "-"}
-                                                            </Box>
-                                                        ))}
+                                                        <Droppable droppableId="TEMP_PAIRING_ANSWERS" isDropDisabled={true}>
+                                                            {(provided, snapshot) => (
+                                                                <div ref={provided.innerRef}>
+                                                                    {Array.from(question.temp_pairing_answers).map((temp, index) => (
+                                                                        <Draggable key={index} index={index} draggableId={index.toString()}>
+                                                                            {(provided, snapshot) => (
+                                                                                <>
+                                                                                    <div
+                                                                                        className={pairingAnswerClasses.root}
+                                                                                        ref={provided.innerRef}
+                                                                                        {...provided.draggableProps}
+                                                                                        {...provided.dragHandleProps}
+                                                                                        style={getDragStyle(
+                                                                                            snapshot.isDragging,
+                                                                                            provided.draggableProps.style
+                                                                                        )}
+                                                                                    >
+                                                                                        {temp.content ? temp.content : "-"}
+                                                                                    </div>
+                                                                                </>
+                                                                            )}
+                                                                        </Draggable>
+                                                                    ))}
+                                                                </div>
+                                                            )}
+                                                        </Droppable>
                                                     </Grid>
 
                                                     <Grid item xs={8}>
-                                                        {Array.from({ length: Array.from(question.answers).length }, (_, i) => i).map(i => (
-                                                            <Grid container spacing={1}>
-                                                                <Grid item xs={6}>
-                                                                    <Box className={`${pairingAnswerClasses.root} ${pairingAnswerClasses.pairing}`}>
-                                                                        {question.answers[i].content ? question.answers[i].content : "-"}
-                                                                    </Box>
-                                                                </Grid>
-                                                                <Grid item xs={6}>
-                                                                    <Box className={`${pairingAnswerClasses.root} ${pairingAnswerClasses.pairing}`}>
-                                                                        {question.pairing_answers[i].content}
-                                                                    </Box>
-                                                                </Grid>
+                                                        <Grid container spacing={1}>
+                                                            <Grid item xs={6}>
+                                                                <Droppable droppableId="ANSWERS">
+                                                                    {(provided, snapshot) => (
+                                                                        <div ref={provided.innerRef}>
+                                                                            {Array.from(question.answers).map((answer, index) => (
+                                                                                <div
+                                                                                    key={index}
+                                                                                    className={pairingAnswerClasses.root}
+                                                                                    
+                                                                                >
+                                                                                    {answer.content ? answer.content : "-"}
+                                                                                </div>
+                                                                            ))}
+                                                                            {provided.placeholder}
+                                                                        </div>
+                                                                    )}
+                                                                </Droppable>
                                                             </Grid>
-                                                        ))}
-
-
+                                                            <Grid item xs={6}>
+                                                                {Array.from(question.answers).map(answer => (
+                                                                    <div
+                                                                        className={`${pairingAnswerClasses.root}`}
+                                                                        key={answer.id}
+                                                                    >
+                                                                        {answer.content ? answer.content : "-"}
+                                                                    </div>
+                                                                ))}
+                                                            </Grid>
+                                                        </Grid>
+                                                        {/* <Droppable droppableId="ANSWERS">
+                                                            {(provided, snapshot) => (
+                                                                <div ref={provided.innerRef}>
+                                                                    {Array.from({ length: Array.from(question.answers).length }, (_, i) => i).map(i => (
+                                                                        <Draggable key={i} index={i} draggableId={i.toString()}>
+                                                                            {(provided, snapshot) => (
+                                                                                <Grid key={i} container spacing={1}>
+                                                                                    <Grid item xs={6}>
+                                                                                        <div
+                                                                                            className={`${pairingAnswerClasses.root} ${pairingAnswerClasses.pairing}`}
+                                                                                            ref={provided.innerRef}
+                                                                                            {...provided.draggableProps}
+                                                                                            {...provided.dragHandleProps}
+                                                                                            style={getDragStyle(
+                                                                                                snapshot.isDragging,
+                                                                                                provided.draggableProps.style
+                                                                                            )}
+                                                                                        >
+                                                                                            {question.answers[i].content ? question.answers[i].content : "-"}
+                                                                                        </div>
+                                                                                    </Grid>
+                                                                                    <Grid item xs={6}>
+                                                                                        <Box className={`${pairingAnswerClasses.root} ${pairingAnswerClasses.pairing}`}>
+                                                                                            {question.pairing_answers[i].content}
+                                                                                        </Box>
+                                                                                    </Grid>
+                                                                                </Grid>
+                                                                            )}
+                                                                        </Draggable>
+                                                                    ))}
+                                                                    {provided.placeholder}
+                                                                </div>
+                                                            )}
+                                                        </Droppable> */}
                                                     </Grid>
-
                                                 </Grid>
-                                            </>
+                                            </DragDropContext>
                                         }
                                     </Box>
                                     <Divider />
