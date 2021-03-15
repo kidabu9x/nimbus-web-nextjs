@@ -37,6 +37,7 @@ import { NextSeo } from "next-seo";
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import { grey, yellow } from '@material-ui/core/colors';
+import React from 'react';
 
 const STEP = {
     CHOOSE_QUIZ: 1,
@@ -88,17 +89,39 @@ const pairingAnswerStyles = makeStyles(theme => ({
         justifyContent: "center"
     },
     pairing: {
-        height: "100%"
+        transform: "none !important"
     }
 }));
 
 const getDragStyle = (isDragging, draggableStyle) => ({
     ...draggableStyle,
-  
     ...(isDragging && {
-      background: "rgb(235,235,235)"
+        background: "rgb(235,235,235)"
     })
-  });
+});
+
+const getDropStyle = (isDragging) => ({
+    ...(isDragging && {
+        background: "red"
+    })
+});
+
+const getRenderCloneItem = (items, className) => (provided, snapshot, rubric) => {
+    const item = items[rubric.source.index];
+    return (
+        <React.Fragment>
+            <div
+                className={className}
+                ref={provided.innerRef}
+                {...provided.draggableProps}
+                {...provided.dragHandleProps}
+                style={provided.draggableProps.style}
+            >
+                {item.content ? item.content : "-"}
+            </div>
+        </React.Fragment>
+    );
+};
 
 const Quiz = ({ host, course }) => {
     if (!course) {
@@ -113,7 +136,7 @@ const Quiz = ({ host, course }) => {
         )
     }
 
-    const title = "Khóa học " + course.name;
+    let title = "Khóa học " + course.name;
     const description = title;
     const canonical = host + "khoa-hoc/" + course.slug + "trac-nghiem";
     const image = "https://res.cloudinary.com/nimbus-education/image/upload/v1588748885/blogs/uat/logo-white-bg.png";
@@ -493,29 +516,45 @@ const Quiz = ({ host, course }) => {
                                             <DragDropContext onDragEnd={onDragEnd}>
                                                 <Grid container spacing={2}>
                                                     <Grid item xs={4}>
-                                                        <Droppable droppableId="TEMP_PAIRING_ANSWERS" isDropDisabled={true}>
+                                                        <Droppable droppableId="TEMP_PAIRING_ANSWERS" isDropDisabled={true} renderClone={getRenderCloneItem(question.temp_pairing_answers, pairingAnswerClasses.root)}>
                                                             {(provided, snapshot) => (
                                                                 <div ref={provided.innerRef}>
-                                                                    {Array.from(question.temp_pairing_answers).map((temp, index) => (
-                                                                        <Draggable key={index} index={index} draggableId={index.toString()}>
-                                                                            {(provided, snapshot) => (
-                                                                                <>
+                                                                    {Array.from(question.temp_pairing_answers).map((temp, index) => {
+                                                                        const id = `drag-${index}`;
+                                                                        const content = temp.content ? temp.content : "-";
+                                                                        const shouldRenderClone = id === snapshot.draggingFromThisWith;
+                                                                        return (
+                                                                            <React.Fragment key={id}>
+                                                                                {shouldRenderClone ? (
                                                                                     <div
                                                                                         className={pairingAnswerClasses.root}
-                                                                                        ref={provided.innerRef}
-                                                                                        {...provided.draggableProps}
-                                                                                        {...provided.dragHandleProps}
-                                                                                        style={getDragStyle(
-                                                                                            snapshot.isDragging,
-                                                                                            provided.draggableProps.style
-                                                                                        )}
                                                                                     >
-                                                                                        {temp.content ? temp.content : "-"}
+                                                                                        {content}
                                                                                     </div>
-                                                                                </>
-                                                                            )}
-                                                                        </Draggable>
-                                                                    ))}
+                                                                                ) : (
+                                                                                    <Draggable index={index} draggableId={id}>
+                                                                                        {(provided, snapshot) => (
+                                                                                            <div
+                                                                                                className={pairingAnswerClasses.root}
+                                                                                                ref={provided.innerRef}
+                                                                                                {...provided.draggableProps}
+                                                                                                {...provided.dragHandleProps}
+                                                                                                style={getDragStyle(
+                                                                                                    snapshot.isDragging,
+                                                                                                    provided.draggableProps.style
+                                                                                                )}
+                                                                                            >
+                                                                                                {content}
+                                                                                            </div>
+                                                                                        )}
+                                                                                    </Draggable>
+                                                                                )}
+
+                                                                            </React.Fragment>
+                                                                        )
+
+                                                                    })}
+                                                                    {provided.placeholder}
                                                                 </div>
                                                             )}
                                                         </Droppable>
@@ -524,25 +563,35 @@ const Quiz = ({ host, course }) => {
                                                     <Grid item xs={8}>
                                                         <Grid container spacing={1}>
                                                             <Grid item xs={6}>
-                                                                <Droppable droppableId="ANSWERS">
+                                                                <Droppable droppableId="ANSWERS" isCombineEnabled>
                                                                     {(provided, snapshot) => (
                                                                         <div ref={provided.innerRef}>
-                                                                            {Array.from(question.answers).map((answer, index) => (
-                                                                                <div
-                                                                                    key={index}
-                                                                                    className={pairingAnswerClasses.root}
-                                                                                    
-                                                                                >
-                                                                                    {answer.content ? answer.content : "-"}
-                                                                                </div>
-                                                                            ))}
+                                                                            {Array.from(question.answers).map((answer, index) => {
+                                                                                const id = `drop-${index}`;
+                                                                                const content = answer.content ? answer.content : "-";
+                                                                                return (
+                                                                                    <Draggable key={id} index={index} draggableId={id} isDragDisabled>
+                                                                                        {(provided, snapshot) => (
+                                                                                            <div
+                                                                                                className={`${pairingAnswerClasses.root} ${pairingAnswerClasses.pairing}`}
+                                                                                                ref={provided.innerRef}
+                                                                                                {...provided.draggableProps}
+                                                                                                {...provided.dragHandleProps}
+                                                                                                style={getDropStyle(snapshot.combineTargetFor !== null)}
+                                                                                            >
+                                                                                                {snapshot.combineTargetFor}
+                                                                                            </div>
+                                                                                        )}
+                                                                                    </Draggable>
+                                                                                )
+                                                                            })}
                                                                             {provided.placeholder}
                                                                         </div>
                                                                     )}
                                                                 </Droppable>
                                                             </Grid>
                                                             <Grid item xs={6}>
-                                                                {Array.from(question.answers).map(answer => (
+                                                                {Array.from(question.pairing_answers).map(answer => (
                                                                     <div
                                                                         className={`${pairingAnswerClasses.root}`}
                                                                         key={answer.id}
