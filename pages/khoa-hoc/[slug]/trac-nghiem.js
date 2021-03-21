@@ -1,4 +1,4 @@
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles, withStyles } from '@material-ui/core/styles';
 import {
     Card,
     CardContent,
@@ -15,8 +15,7 @@ import {
     Box,
     Divider,
     Checkbox,
-    Radio,
-    RootRef
+    Radio
 } from "@material-ui/core";
 import AccessTimeIcon from '@material-ui/icons/AccessTime';
 import LiveHelpIcon from '@material-ui/icons/LiveHelp';
@@ -25,24 +24,28 @@ import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import BookmarkBorderIcon from '@material-ui/icons/BookmarkBorder';
 import BookmarkIcon from '@material-ui/icons/Bookmark';
+import CheckCircleIcon from '@material-ui/icons/CheckCircle';
+import ErrorIcon from '@material-ui/icons/Error';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 
 import {
     getCourse,
     getQuiz,
-    getQuestions
+    getQuestions,
+    submitQuestions
 } from "../../../api/course";
 import Head from "next/head";
 import { NextSeo } from "next-seo";
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
-import { grey, yellow } from '@material-ui/core/colors';
+import { grey, yellow, red, blue, green, blueGrey } from '@material-ui/core/colors';
 import React from 'react';
 
 const STEP = {
     CHOOSE_QUIZ: 1,
     CONFIRM_INFO: 2,
-    TESTING: 3
+    TESTING: 3,
+    SHOW_RESULT: 4
 }
 
 const QUESTION_TYPE = {
@@ -86,10 +89,11 @@ const pairingAnswerStyles = makeStyles(theme => ({
         marginBottom: theme.spacing(2),
         display: "flex",
         alignItems: "center",
-        justifyContent: "center"
+        justifyContent: "center",
     },
     pairing: {
-        transform: "none !important"
+        transform: "none !important",
+        minHeight: 100
     }
 }));
 
@@ -122,6 +126,37 @@ const getRenderCloneItem = (items, className) => (provided, snapshot, rubric) =>
         </React.Fragment>
     );
 };
+
+const GreenRadio = withStyles({
+    root: {
+        color: green[400],
+        '&$checked': {
+            color: green[600],
+        },
+    },
+    checked: {},
+})((props) => <Radio color="default" {...props} />);
+
+const BlueRadio = withStyles({
+    root: {
+        color: blueGrey[400],
+        '&$checked': {
+            color: blueGrey[500],
+        },
+    },
+    checked: {},
+})((props) => <Radio color="default" {...props} />);
+
+const RedRadio = withStyles({
+    root: {
+        color: red[400],
+        '&$checked': {
+            color: red[600],
+        },
+    },
+    checked: {},
+})((props) => <Radio color="default" {...props} />);
+
 
 const Quiz = ({ host, course }) => {
     if (!course) {
@@ -182,6 +217,10 @@ const Quiz = ({ host, course }) => {
     const [questionIndex, setQuestionIndex] = useState(0);
     const [totalQuestions, setTotalQuestions] = useState(0);
     const [bookmarkIds, setBookmarkIds] = useState([]);
+    const [showMenu, setShowMenu] = useState(false);
+    const [isSubmitted, setIsSubmitted] = useState(false);
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [successCount, setSuccessCount] = useState(0);
 
     useEffect(() => {
         if (focusQuizSlug) {
@@ -204,8 +243,10 @@ const Quiz = ({ host, course }) => {
             })
                 .then(response => {
                     const data = response.data.data;
-                    setConfig(data.config);
+                    const config = data.config;
                     delete data.config;
+
+                    setConfig(config);
                     setQuiz(data);
                     setQuizLoading(false);
                 })
@@ -224,7 +265,7 @@ const Quiz = ({ host, course }) => {
             .then(response => {
                 const data = Array.from(response.data.data);
                 setQuestions(data);
-                setBackupQuestions(data);
+                setBackupQuestions(JSON.parse(JSON.stringify(data)));
                 setFetchingQuestions(false);
                 setTotalQuestions(data.length);
                 if (data.length > 0) {
@@ -270,9 +311,28 @@ const Quiz = ({ host, course }) => {
     const backQuestion = () => {
         const backIndex = questionIndex - 1;
         if (backIndex > -1 && backIndex < totalQuestions) {
-            setQuestion(questions[backIndex]);
+            const isReset = config ?
+                config.reset_question_on_back != null ?
+                    config.reset_question_on_back : false
+                :
+                false;
+
+            if (!isSubmitted && isReset) {
+                const question = JSON.parse(JSON.stringify(backupQuestions[backIndex]));
+                questions[backIndex] = question;
+                setQuestions(questions);
+                setQuestion(question);
+            } else {
+                setQuestion(questions[backIndex]);
+            }
             setQuestionIndex(backIndex);
         }
+    }
+
+    const goToQuestion = (index) => {
+        setQuestionIndex(index);
+        setQuestion(questions[index]);
+        setStep(STEP.TESTING);
     }
 
     const handleCheckboxChange = (id) => {
@@ -318,9 +378,104 @@ const Quiz = ({ host, course }) => {
     }
 
     const onDragEnd = result => {
+        if (question.type !== QUESTION_TYPE.PAIRING_ANSWERS) {
+            return;
+        }
         const { source, destination } = result;
-        console.log(source);
-        console.log(destination);
+        if (source == null || destination == null) {
+            return;
+        }
+
+        const sourceIndex = source.index;
+        const destinationIndex = destination.index;
+
+        if (sourceIndex == null || destinationIndex == null) {
+            return;
+        }
+
+        const tempAnswers = Array.from(question.temp_pairing_answers);
+        const answers = Array.from(question.answers);
+
+        if (sourceIndex >= tempAnswers.length || destinationIndex >= answers.length) {
+            return;
+        }
+
+        answers[destinationIndex] = tempAnswers[sourceIndex];
+
+        question.answers = answers;
+        setQuestion(question);
+    }
+
+    const goToMenu = () => {
+        if (step !== STEP.TESTING) {
+            return;
+        }
+        toggleMenu();
+        setStep(STEP.SHOW_RESULT);
+    }
+
+    const toggleMenu = () => {
+        setShowMenu(!showMenu);
+    }
+
+    const onSubmit = () => {
+        if (step !== STEP.SHOW_RESULT) {
+            return;
+        }
+
+        const body = questions.map(q => {
+            const answers = Array.from(q.answers);
+
+            const answerRequests = answers.map(answer => {
+                return {
+                    id: answer.id,
+                    is_correct: answer.is_correct
+                }
+            });
+
+            return {
+                id: q.id,
+                answers: answerRequests
+            }
+        });
+
+
+        setIsSubmitting(true);
+        submitQuestions(body)
+            .then(response => {
+                const data = Array.from(response.data.data);
+                for (const q of data) {
+                    const index = questions.findIndex(question => question.id === q.id);
+                    if (index === -1) {
+                        continue;
+                    }
+
+                    const question = questions[index];
+                    const answers = Array.from(question.answers);
+                    const resAnswers = Array.from(q.answers);
+
+                    for (const a of resAnswers) {
+                        const aIndex = answers.findIndex(answer => answer.id === a.id);
+                        if (aIndex === -1) {
+                            continue;
+                        }
+
+                        const answer = answers[aIndex];
+                        answer.is_match = a.is_match;
+                        answer.is_correct = a.is_correct;
+                    }
+
+                    question.is_match = q.is_match;
+                    question.answers = answers;
+                }
+                setQuestions(questions);
+                setIsSubmitting(false);
+                setIsSubmitted(true);
+            })
+            .catch(e => {
+                setIsSubmitting(true);
+            });
+
     }
 
     return (
@@ -343,7 +498,7 @@ const Quiz = ({ host, course }) => {
                 <Grid item xs={6}>
                     <Card className={classes.root} variant="outlined">
                         <CardContent>
-                            {(quizLoading || fetchingQuestions) && <LinearProgress />}
+                            {(quizLoading || fetchingQuestions || isSubmitting) && <LinearProgress />}
                             {[STEP.CHOOSE_QUIZ, STEP.CONFIRM_INFO].includes(step) &&
                                 <Typography className={classes.title} color="textSecondary" gutterBottom>
                                     Khóa học {course.name}
@@ -463,10 +618,27 @@ const Quiz = ({ host, course }) => {
                                                         justify="center"
                                                     >
                                                         <Grid item xs={1}>
-                                                            <Radio
-                                                                color="primary"
-                                                                checked={answer.is_correct}
-                                                            />
+                                                            {!isSubmitted ?
+                                                                <BlueRadio
+                                                                    checked={answer.is_correct}
+                                                                />
+                                                                :
+                                                                <>
+                                                                    {answer.is_match && !answer.is_correct &&
+                                                                        <BlueRadio
+                                                                            checked={answer.is_correct}
+                                                                        />
+                                                                    }
+                                                                    {!answer.is_match && answer.is_correct &&
+                                                                        <GreenRadio checked={answer.is_correct} />
+                                                                    }
+
+                                                                    {!answer.is_match && !answer.is_correct &&
+                                                                        <RedRadio checked={!answer.is_correct} />
+                                                                    }
+                                                                </>
+                                                            }
+
                                                         </Grid>
                                                         <Grid item xs={11}>
                                                             <div
@@ -563,7 +735,7 @@ const Quiz = ({ host, course }) => {
                                                     <Grid item xs={8}>
                                                         <Grid container spacing={1}>
                                                             <Grid item xs={6}>
-                                                                <Droppable droppableId="ANSWERS" isCombineEnabled>
+                                                                <Droppable droppableId="ANSWERS">
                                                                     {(provided, snapshot) => (
                                                                         <div ref={provided.innerRef}>
                                                                             {Array.from(question.answers).map((answer, index) => {
@@ -577,9 +749,8 @@ const Quiz = ({ host, course }) => {
                                                                                                 ref={provided.innerRef}
                                                                                                 {...provided.draggableProps}
                                                                                                 {...provided.dragHandleProps}
-                                                                                                style={getDropStyle(snapshot.combineTargetFor !== null)}
                                                                                             >
-                                                                                                {snapshot.combineTargetFor}
+                                                                                                {content}
                                                                                             </div>
                                                                                         )}
                                                                                     </Draggable>
@@ -593,7 +764,7 @@ const Quiz = ({ host, course }) => {
                                                             <Grid item xs={6}>
                                                                 {Array.from(question.pairing_answers).map(answer => (
                                                                     <div
-                                                                        className={`${pairingAnswerClasses.root}`}
+                                                                        className={`${pairingAnswerClasses.root} ${pairingAnswerClasses.pairing}`}
                                                                         key={answer.id}
                                                                     >
                                                                         {answer.content ? answer.content : "-"}
@@ -601,40 +772,6 @@ const Quiz = ({ host, course }) => {
                                                                 ))}
                                                             </Grid>
                                                         </Grid>
-                                                        {/* <Droppable droppableId="ANSWERS">
-                                                            {(provided, snapshot) => (
-                                                                <div ref={provided.innerRef}>
-                                                                    {Array.from({ length: Array.from(question.answers).length }, (_, i) => i).map(i => (
-                                                                        <Draggable key={i} index={i} draggableId={i.toString()}>
-                                                                            {(provided, snapshot) => (
-                                                                                <Grid key={i} container spacing={1}>
-                                                                                    <Grid item xs={6}>
-                                                                                        <div
-                                                                                            className={`${pairingAnswerClasses.root} ${pairingAnswerClasses.pairing}`}
-                                                                                            ref={provided.innerRef}
-                                                                                            {...provided.draggableProps}
-                                                                                            {...provided.dragHandleProps}
-                                                                                            style={getDragStyle(
-                                                                                                snapshot.isDragging,
-                                                                                                provided.draggableProps.style
-                                                                                            )}
-                                                                                        >
-                                                                                            {question.answers[i].content ? question.answers[i].content : "-"}
-                                                                                        </div>
-                                                                                    </Grid>
-                                                                                    <Grid item xs={6}>
-                                                                                        <Box className={`${pairingAnswerClasses.root} ${pairingAnswerClasses.pairing}`}>
-                                                                                            {question.pairing_answers[i].content}
-                                                                                        </Box>
-                                                                                    </Grid>
-                                                                                </Grid>
-                                                                            )}
-                                                                        </Draggable>
-                                                                    ))}
-                                                                    {provided.placeholder}
-                                                                </div>
-                                                            )}
-                                                        </Droppable> */}
                                                     </Grid>
                                                 </Grid>
                                             </DragDropContext>
@@ -687,8 +824,112 @@ const Quiz = ({ host, course }) => {
                                                         Câu tiếp
                                                     </Button>
                                                 }
+                                                {questionIndex === totalQuestions - 1 &&
+                                                    <Button
+                                                        size="large"
+                                                        onClick={goToMenu}
+                                                        fullWidth
+                                                        color="primary"
+                                                        endIcon={<ArrowForwardIosIcon />}
+                                                        variant="contained"
+                                                        disableElevation
+                                                    >
+                                                        Trình đơn
+                                                    </Button>
+                                                }
                                             </Grid>
                                         </Grid>
+                                    </Box>
+                                </>
+                            }
+
+
+                            {step === STEP.SHOW_RESULT &&
+                                <>
+                                    <Box my={2}>
+                                        <Grid container>
+                                            <Grid item xs={4}>
+                                            </Grid>
+                                            <Grid item xs={4}>
+                                                <Typography color="textSecondary" align="center">
+                                                    Đánh dấu
+                                            </Typography>
+                                            </Grid>
+                                            <Grid item xs={4}>
+                                                <Typography color="textSecondary" align="center">
+                                                    Kết quả
+                                            </Typography>
+                                            </Grid>
+                                        </Grid>
+                                    </Box>
+
+                                    {questions.map((q, index) => (
+                                        <Box key={q.id} py={2} borderTop={1} borderColor="grey.100">
+                                            <Grid container>
+                                                <Grid item xs={4}>
+                                                    <Button
+                                                        size="medium"
+                                                        style={{ 'textTransform': 'none' }}
+                                                        onClick={() => goToQuestion(index)}
+                                                        disabled={isSubmitting}
+                                                    >
+                                                        Câu {index + 1}
+                                                    </Button>
+                                                </Grid>
+                                                <Grid item xs={4}>
+                                                    {bookmarkIds.includes(q.id) &&
+                                                        <Typography align="center">
+                                                            <IconButton
+                                                                onClick={() => goToQuestion(index)} size="small"
+                                                                disabled={isSubmitting}
+                                                            >
+                                                                <BookmarkIcon style={{ color: yellow[700] }} />
+                                                            </IconButton>
+                                                        </Typography>
+
+                                                    }
+                                                </Grid>
+                                                <Grid item xs={4}>
+                                                    {isSubmitted &&
+                                                        <Typography align="center">
+                                                            {q.is_match ?
+                                                                <CheckCircleIcon color="primary" /> : <ErrorIcon style={{ color: red[500] }} />
+                                                            }
+                                                        </Typography>
+                                                    }
+                                                </Grid>
+                                            </Grid>
+                                        </Box>
+                                    ))}
+
+                                    <Divider />
+                                    <Box mt={2}>
+                                        {/* {!isSubmitted &&
+                                            <Button
+                                                variant="contained"
+                                                size="large"
+                                                color="primary"
+                                                fullWidth
+                                                disabled={isSubmitting}
+                                                disableElevation
+                                                onClick={onSubmit}
+                                            >
+                                                Chấm điểm
+                                            </Button>
+                                        } */}
+
+                                        <Button
+                                            variant="contained"
+                                            size="large"
+                                            color="primary"
+                                            fullWidth
+                                            disabled={isSubmitting}
+                                            disableElevation
+                                            onClick={onSubmit}
+                                        >
+                                            Chấm điểm
+                                            </Button>
+
                                     </Box>
                                 </>
                             }

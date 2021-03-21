@@ -38,3 +38,8 @@ export const getQuestions = ({
     let url = `/question?course_slug=${course_slug}&quiz_slug=${quiz_slug}`;
     return apiInstance.get(url);
 }
+
+export const submitQuestions = (questions) => {
+    let url = `/question`;
+    return apiInstance.post(url, questions);
+}
