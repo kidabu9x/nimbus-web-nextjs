@@ -15,7 +15,11 @@ import {
     Box,
     Divider,
     Checkbox,
-    Radio
+    Radio,
+    Dialog,
+    DialogTitle,
+    DialogActions,
+    DialogContent
 } from "@material-ui/core";
 import AccessTimeIcon from '@material-ui/icons/AccessTime';
 import LiveHelpIcon from '@material-ui/icons/LiveHelp';
@@ -26,7 +30,9 @@ import BookmarkBorderIcon from '@material-ui/icons/BookmarkBorder';
 import BookmarkIcon from '@material-ui/icons/Bookmark';
 import CheckCircleIcon from '@material-ui/icons/CheckCircle';
 import ErrorIcon from '@material-ui/icons/Error';
+import ReplayIcon from '@material-ui/icons/Replay';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
+import { PieChart } from 'react-minimal-pie-chart';
 
 import {
     getCourse,
@@ -76,6 +82,12 @@ const multipleAnswerStyles = makeStyles({
         "&:hover": {
             background: grey[200],
             cursor: "pointer"
+        }
+    },
+    disable: {
+        "&:hover": {
+            background: "none",
+            cursor: "default"
         }
     }
 });
@@ -157,6 +169,35 @@ const RedRadio = withStyles({
     checked: {},
 })((props) => <Radio color="default" {...props} />);
 
+const GreenCheckbox = withStyles({
+    root: {
+        color: green[400],
+        '&$checked': {
+            color: green[600],
+        },
+    },
+    checked: {},
+})((props) => <Checkbox color="default" {...props} />);
+
+const BlueCheckbox = withStyles({
+    root: {
+        color: blueGrey[400],
+        '&$checked': {
+            color: blueGrey[500],
+        },
+    },
+    checked: {},
+})((props) => <Checkbox color="default" {...props} />);
+
+const RedCheckbox = withStyles({
+    root: {
+        color: red[400],
+        '&$checked': {
+            color: red[600],
+        },
+    },
+    checked: {},
+})((props) => <Checkbox color="default" {...props} />);
 
 const Quiz = ({ host, course }) => {
     if (!course) {
@@ -220,7 +261,8 @@ const Quiz = ({ host, course }) => {
     const [showMenu, setShowMenu] = useState(false);
     const [isSubmitted, setIsSubmitted] = useState(false);
     const [isSubmitting, setIsSubmitting] = useState(false);
-    const [successCount, setSuccessCount] = useState(0);
+    const [correctCount, setCorrectCount] = useState(0);
+    const [showResultModal, setShowResultModal] = useState(false);
 
     useEffect(() => {
         if (focusQuizSlug) {
@@ -336,6 +378,9 @@ const Quiz = ({ host, course }) => {
     }
 
     const handleCheckboxChange = (id) => {
+        if (isSubmitted) {
+            return;
+        }
         if (question.type !== QUESTION_TYPE.MULTIPLE_CHOICE_MULTIPLE_ANSWERS) {
             return;
         }
@@ -353,6 +398,9 @@ const Quiz = ({ host, course }) => {
     }
 
     const handleRadioChange = (id) => {
+        if (isSubmitted) {
+            return;
+        }
         if (question.type !== QUESTION_TYPE.MULTIPLE_CHOICE_ONE_ANSWER) {
             return;
         }
@@ -444,6 +492,7 @@ const Quiz = ({ host, course }) => {
         submitQuestions(body)
             .then(response => {
                 const data = Array.from(response.data.data);
+                let count = 0;
                 for (const q of data) {
                     const index = questions.findIndex(question => question.id === q.id);
                     if (index === -1) {
@@ -467,15 +516,44 @@ const Quiz = ({ host, course }) => {
 
                     question.is_match = q.is_match;
                     question.answers = answers;
+
+                    if (question.is_match) {
+                        count++;
+                    }
                 }
+                setCorrectCount(count);
                 setQuestions(questions);
                 setIsSubmitting(false);
                 setIsSubmitted(true);
+                setShowResultModal(true);
             })
             .catch(e => {
                 setIsSubmitting(true);
             });
+    }
 
+    const closeResultModal = () => {
+        setShowResultModal(false);
+    }
+
+    const goToSelectQuiz = () => {
+        setStep(STEP.CHOOSE_QUIZ);
+        setQuizSlug(null);
+        setQuiz(null);
+        setQuizLoading(false);
+        setConfig(null);
+        setFetchingQuestions(false);
+        setQuestions([]);
+        setBackupQuestions([]);
+        setQuestion(null);
+        setQuestionIndex(0);
+        setTotalQuestions(0);
+        setBookmarkIds([]);
+        setShowMenu(false);
+        setIsSubmitted(false);
+        setIsSubmitting(false);
+        setCorrectCount(0);
+        setShowResultModal(false);
     }
 
     return (
@@ -608,7 +686,7 @@ const Quiz = ({ host, course }) => {
                                                     key={answer.id}
                                                     p={1}
                                                     onClick={() => handleRadioChange(answer.id)}
-                                                    className={multipleAnswerClasses.root}
+                                                    className={`${multipleAnswerClasses.root} ${isSubmitted ? multipleAnswerClasses.disable : ''}`}
                                                     borderRadius={4}
                                                 >
                                                     <Grid
@@ -636,6 +714,11 @@ const Quiz = ({ host, course }) => {
                                                                     {!answer.is_match && !answer.is_correct &&
                                                                         <RedRadio checked={!answer.is_correct} />
                                                                     }
+                                                                    {answer.is_match && answer.is_correct &&
+                                                                        <GreenRadio
+                                                                            checked={answer.is_correct}
+                                                                        />
+                                                                    }
                                                                 </>
                                                             }
 
@@ -658,7 +741,7 @@ const Quiz = ({ host, course }) => {
                                                     key={answer.id}
                                                     p={1}
                                                     onClick={() => handleCheckboxChange(answer.id)}
-                                                    className={multipleAnswerClasses.root}
+                                                    className={`${multipleAnswerClasses.root} ${isSubmitted ? multipleAnswerClasses.disable : ''}`}
                                                     borderRadius={4}
                                                 >
                                                     <Grid
@@ -667,10 +750,31 @@ const Quiz = ({ host, course }) => {
                                                         justify="center"
                                                     >
                                                         <Grid item xs={1}>
-                                                            <Checkbox
-                                                                color="primary"
-                                                                checked={answer.is_correct}
-                                                            />
+                                                            {!isSubmitted ?
+                                                                <BlueCheckbox
+                                                                    checked={answer.is_correct}
+                                                                />
+                                                                :
+                                                                <>
+                                                                    {answer.is_match && !answer.is_correct &&
+                                                                        <BlueCheckbox
+                                                                            checked={answer.is_correct}
+                                                                        />
+                                                                    }
+                                                                    {!answer.is_match && answer.is_correct &&
+                                                                        <GreenCheckbox checked={answer.is_correct} />
+                                                                    }
+
+                                                                    {!answer.is_match && !answer.is_correct &&
+                                                                        <RedCheckbox checked={!answer.is_correct} />
+                                                                    }
+                                                                    {answer.is_match && answer.is_correct &&
+                                                                        <GreenCheckbox
+                                                                            checked={answer.is_correct}
+                                                                        />
+                                                                    }
+                                                                </>
+                                                            }
                                                         </Grid>
                                                         <Grid item xs={11}>
                                                             <div
@@ -721,7 +825,6 @@ const Quiz = ({ host, course }) => {
                                                                                         )}
                                                                                     </Draggable>
                                                                                 )}
-
                                                                             </React.Fragment>
                                                                         )
 
@@ -904,7 +1007,7 @@ const Quiz = ({ host, course }) => {
 
                                     <Divider />
                                     <Box mt={2}>
-                                        {/* {!isSubmitted &&
+                                        {!isSubmitted ?
                                             <Button
                                                 variant="contained"
                                                 size="large"
@@ -916,20 +1019,28 @@ const Quiz = ({ host, course }) => {
                                             >
                                                 Chấm điểm
                                             </Button>
-                                        } */}
-
-                                        <Button
-                                            variant="contained"
-                                            size="large"
-                                            color="primary"
-                                            fullWidth
-                                            disabled={isSubmitting}
-                                            disableElevation
-                                            onClick={onSubmit}
-                                        >
-                                            Chấm điểm
-                                            </Button>
-
+                                            :
+                                            <Grid container>
+                                                <Grid item xs={6}>
+                                                    <Typography align="center" variant="h6">
+                                                        Kết quả: {correctCount}/{totalQuestions}
+                                                    </Typography>
+                                                </Grid>
+                                                <Grid item xs={6}>
+                                                    <Button
+                                                        variant="contained"
+                                                        size="large"
+                                                        color="primary"
+                                                        fullWidth
+                                                        disableElevation
+                                                        endIcon={<ReplayIcon />}
+                                                        onClick={goToSelectQuiz}
+                                                    >
+                                                        Làm lại
+                                                    </Button>
+                                                </Grid>
+                                            </Grid>
+                                        }
                                     </Box>
                                 </>
                             }
@@ -938,6 +1049,45 @@ const Quiz = ({ host, course }) => {
                     </Card>
                 </Grid>
             </Grid>
+
+            {isSubmitted && step === STEP.SHOW_RESULT &&
+                <Dialog onClose={closeResultModal} aria-labelledby="customized-dialog-title" open={showResultModal}>
+                    <DialogTitle id="customized-dialog-title" onClose={closeResultModal}>
+                        Kết quả
+                    </DialogTitle>
+                    <DialogContent dividers>
+                        <Box p={4}>
+                            <Box mb={4}>
+                                <Typography variant="body1">
+                                    Bạn đã trả lời đúng {correctCount} trong tổng số {totalQuestions} câu hỏi
+                                </Typography>
+                            </Box>
+                            <PieChart
+                                data={[{ value: (correctCount / totalQuestions) * 100, color: green[500] }]}
+                                totalValue={100}
+                                lineWidth={20}
+                                label={(_) => `${(correctCount / totalQuestions) * 100}%`}
+                                rounded
+                                labelStyle={{
+                                    fontSize: '25px',
+                                    fontFamily: 'Roboto',
+                                    fill: green[500]
+                                }}
+                                labelPosition={0}
+                            />
+                        </Box>
+
+                    </DialogContent>
+                    <DialogActions>
+                        <Button autoFocus onClick={closeResultModal}>
+                            Đóng
+                        </Button>
+                        <Button autoFocus onClick={goToSelectQuiz} color="primary">
+                            Làm lại
+                        </Button>
+                    </DialogActions>
+                </Dialog>
+            }
         </>
     );
 }
