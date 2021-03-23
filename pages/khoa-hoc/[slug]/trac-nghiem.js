@@ -106,6 +106,12 @@ const pairingAnswerStyles = makeStyles(theme => ({
     pairing: {
         transform: "none !important",
         minHeight: 100
+    },
+    correct: {
+        borderColor: green[500]
+    },
+    inCorrect: {
+        borderColor: red[500]
     }
 }));
 
@@ -481,10 +487,20 @@ const Quiz = ({ host, course }) => {
                 }
             });
 
-            return {
+            const questionRequest = {
                 id: q.id,
                 answers: answerRequests
+            };
+
+            if (q.type === QUESTION_TYPE.PAIRING_ANSWERS) {
+                questionRequest.pairing_answers = Array.from(q.pairing_answers).map(answer => {
+                    return {
+                        id: answer.id
+                    }
+                });
             }
+
+            return questionRequest;
         });
 
 
@@ -844,11 +860,12 @@ const Quiz = ({ host, course }) => {
                                                                             {Array.from(question.answers).map((answer, index) => {
                                                                                 const id = `drop-${index}`;
                                                                                 const content = answer.content ? answer.content : "-";
+                                                                                const isMatch = answer.is_match;
                                                                                 return (
                                                                                     <Draggable key={id} index={index} draggableId={id} isDragDisabled>
                                                                                         {(provided, snapshot) => (
                                                                                             <div
-                                                                                                className={`${pairingAnswerClasses.root} ${pairingAnswerClasses.pairing}`}
+                                                                                                className={`${pairingAnswerClasses.root} ${pairingAnswerClasses.pairing} ${isSubmitted ? (isMatch ? pairingAnswerClasses.correct : pairingAnswerClasses.inCorrect) : ''}`}
                                                                                                 ref={provided.innerRef}
                                                                                                 {...provided.draggableProps}
                                                                                                 {...provided.dragHandleProps}
