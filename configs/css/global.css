@@ -30,3 +30,22 @@ img {
     margin-bottom: 10px;
     max-width: 100%;
 }
+
+.rc-menu-button {
+    box-sizing: border-box;
+    display: inline-block;
+    padding: 8px 12px;
+    margin-right: 4px;
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.87);
+    background-color: #fff;
+    border: none;
+}
+
+.rc-menu-button:hover {
+    cursor: pointer;
+}
+
+.rc-menu-button:focus {
+    border: none;
+}
