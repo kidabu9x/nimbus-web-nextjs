@@ -909,7 +909,7 @@ const Quiz = ({ host, course }) => {
                                         {isSubmitted && question.description &&
                                             <Box my={1}>
                                                 <Typography variant="subtitle2">
-                                                    Test description
+                                                    {question.description}
                                                 </Typography>
                                             </Box>
                                         }
