@@ -75,6 +75,18 @@ const useStyles = makeStyles({
     pos: {
         marginBottom: 12,
     },
+    questionContent: {
+        height: 500,
+        overflowY: "auto",
+        overflowX: "hidden"
+    },
+    resultContent: {
+        // heigh: 500,
+    },
+    resultTable: {
+        height: 500,
+        overflowY: "auto"
+    }
 });
 
 const multipleAnswerStyles = makeStyles({
@@ -97,7 +109,7 @@ const pairingAnswerStyles = makeStyles(theme => ({
         border: `1px solid ${grey[300]}`,
         borderRadius: 2,
         padding: theme.spacing(1),
-        minHeight: 40,
+        minHeight: 100,
         marginBottom: theme.spacing(2),
         display: "flex",
         alignItems: "center",
@@ -119,12 +131,6 @@ const getDragStyle = (isDragging, draggableStyle) => ({
     ...draggableStyle,
     ...(isDragging && {
         background: "rgb(235,235,235)"
-    })
-});
-
-const getDropStyle = (isDragging) => ({
-    ...(isDragging && {
-        background: "red"
     })
 });
 
@@ -698,7 +704,7 @@ const Quiz = ({ host, course }) => {
                                         />
                                     </Box>
                                     <Divider />
-                                    <Box my={2}>
+                                    <Box my={2} className={classes.questionContent}>
                                         {question.type === QUESTION_TYPE.MULTIPLE_CHOICE_ONE_ANSWER &&
                                             Array.from(question.answers).map(answer => (
                                                 <Box
@@ -827,7 +833,7 @@ const Quiz = ({ host, course }) => {
                                                                                         {content}
                                                                                     </div>
                                                                                 ) : (
-                                                                                    <Draggable index={index} draggableId={id}>
+                                                                                    <Draggable index={index} draggableId={id} isDragDisabled={isSubmitted}>
                                                                                         {(provided, snapshot) => (
                                                                                             <div
                                                                                                 className={pairingAnswerClasses.root}
@@ -900,7 +906,7 @@ const Quiz = ({ host, course }) => {
                                             </DragDropContext>
                                         }
 
-                                        { isSubmitted && question.description &&
+                                        {isSubmitted && question.description &&
                                             <Box my={1}>
                                                 <Typography variant="subtitle2">
                                                     Test description
@@ -945,7 +951,7 @@ const Quiz = ({ host, course }) => {
                                                 }
                                             </Grid>
                                             <Grid item xs={4}>
-                                                {questionIndex < totalQuestions - 1 && !showMenu && 
+                                                {questionIndex < totalQuestions - 1 && !showMenu &&
                                                     <Button
                                                         size="large"
                                                         onClick={nextQuestion}
@@ -976,7 +982,7 @@ const Quiz = ({ host, course }) => {
 
 
                             {step === STEP.SHOW_RESULT &&
-                                <>
+                                <Box className={classes.resultContent}>
                                     <Box my={2}>
                                         <Grid container>
                                             <Grid item xs={4}>
@@ -994,44 +1000,51 @@ const Quiz = ({ host, course }) => {
                                         </Grid>
                                     </Box>
 
-                                    {questions.map((q, index) => (
-                                        <Box key={q.id} py={2} borderTop={1} borderColor="grey.100">
-                                            <Grid container>
-                                                <Grid item xs={4}>
-                                                    <Button
-                                                        size="medium"
-                                                        style={{ 'textTransform': 'none' }}
-                                                        onClick={() => goToQuestion(index)}
-                                                        disabled={isSubmitting}
-                                                    >
-                                                        Câu {index + 1}
-                                                    </Button>
-                                                </Grid>
-                                                <Grid item xs={4}>
-                                                    {bookmarkIds.includes(q.id) &&
-                                                        <Typography align="center">
-                                                            <IconButton
-                                                                onClick={() => goToQuestion(index)} size="small"
-                                                                disabled={isSubmitting}
-                                                            >
-                                                                <BookmarkIcon style={{ color: yellow[700] }} />
-                                                            </IconButton>
-                                                        </Typography>
+                                    <Box className={classes.resultTable}>
+                                        {questions.map((q, index) => (
+                                            <Box key={q.id} py={2} borderTop={1} borderColor="grey.100">
+                                                <Grid container>
+                                                    <Grid item xs={4}>
+                                                        <Button
+                                                            size="medium"
+                                                            style={{ 'textTransform': 'none' }}
+                                                            onClick={() => goToQuestion(index)}
+                                                            disabled={isSubmitting}
+                                                        >
+                                                            <div
+                                                                style={{ textAlign: "left" }}
+                                                                dangerouslySetInnerHTML={{
+                                                                    __html: q.content
+                                                                }}
+                                                            />
+                                                        </Button>
+                                                    </Grid>
+                                                    <Grid item xs={4}>
+                                                        {bookmarkIds.includes(q.id) &&
+                                                            <Typography align="center">
+                                                                <IconButton
+                                                                    onClick={() => goToQuestion(index)} size="small"
+                                                                    disabled={isSubmitting}
+                                                                >
+                                                                    <BookmarkIcon style={{ color: yellow[700] }} />
+                                                                </IconButton>
+                                                            </Typography>
 
-                                                    }
+                                                        }
+                                                    </Grid>
+                                                    <Grid item xs={4}>
+                                                        {isSubmitted &&
+                                                            <Typography align="center">
+                                                                {q.is_match ?
+                                                                    <CheckCircleIcon color="primary" /> : <ErrorIcon style={{ color: red[500] }} />
+                                                                }
+                                                            </Typography>
+                                                        }
+                                                    </Grid>
                                                 </Grid>
-                                                <Grid item xs={4}>
-                                                    {isSubmitted &&
-                                                        <Typography align="center">
-                                                            {q.is_match ?
-                                                                <CheckCircleIcon color="primary" /> : <ErrorIcon style={{ color: red[500] }} />
-                                                            }
-                                                        </Typography>
-                                                    }
-                                                </Grid>
-                                            </Grid>
-                                        </Box>
-                                    ))}
+                                            </Box>
+                                        ))}
+                                    </Box>
 
                                     <Divider />
                                     <Box mt={2}>
@@ -1070,7 +1083,7 @@ const Quiz = ({ host, course }) => {
                                             </Grid>
                                         }
                                     </Box>
-                                </>
+                                </Box>
                             }
 
                         </CardContent>
