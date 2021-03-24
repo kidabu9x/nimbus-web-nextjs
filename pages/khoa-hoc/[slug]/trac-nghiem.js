@@ -454,7 +454,14 @@ const Quiz = ({ host, course }) => {
             return;
         }
 
-        answers[destinationIndex] = tempAnswers[sourceIndex];
+        const tempAnswer = tempAnswers[sourceIndex];
+        const existIndex = answers.findIndex(a => a.id === tempAnswer.id);
+        if (existIndex > -1) {
+            answers[existIndex] = {
+                id: null
+            };
+        }
+        answers[destinationIndex] = tempAnswer;
 
         question.answers = answers;
         setQuestion(question);
@@ -464,12 +471,8 @@ const Quiz = ({ host, course }) => {
         if (step !== STEP.TESTING) {
             return;
         }
-        toggleMenu();
+        setShowMenu(true);
         setStep(STEP.SHOW_RESULT);
-    }
-
-    const toggleMenu = () => {
-        setShowMenu(!showMenu);
     }
 
     const onSubmit = () => {
@@ -896,6 +899,14 @@ const Quiz = ({ host, course }) => {
                                                 </Grid>
                                             </DragDropContext>
                                         }
+
+                                        { isSubmitted && question.description &&
+                                            <Box my={1}>
+                                                <Typography variant="subtitle2">
+                                                    Test description
+                                                </Typography>
+                                            </Box>
+                                        }
                                     </Box>
                                     <Divider />
                                     <Box mt={2}>
@@ -934,7 +945,7 @@ const Quiz = ({ host, course }) => {
                                                 }
                                             </Grid>
                                             <Grid item xs={4}>
-                                                {questionIndex < totalQuestions - 1 &&
+                                                {questionIndex < totalQuestions - 1 && !showMenu && 
                                                     <Button
                                                         size="large"
                                                         onClick={nextQuestion}
@@ -944,7 +955,7 @@ const Quiz = ({ host, course }) => {
                                                         Câu tiếp
                                                     </Button>
                                                 }
-                                                {questionIndex === totalQuestions - 1 &&
+                                                {((questionIndex === totalQuestions - 1) || showMenu) &&
                                                     <Button
                                                         size="large"
                                                         onClick={goToMenu}
