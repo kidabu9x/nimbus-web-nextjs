@@ -19,7 +19,11 @@ import {
     Dialog,
     DialogTitle,
     DialogActions,
-    DialogContent
+    DialogContent,
+    FormControl,
+    InputLabel,
+    OutlinedInput,
+    FormHelperText
 } from "@material-ui/core";
 import AccessTimeIcon from '@material-ui/icons/AccessTime';
 import LiveHelpIcon from '@material-ui/icons/LiveHelp';
@@ -38,20 +42,22 @@ import {
     getCourse,
     getQuiz,
     getQuestions,
-    submitQuestions
+    submitQuestions,
+    validateCourseCode
 } from "../../../api/course";
 import Head from "next/head";
 import { NextSeo } from "next-seo";
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
-import { grey, yellow, red, blue, green, blueGrey } from '@material-ui/core/colors';
+import { grey, yellow, red, green, blueGrey } from '@material-ui/core/colors';
 import React from 'react';
 
 const STEP = {
-    CHOOSE_QUIZ: 1,
-    CONFIRM_INFO: 2,
-    TESTING: 3,
-    SHOW_RESULT: 4
+    VALIDATE_CODE: 1,
+    CHOOSE_QUIZ: 2,
+    CONFIRM_INFO: 3,
+    TESTING: 4,
+    SHOW_RESULT: 5
 }
 
 const QUESTION_TYPE = {
@@ -256,12 +262,15 @@ const Quiz = ({ host, course }) => {
 
     const focusQuizSlug = router.query.focus;
 
-    const [step, setStep] = useState(STEP.CHOOSE_QUIZ);
+    const [step, setStep] = useState(STEP.VALIDATE_CODE);
     const [quizSlug, setQuizSlug] = useState(null);
     const [quizzes, setQuizzes] = useState([]);
     const [quiz, setQuiz] = useState(null);
     const [quizLoading, setQuizLoading] = useState(false);
     const [config, setConfig] = useState(null);
+    const [courseCode, setCourseCode] = useState("");
+    const [isValidatingCourseCode, setIsValidatingCourseCode] = useState(false);
+    const [isValidateFailed, setIsValidateFailed] = useState(false);
 
     const [fetchingQuestions, setFetchingQuestions] = useState(false);
     const [questions, setQuestions] = useState([]);
@@ -277,19 +286,11 @@ const Quiz = ({ host, course }) => {
     const [showResultModal, setShowResultModal] = useState(false);
 
     useEffect(() => {
-        if (focusQuizSlug) {
-            const isAcceptableQuizSlug = Array.from(course.quizzes).some(quiz => quiz.slug === focusQuizSlug);
-            if (isAcceptableQuizSlug) {
-                setQuizSlug(focusQuizSlug);
-                setStep(STEP.CONFIRM_INFO);
-            }
-        } else {
-            setQuizzes(Array.from(course.quizzes));
-        }
+
     }, [focusQuizSlug]);
 
     useEffect(() => {
-        if (step === 2) {
+        if (step === STEP.CONFIRM_INFO) {
             setQuizLoading(true);
             getQuiz({
                 course_slug: course.slug,
@@ -309,6 +310,34 @@ const Quiz = ({ host, course }) => {
                 })
         }
     }, [step]);
+
+    const onValidateCourseCode = (e) => {
+        e.preventDefault();
+        setIsValidatingCourseCode(true);
+        setIsValidateFailed(false);
+        validateCourseCode({
+            code: courseCode,
+            courseSlug: course.slug
+        })
+            .then(_ => {
+                setIsValidatingCourseCode(false);
+                const quizzes = Array.from(course.quizzes);
+                setQuizzes(quizzes);
+                if (focusQuizSlug) {
+                    const isAcceptableQuizSlug = quizzes.some(quiz => quiz.slug === focusQuizSlug);
+                    if (isAcceptableQuizSlug) {
+                        setQuizSlug(focusQuizSlug);
+                        setStep(STEP.CONFIRM_INFO);
+                    }
+                } else {
+                    setStep(STEP.CHOOSE_QUIZ);
+                }
+            })
+            .catch(_ => {
+                setIsValidatingCourseCode(false);
+                setIsValidateFailed(true);
+            });
+    }
 
     const fetchQuestions = () => {
         setFetchingQuestions(true);
@@ -567,6 +596,9 @@ const Quiz = ({ host, course }) => {
         setQuiz(null);
         setQuizLoading(false);
         setConfig(null);
+        setCourseCode("");
+        setIsValidateFailed(false);
+        setIsValidatingCourseCode(false);
         setFetchingQuestions(false);
         setQuestions([]);
         setBackupQuestions([]);
@@ -601,11 +633,54 @@ const Quiz = ({ host, course }) => {
                 <Grid item xs={6}>
                     <Card className={classes.root} variant="outlined">
                         <CardContent>
-                            {(quizLoading || fetchingQuestions || isSubmitting) && <LinearProgress />}
-                            {[STEP.CHOOSE_QUIZ, STEP.CONFIRM_INFO].includes(step) &&
+                            {(isValidatingCourseCode || quizLoading || fetchingQuestions || isSubmitting) && <LinearProgress />}
+                            {[STEP.VALIDATE_CODE, STEP.CHOOSE_QUIZ, STEP.CONFIRM_INFO].includes(step) &&
                                 <Typography className={classes.title} color="textSecondary" gutterBottom>
                                     Khóa học {course.name}
                                 </Typography>
+                            }
+                            {step === STEP.VALIDATE_CODE &&
+                                <form onSubmit={onValidateCourseCode}>
+                                    <Box mt={4}>
+                                        <Grid container spacing={2}>
+                                            <Grid item xs={8}>
+                                                <FormControl variant="outlined" fullWidth>
+                                                    <InputLabel htmlFor="component-outlined">Mã truy cập</InputLabel>
+                                                    <OutlinedInput
+                                                        error={isValidateFailed}
+                                                        id="component-outlined"
+                                                        autoFocus
+                                                        required
+                                                        label="Mã truy cập"
+                                                        placeholder="Nhập mã truy cập"
+                                                        value={courseCode}
+                                                        onChange={(e) => setCourseCode(e.target.value)}
+                                                        fullWidth
+                                                    />
+                                                    {isValidateFailed &&
+                                                        <FormHelperText id="component-error-text" error>Mã không tồn tại.</FormHelperText>
+                                                    }
+                                                </FormControl>
+                                            </Grid>
+                                            <Grid item xs={4}>
+                                                <Box display="flex" width="100%" height="56px">
+                                                    <Button
+                                                        type="submit"
+                                                        variant="contained"
+                                                        size="large"
+                                                        color="primary"
+                                                        fullWidth
+                                                        disabled={isValidatingCourseCode}
+                                                        disableElevation
+                                                    >
+                                                        Kiểm tra
+                                                    </Button>
+                                                </Box>
+                                            </Grid>
+                                        </Grid>
+
+                                    </Box>
+                                </form>
                             }
                             {step === STEP.CHOOSE_QUIZ &&
                                 <>
@@ -630,7 +705,7 @@ const Quiz = ({ host, course }) => {
                                     {!quizLoading && quiz &&
                                         <>
                                             <Box display="flex" alignItems="center">
-                                                <IconButton onClick={() => goToStep(1)}>
+                                                <IconButton onClick={() => goToStep(STEP.CHOOSE_QUIZ)}>
                                                     <ArrowBackIosIcon />
                                                 </IconButton>
                                                 <Typography variant="h5" component="h2">

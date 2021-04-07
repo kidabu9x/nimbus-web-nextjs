@@ -43,3 +43,11 @@ export const submitQuestions = (questions) => {
     let url = `/question`;
     return apiInstance.post(url, questions);
 }
+
+export const validateCourseCode = ({
+    code,
+    courseSlug
+}) => {
+    let url = `/course-code/${code}?course_slug=${courseSlug}`;
+    return apiInstance.get(url);
+}
